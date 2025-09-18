@@ -223,12 +223,10 @@ $(2) \forall z<-p$，有 $-z>p$。由于 $p$ 是 $S$ 的下界，故 $\exist y\i
 
 设 $p=\inf\limits_{x\in D}f(x),q=\inf\limits_{x\in D}g(x)$。
 
-若 $pq=0$，那么左式 $=0$，右式必然 $\ge 0$，原命题成立，下面考虑 $pq\neq 0$。
+显然 $\forall x\in D,0\le p\le f(x),0\le q\le g(x)$，两式相乘，得到
 
-$\forall \epsilon>0$，下证：$pq<\inf\limits_{x\in D}\{f(x)g(x)\}+\epsilon$。
+$$
+\forall x\in D,pq\le f(x)g(x)
+$$
 
-由于 $p=\inf\limits_{x\in D}f(x),q>0$，所以 $\exist x_0\in D,s.t.\ f(x_0)>p-\dfrac{\epsilon}q$。
-
-$pq<(f(x_0)+\dfrac{\epsilon}q)q=f(x_0)q+\epsilon\le f(x_0)g(x_0)+\epsilon\le \inf\limits_{x\in D}\{f(x)g(x)\}+\epsilon$
-
-证毕，故 $pq\le \inf\limits_{x\in D}\{f(x)g(x)\}$，原命题成立。
+那么，$pq$ 是 $f(x)g(x)$ 的一个下界，所以有 $pq\le f(x)g(x)\le\inf\limits_{x\in D}\{f(x)g(x)\}$。
