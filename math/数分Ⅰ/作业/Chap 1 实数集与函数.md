@@ -1,4 +1,4 @@
-# Chap 1 实数集与函数
+i# Chap 1 实数集与函数
 
 ## 习题 1.1
 
@@ -132,3 +132,103 @@ $(1) \forall z\in A+B$，一定 $\exist a\in A,b\in B,s.t.\ z=a+b$，那么 $a\g
 $(2) \forall \epsilon>0$，一定 $\exist a\in A,b\in B,s.t.\ a<x+\dfrac{\epsilon}2,b<y+\dfrac{\epsilon}2$，两式相加，$a+b<x+y+\epsilon$，而 $a+b\in A+B$，所以这部分证毕。
 
 综上，$x+y$ 是 $A+B$ 的下确界。
+
+## 习题 1.3
+
+> 4. 确定下列初等函数的存在域：
+> 
+>  $(3)\ y=\arcsin(\lg\dfrac x{10})$。
+
+由 $\lg \dfrac x{10}$ 有意义，可知 $\dfrac x{10}>0$，即 $x>0$。
+
+由于 $\arcsin x$ 的定义域是 $[-1,1]$，所以要求 $\lg\dfrac x{10}\in[-1,1]$，也就是说 $\dfrac x{10}\in[\dfrac 1{10},10]$，即 $x\in[1,100]$。
+
+综上 $x\in[1,100]$。
+
+> 7. 试问下列函数是由哪些初等函数复合而成：
+>
+> $(1)\ y=(1+x)^{20};\ (4)y=2^{\sin^2x}$
+
+$(1)$
+
+$f(x)=x^{20},g(x)=1+x,y=f(g(x))$
+
+$(2)$
+
+$f(x)=2^x,g(x)=x^2,h(x)=\sin x,y=f(g(h(x)))$
+
+> 10. 试问下列等式是否成立：
+>
+> $(1)\ \tan(\arctan x)=x,x\in R;$
+>
+> $(2)\ \arctan(\tan x)=x,x\neq k\pi+\dfrac{\pi}2,k=0,\pm1,\dots$
+
+$(1)$ 成立，证明如下：
+
+设 $f(x)=\tan x(x\in(-\dfrac{\pi}2,\dfrac{\pi}2)),g(x)=\arctan x$，则由定义可知，$g$ 为 $f$ 的反函数，故 $f(g(x))=x$。
+
+由于 $\arctan x\in(-\dfrac{\pi}2,\dfrac{\pi}2)$，所以把 $f$ 换成 $h(x)=\tan x$，结果不变。即 $h(g(x))=f(g(x))=x$。
+
+$(2)$ 不成立，证明如下：
+
+取 $x=\dfrac{5\pi}4$，则 $\tan x=1$，$\arctan(\tan x)=\dfrac{\pi}4\neq x$，所以不成立。
+
+> 12. 证明关于函数 $y=[x]$ 的如下不等式：
+>
+> $(1)$ 当 $x>0$ 时，$1-x<x[\dfrac 1x]\le 1$
+
+由 $x>0$，可得 $[\dfrac 1x]\in(\dfrac 1x-1,\dfrac 1x]$，所以 $x[\dfrac 1x]\in(1-x,1]$。
+
+## 习题 1.4
+
+> 6. 设函数 $f$ 定义在 $[-a,a]$ 上，证明：
+>
+> $(1)\ F(x)=f(x)+f(-x),x\in[-a,a]$ 为偶函数；
+>
+> $(2)\ G(x)=f(x)-f(-x),x\in[-a,a]$ 为奇函数；
+>
+> $(3)\ f$ 可表示某个奇函数和偶函数之和。
+
+$(1)$
+
+$F(-x)=f(-x)+f(x)=f(x)+f(-x)=F(x)$，又定义域 $[-a,a]$ 关于 $0$ 对称，所以 $F(x)$ 是偶函数。
+
+$(2)$
+
+$G(-x)=f(-x)-f(x)=-(f(x)-f(-x))=-G(x)$，又定义域 $[-a,a]$ 关于 $0$ 对称，所以 $G(x)$ 是奇函数。
+
+$(3)$
+
+$f(x)=\dfrac{F(x)}2+\dfrac{G(x)}2$。由于 $F(x),G(x)$ 分别是偶函数、奇函数，所以 $\dfrac{F(x)}2,\dfrac{G(x)}2$ 分别是偶函数、奇函数。证毕。
+
+> 9. 设 $f$ 为定义在 $D$ 上的有界函数，证明：
+>
+> $(1)\ \sup\limits_{x\in D}\{-f(x)\}=-\inf\limits_{x\in D}f(x)$
+
+记 $S=\{y\mid y=f(x),x\in D\},T=\{y\mid y=-f(x),x\in D\},p=\inf S$。
+
+下面证明 $-p$ 是 $T$ 的上界。
+
+$(1)\ \forall y\in T$，有 $-y\in S$。由于 $p$ 是 $S$ 的下界，故 $-y\ge p$，也就是 $y\le -p$。
+
+$(2) \forall z<-p$，有 $-z>p$。由于 $p$ 是 $S$ 的下界，故 $\exist y\in S,s.t.\ y<-z$，即 $-y>z$，又 $-y\in T$，所以这部分证毕。
+
+综上，$-p$ 是 $T$ 的上界，原命题成立。
+
+## 第一章总练习题
+
+> 13. 设 $f,g$ 为 $D$ 上的非负有界函数，证明：
+>
+> $(1)\ \inf\limits_{x\in D}f(x)\cdot\inf\limits_{x\in D}g(x)\le\inf\limits_{x\in D}\{f(x)g(x)\}$
+
+设 $p=\inf\limits_{x\in D}f(x),q=\inf\limits_{x\in D}g(x)$。
+
+若 $pq=0$，那么左式 $=0$，右式必然 $\ge 0$，原命题成立，下面考虑 $pq\neq 0$。
+
+$\forall \epsilon>0$，下证：$pq<\inf\limits_{x\in D}\{f(x)g(x)\}+\epsilon$。
+
+由于 $p=\inf\limits_{x\in D}f(x),q>0$，所以 $\exist x_0\in D,s.t.\ f(x_0)>p-\dfrac{\epsilon}q$。
+
+$pq<(f(x_0)+\dfrac{\epsilon}q)q=f(x_0)q+\epsilon\le f(x_0)g(x_0)+\epsilon\le \inf\limits_{x\in D}\{f(x)g(x)\}+\epsilon$
+
+证毕，故 $pq\le \inf\limits_{x\in D}\{f(x)g(x)\}$，原命题成立。
