@@ -121,10 +121,138 @@ $$
 
 $(5)$
 
-过程写起来好长啊，只写答案了。
+$$
+\begin{pmatrix}
+1 & 2 & -1 & 2 & 3\\
+1 & 1 & -1 & 1 & 2\\
+1 & -1 & -1 & -1 & 1\\
+3 & 2 & -3 & 2 & 5\\
+\end{pmatrix}
+\overset{\textcircled{2}-\textcircled{1}}{\xrightarrow{}}
 
-无解。
+\begin{pmatrix}
+1 & 2 & -1 & 2 & 3\\
+0 & -1 & 0 & -1 & -1\\
+1 & -1 & -1 & -1 & 1\\
+3 & 2 & -3 & 2 & 5\\
+\end{pmatrix}
+\overset{\textcircled{3}-\textcircled{1}}{\xrightarrow{}}
+
+\begin{pmatrix}
+1 & 2 & -1 & 2 & 3\\
+0 & -1 & 0 & -1 & -1\\
+0 & -3 & 0 & -3 & -2\\
+3 & 2 & -3 & 2 & 5\\
+\end{pmatrix}
+\overset{\textcircled{3}-3\times\textcircled{2}}{\xrightarrow{}}
+$$
+
+$$
+\begin{pmatrix}
+1 & 2 & -1 & 2 & 3\\
+0 & -1 & 0 & -1 & -1\\
+0 & 0 & 0 & 0 & 1\\
+3 & 2 & -3 & 2 & 5\\
+\end{pmatrix}
+$$
+
+考虑式 $\textcircled{3}$，无解。
 
 $(6)$
 
-$(x_1,x_2,x_3,x_4)=(\frac16k,\frac76k,k,0)$
+$$
+\begin{pmatrix}
+1 & -1 & 1 & -1 & 0\\
+2 & 4 & -5 & 7 & 0\\
+3 & 3 & -4 & 6 & 0\\
+3 & -3 & 3 & -2 & 0\\
+\end{pmatrix}
+\overset{\textcircled{2}-2\times\textcircled{1}}{\xrightarrow{}}
+\begin{pmatrix}
+1 & -1 & 1 & -1 & 0\\
+0 & 6 & -7 & 9 & 0\\
+3 & 3 & -4 & 6 & 0\\
+3 & -3 & 3 & -2 & 0\\
+\end{pmatrix}
+\overset{\textcircled{3}-3\times\textcircled{1}}{\xrightarrow{}}
+
+\begin{pmatrix}
+1 & -1 & 1 & -1 & 0\\
+0 & 6 & -7 & 9 & 0\\
+0 & 6 & -7 & 9 & 0\\
+3 & -3 & 3 & -2 & 0\\
+\end{pmatrix}
+\overset{\textcircled{4}-3\times\textcircled{1}}{\xrightarrow{}}
+$$
+
+$$
+\begin{pmatrix}
+1 & -1 & 1 & -1 & 0\\
+0 & 6 & -7 & 9 & 0\\
+0 & 6 & -7 & 9 & 0\\
+0 & 0 & 0 & 1 & 0\\
+\end{pmatrix}
+\overset{\textcircled{3}-\textcircled{2}}{\xrightarrow{}}
+
+\begin{pmatrix}
+1 & -1 & 1 & -1 & 0\\
+0 & 6 & -7 & 9 & 0\\
+0 & 0 & 0 & 0 & 0\\
+0 & 0 & 0 & 1 & 0\\
+\end{pmatrix}
+\overset{}{\xrightarrow{}}
+
+\begin{pmatrix}
+1 & -1 & 1 & -1 & 0\\
+0 & 6 & -7 & 9 & 0\\
+0 & 0 & 0 & 1 & 0\\
+0 & 0 & 0 & 0 & 0\\
+\end{pmatrix}
+\overset{\textcircled{2}\div 6}{\xrightarrow{}}
+$$
+
+$$
+\begin{pmatrix}
+1 & -1 & 1 & -1 & 0\\
+0 & 1 & -\frac76 & \frac32 & 0\\
+0 & 0 & 0 & 1 & 0\\
+0 & 0 & 0 & 0 & 0\\
+\end{pmatrix}
+\overset{\textcircled{1}+\textcircled{2}}{\xrightarrow{}}
+\begin{pmatrix}
+1 & 0 & -\dfrac16 & \dfrac12 & 0\\
+0 & 1 & -\frac76 & \frac32 & 0\\
+0 & 0 & 0 & 1 & 0\\
+0 & 0 & 0 & 0 & 0\\
+\end{pmatrix}
+\overset{\textcircled{1}-\frac12\textcircled{3}}{\xrightarrow{}}
+\begin{pmatrix}
+1 & 0 & -\frac16 & 0 & 0\\
+0 & 1 & -\frac76 & \frac32 & 0\\
+0 & 0 & 0 & 1 & 0\\
+0 & 0 & 0 & 0 & 0\\
+\end{pmatrix}
+\overset{\textcircled{2}-\frac32\times\textcircled{3}}{\xrightarrow{}}
+$$
+
+$$
+\begin{pmatrix}
+1 & 0 & -\frac16 & 0 & 0\\
+0 & 1 & -\frac76 & 0 & 0\\
+0 & 0 & 0 & 1 & 0\\
+0 & 0 & 0 & 0 & 0\\
+\end{pmatrix}
+$$
+
+取 $x_3$ 为自由变量，设 $x_3=k$，可以解得，
+
+$$
+\begin{cases}
+x_1=\frac16k\\
+x_2=\frac76k\\
+x_3=k\\
+x_4=0
+\end{cases}
+$$
+
+即 $(x_1,x_2,x_3,x_4)=(\frac16k,\frac76k,k,0)$，或者 $(x_1,x_2,x_3,x_4)=k(\frac16,\frac76,1,0)$。

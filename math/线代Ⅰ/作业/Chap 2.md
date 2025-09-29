@@ -25,7 +25,7 @@
 
 $(1)$ 构成线性空间。
 
-显然，向量加法构成一个 Abel 群。
+显然，向量加法构成一个 Abel 群，且 $V$ 关于数乘封闭。
 
 接下来，只需要验证向量数乘的四条性质。
 
@@ -49,13 +49,13 @@ $(11)$ 构成线性空间。
 
 首先，验证 $V$ 关于加法封闭。考虑 $f,g\in V$，那么显然 $h=f+g$ 仍是实变量复值函数，然后 $h(-x)=f(-x)+g(-x)=\overline{f(x)}+\overline{g(x)}=\overline{f(x)+g(x)}=\overline{h(x)}$，所以 $h\in V$。
 
-其次，显然 $V$ 关于加法封闭，并且有结合律和交换律。
+其次，显然 $V$ 有结合律和交换律。
 
 之后，$V$ 中存在单位元 $e(x)\equiv 0$，可以验证 $e(-x)=\overline{e(x)}$，所以 $e\in V$。
 
 然后，对 $V$ 中任一元素 $f$，它的逆元 $f^{-1}(x)=-f(x)$。而 $f^{-1}(-x)=-f(-x)=-\overline{f(x)}=\overline{-f(x)}=\overline{f^{-1}(x)}$，所以 $f^{-1}\in V$。
 
-这证明了 $V$ 关于加法是 Abel 群，接下来只需要证明向量数乘的四条性质。
+这证明了 $V$ 关于加法是 Abel 群，显然 $V$ 关于数乘封闭，接下来只需要证明向量数乘的四条性质。
 
 $1\degree (\lambda+\mu)f(x)=\lambda f(x)+\mu f(x)$ 非常显然。
 
@@ -85,8 +85,11 @@ $(2)$
 $$
 \begin{aligned}
 &\iff\lambda_1\alpha_1+\lambda_1\bold{x}+\dots+\lambda_n\alpha_n+\lambda_n\bold{x}=\bold{0}\\
+&\iff (\lambda_1\alpha_1+\dots+\lambda_n\alpha_n)+(\lambda_1\bold{x}+\dots+\lambda_n\bold{x})=\bold{0}\\
 &\iff(\lambda_1+\dots+\lambda_n)\bold{x}=-(\lambda_1\alpha_1+\dots+\lambda_n\alpha_n)\\
 &\iff(\lambda_1+\dots+\lambda_n)^{-1}(\lambda_1+\dots+\lambda_n)\bold{x}=-(\lambda_1+\dots+\lambda_n)^{-1}(\lambda_1\alpha_1+\dots+\lambda_n\alpha_n)\\
 &\iff \bold{x}=-(\lambda_1+\dots+\lambda_n)^{-1}(\lambda_1\alpha_1+\dots+\lambda_n\alpha_n)\\
 \end{aligned}
 $$
+
+其中，$(\lambda_1+\dots+\lambda_n)^{-1}$ 表示 $(\lambda_1+\dots+\lambda_n)$ 在域 $F$ 中的乘法逆元。由于 $\lambda_1+\dots+\lambda_n\neq 0$，所以这是存在的。
