@@ -93,3 +93,169 @@ $$
 $$
 
 其中，$(\lambda_1+\dots+\lambda_n)^{-1}$ 表示 $(\lambda_1+\dots+\lambda_n)$ 在域 $F$ 中的乘法逆元。由于 $\lambda_1+\dots+\lambda_n\neq 0$，所以这是存在的。
+
+> 4. 设 $\alpha_1,\alpha_2,\alpha_3\in R^n,c_1,c_2,c_3\in R$，如果 $c_1\alpha_1+c_2\alpha_2+c_3\alpha_3=\bold{0}$，且 $c_1c_3\neq0$，证明：$L(\alpha_1,\alpha_2)=L(\alpha_2,\alpha_3)$。
+
+$\forall \beta\in L(\alpha_1,\alpha_2)$，设 $\beta=\lambda_1\alpha_1+\lambda_2\alpha_2$。
+
+由于 $c_1c_3\neq0,c_1\alpha_1+c_2\alpha_2+c_3\alpha_3=0$，所以 $\alpha_1=-\dfrac{c_2}{c_1}\alpha_2-\dfrac{c_3}{c_1}\alpha_3$。
+
+那么 $\beta=\lambda_1(-\dfrac{c_2}{c_1}\alpha_2-\dfrac{c_3}{c_1}\alpha_3)+\lambda_2\alpha_2$，所以 $\beta\in L(\alpha_2,\alpha_3)$。
+
+所以，$L(\alpha_1,\alpha_2)\subseteq L(\alpha_2,\alpha_3)$。同理 $L(\alpha_2,\alpha_3)\subseteq L(\alpha_1,\alpha_2)$。
+
+所以，$L(\alpha_1,\alpha_2)=L(\alpha_2,\alpha_3)$。
+
+> 6. 设 $\alpha_1=(1,0,1),\alpha_2=(1,1,0),\alpha_3=(1,-1,2)$，问下列 $\beta_1,\beta_2$ 属于 $L(\alpha_1,\alpha_2,\alpha_3)$ 吗？如属于，它们由 $\alpha_1,\alpha_2,\alpha_3$ 线性表示唯一吗？为什么？
+>
+> $(1)\beta_1=(1-1,-1);(2)\beta_2=(1,2,-1)$
+
+$(1)$
+
+$\beta_1\not\in L(\alpha_1,\alpha_2,\alpha_3)$。
+
+考虑方程 $\lambda_1\alpha_1+\lambda_2\alpha_2+\lambda_3\alpha_3=\beta_1$，这是一个三元一次方程组。
+
+$$
+\begin{pmatrix}
+1 & 1 & 1 & 1\\
+0 & 1 & -1 & -1\\
+1 & 0 & 2 & -1\\
+\end{pmatrix}
+$$
+
+进行高斯消元得到行简化矩阵
+
+$$
+\begin{pmatrix}
+1 & 0 & 2 & 2\\
+0 & 1 & -1 & -1\\
+0 & 0 & 0 & -3\\
+\end{pmatrix}
+$$
+
+方程组无解，所以 $\beta_1\not\in L(\alpha_1,\alpha_2,\alpha_3)$。
+
+$(2)$
+
+$\beta_2=-\alpha_1+2\alpha_2=3\alpha_1-2\alpha_3$，所以 $\beta_2\in L(\alpha_1,\alpha_2,\alpha_3)$，但是表示方法不唯一。
+
+本质上，这是因为 $\alpha_3=2\alpha_1-\alpha_2$，即 $\alpha_1,\alpha_2,\alpha_3$ 线性相关。
+
+> 7. 判断下列向量组的线性相关性：
+>
+> $(3)$ $R[x]_3$ 中：$p_1(x)=1,p_2(x)=(x-x_0),p_3(x)=(x-x_0)^2$，其中常数 $x_0\in R$。
+
+线性无关。
+
+令 $\lambda_1p_1+\lambda_2p_2+\lambda_3p_3=0$，下面证明 $\lambda_1=\lambda_2=\lambda_3=0$。
+
+方程转化为 $(\lambda_1-\lambda_2x_0+\lambda_3x_0^2)+(\lambda_2-2\lambda_3x_0)x+\lambda_3x^2=0$。
+
+对比系数，得到
+
+$$
+\begin{cases}
+\lambda_3=0\\
+\lambda_2-2\lambda_3x_0=0\\
+\lambda_1-\lambda_2x_0+\lambda_3x_0^2=0\\
+\end{cases}
+$$
+
+解得 $\lambda_1=\lambda_2=\lambda_3=0$，所以 $p_1,p_2,p_3$ 线性无关。
+
+> 10. 下列命题是否正确？如正确，证明之，如不正确，举反例。
+
+$(1)$ 若 $\alpha_1,\dots,\alpha_m(m>2)$ 线性相关，则其中每一向量都是其余向量的线性组合；
+
+错误。
+
+$m=4,\alpha_1=(1,0,0),\alpha_2=(0,1,0),\alpha_3=(0,0,1),\alpha_4=(0,1,1)$。
+
+其中 $\alpha_1$ 不是其余向量的线性组合。
+
+$(2)$ 若 $\alpha_1,\dots,\alpha_m$ 线性无关，则其中每一向量都不是其余向量的线性组合，这个命题的等价命题应如何叙述？
+
+正确。
+
+反证法，不妨假设 $\alpha_1=\lambda_2\alpha_2+\dots+\lambda_m\alpha_m$，移项得到 $-\alpha_1+\lambda_2\alpha_2+\dots+\lambda_m\alpha_m=0$，与它们线性无关矛盾。
+
+所以任何一个向量都不是其余向量的线性组合。
+
+等价命题：若 $\alpha_1,\dots,\alpha_m$ 中存在一个向量是其余向量的线性组合，那么 $\alpha_1,\dots,\alpha_m$ 线性相关。
+
+$(3)$ $\alpha_1,\dots,\alpha_m(m>2)$ 线性无关的充要条件是任意两个向量都线性无关；
+
+错误。
+
+$m=3,\alpha_1=(1,0),\alpha_2=(0,1),\alpha_3=(1,1)$，任意两个向量都是线性无关的，但是它们是线性相关的。
+
+$(4)$ 若 $\alpha_1,\alpha_2$ 线性相关，$\beta_1,\beta_2$ 线性相关，则 $\alpha_1+\beta_1,\alpha_2+\beta_2$ 也线性相关；
+
+错误。
+
+$\alpha_1=(0,1),\alpha_2=(0,2),\beta_1=(2,0),\beta_2=(1,0)$。
+
+则 $\alpha_1+\beta_1=(2,1),\alpha_2+\beta_2=(1,2)$，它们是线性无关的。
+
+$(5)$ 若 $\alpha_1,\dots,\alpha_n$ 线性无关，则 $\alpha_1+\alpha_2,\alpha_2+\alpha_3,\dots,\alpha_{n-1}+\alpha_n,\alpha_n+\alpha_1$ 也线性无关；
+
+错误。
+
+取 $n=4$，那么四个向量是 $\alpha_1+\alpha_2,\alpha_2+\alpha_3,\alpha_3+\alpha_4,\alpha_4+\alpha_1$。
+
+但是 $(\alpha_1+\alpha_2)+(\alpha_3+\alpha_4)=(\alpha_2+\alpha_3)+(\alpha_4+\alpha_1)$，所以它们线性相关。
+
+$(6)$ 若 $\alpha_1,\alpha_2,\alpha_3$ 线性相关，则 $\alpha_1+\alpha_2,\alpha_2+\alpha_3,\alpha_3+\alpha_1$ 也线性相关；
+
+正确。
+
+记 $\beta_1=\alpha_2+\alpha_3,\beta_2=\alpha_1+\alpha_3,\beta_3=\alpha_1+\alpha_2$。
+
+那么 $\alpha_1=\frac12(\beta_2+\beta_3-\beta_1),\alpha_2=\frac12(\beta_1+\beta_3-\beta_2),\alpha_3=\frac12(\beta_1+\beta_2-\beta_3)$。
+
+由于 $\alpha_1,\alpha_2,\alpha_3$ 线性相关，所以存在 $\lambda_1\alpha_1+\lambda_2\alpha_2+\lambda_3\alpha_3=0$，其中 $\lambda_1,\lambda_2,\lambda_3$ 不全为 0。
+
+把上面的式子代入这个式子，可以得到 $\frac12(-\lambda_1+\lambda_2+\lambda_3)\beta_1+\frac12(\lambda_1-\lambda_2+\lambda_3)\beta_2+\frac12(\lambda_1+\lambda_2-\lambda_3)\beta_3=0$。
+
+可以证明，这三个系数不会全是 0（否则 $\lambda_1=\lambda_2=\lambda_3=0$）。
+
+因此， $\beta_1,\beta_2,\beta_3$ 线性相关。
+
+$(7)$ 设 $B=\{\alpha_1,\alpha_2,\alpha_3\}$ 是 $R^3$ 的一组基，非零向量 $\alpha_0\in R^3$，则 $\{\alpha_0+\alpha_1,\alpha_0+\alpha_2,\alpha_0+\alpha_3\}$（其中三个向量均是非零向量）也是 $R^3$ 的一组基；
+
+错误。
+
+取 $\alpha_0=(-\frac13,-\frac13,-\frac13),\alpha_1=(1,0,0),\alpha_2=(0,1,0),\alpha_3=(0,0,1)$。
+
+那么 $\alpha_0+\alpha_1=(\frac23,-\frac13,-\frac13),\alpha_0+\alpha_2=(-\frac13,\frac23,-\frac13),\alpha_0+\alpha_3=(-\frac13,-\frac13,\frac23)$。
+
+这三个向量的和是 $(0,0,0)$，所以它们线性相关，不可能构成一组基。
+
+$(8)$ 设 $B=\{\alpha_1,\alpha_2\}$ 是 $R^2$ 的一组基，则 $\{\alpha_1+\alpha_2,\alpha_1-\alpha_2\}$ 也是 $R^2$ 的一组基；
+
+正确。
+
+记 $\beta_1=\alpha_1+\alpha_2,\beta_2=\alpha_1-\alpha_2$。
+
+那么 $\alpha_1=\frac12(\beta_1+\beta_2),\alpha_2=\frac12(\beta_1-\beta_2)$。
+
+$\forall \gamma\in R^2$，我们知道存在 $\lambda_1,\lambda_2$，使得 $\lambda_1\alpha_1+\lambda_2\alpha_2=\gamma$。
+
+所以 $\gamma=\frac12(\lambda_1+\lambda_2)\beta_1+\frac12(\lambda_1-\lambda_2)\beta_2$。
+
+所以 $\{\beta_1,\beta_2\}$ 也是 $R^2$ 的一组基。
+
+$(9)$ 一个有限维线性空间只含有有限个子空间；
+
+错误。
+
+考虑线性空间 $R^2$。对于任何 $\lambda\in R$，$\{(x,y)\mid x+\lambda y=0\}$ 构成子空间，然而这样子空间的个数是无限的。
+
+$(10)$ 如果 $W_1,W_2$ 是 $R^n$ 的两个子空间，$B_1,B_2$ 分别是 $W_1,W_2$ 的基，则存在 $R^n$ 的一组基 $B$，使得 $\{B_1 \cup B_2\}\subset B$
+
+错误。
+
+考虑 $n=3$ 时，取 $B_1=\{(1,0,0),(0,1,0)\},B_2=\{(0,1,1),(0,0,-1)\}$，此时 $W_1=\{(x,y,0)\mid x,y\in R\},W_2=\{(0,y,z)\mid y,z\in R\}$。
+
+然而 $B_1\cup B_2=\{(1,0,0),(0,1,0),(0,1,1),(0,0,-1)\}$ 有四个元素，但 $R^3$ 的一组基 $B$ 只能有三个元素，所以不可能有 $B_1\cup B_2\subset B$。

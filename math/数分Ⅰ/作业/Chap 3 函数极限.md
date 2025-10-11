@@ -77,7 +77,7 @@ $$
 
 记 $g(x)=\sqrt[n]{x}(x>0)$，我们先证明引理：$\lim\limits_{x\to x_1}g(x)=\sqrt[n]{x_1}$。
 
-$\forall\epsilon>0$，我们希望取 $\delta$，使得 $x\in U^\circ(x_1,\delta)$ 时，$|\sqrt[n]{x}-\sqrt[n]{x_1}|<\epsilon$，这需要 $\sqrt[n]{x_1}-\epsilon<\sqrt[n]{x_n}<\sqrt[n]{x_1}+\epsilon$。
+$\forall\epsilon>0$，我们希望取 $\delta$，使得 $x\in U^\circ(x_1,\delta)$ 时，$|\sqrt[n]{x}-\sqrt[n]{x_1}|<\epsilon$，这需要 $\sqrt[n]{x_1}-\epsilon<\sqrt[n]{x}<\sqrt[n]{x_1}+\epsilon$。
 
 记 $s=(\sqrt[n]{x_1}-\epsilon)^n-x_1,t=(\sqrt{x_1}+\epsilon)^n-x_1$。不难证明 $s,t\neq0$。
 
@@ -164,7 +164,7 @@ $\exist\epsilon_0>0,\forall M>0,\exist x',x''<-M,|f(x')-f(x'')|\ge\epsilon_0$。
 
 由于 $f$ 是 $U^\circ(x_0)$ 的递增函数，所以在 $U^\circ_+(x_0),U^\circ_-(x_0)$ 上都是递增函数。
 
-记 $A=\sup\limits_{x\in U^\circ_-(x_0)}f(x),S=U^\circ_+(x_0)$，则 $\forall x\in S,A\ge f(x)$
+记 $A=\sup\limits_{x\in U^\circ_-(x_0)}f(x),S=U^\circ_-(x_0)$，则 $\forall x\in S,A\ge f(x)$
 
 $\forall\epsilon>0,\exist x_1\in S,f(x_1)>A-\epsilon$，即 $A-f(x_1)<\epsilon$。
 
