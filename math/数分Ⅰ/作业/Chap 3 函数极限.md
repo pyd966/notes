@@ -202,3 +202,142 @@ $$
 &=1
 \end{aligned}
 $$
+
+> 2. 求下列极限：
+>
+> $(1)\lim\limits_{x\to\infty}(1-\dfrac2x)^{-x}$
+>
+> $(3)\lim\limits_{x\to0}(1+\tan x)^{\cot x}$
+
+$(1)$
+
+记 $t=-\dfrac x2$，则 $x\to\infty$ 时 $t\to\infty,t\neq0$。
+
+$$
+\begin{aligned}
+\lim_{x\to\infty}(1-\dfrac2x)^{-x}&=\lim_{t\to\infty}(1+\dfrac1t)^{2t}\\
+&=\lim_{t\to\infty}((1+\dfrac1t)^t)^2\\
+&=(\lim_{t\to\infty}(1+\dfrac1t)^t)^2\\
+&=e^2
+\end{aligned}
+$$
+
+$(3)$
+
+记 $t=\cot x$，则 $x\to0$ 时 $t\to\infty$。
+
+$$
+\begin{aligned}
+\lim_{x\to0}(1+\tan x)^{\cot x}&=\lim_{t\to\infty}(1+\dfrac1t)^t\\
+&=e
+\end{aligned}
+$$
+
+> 4. 利用归结原则计算下列极限：
+>
+> $(2)\lim\limits_{n\to\infty}(1+\dfrac1n+\dfrac1{n^2})^n$
+
+一方面，$(1+\dfrac1n+\dfrac1{n^2})^n\ge(1+\dfrac1n)^n$，$\lim\limits_{n\to\infty}(1+\dfrac1n)^n=e$。
+
+另一方面，$(1+\dfrac1n+\dfrac1{n^2})^n=(1+\dfrac{n+1}{n^2})^{\frac{n^2}{n+1}+\frac{n}{n+1}}=(1+\dfrac{n+1}{n^2})^{\frac{n^2}{n+1}}\cdot(1+\dfrac{n+1}{n^2})^{\frac{n}{n+1}}\le(1+\dfrac{n+1}{n^2})^{\frac{n^2}{n+1}}\cdot(1+\dfrac{n+1}{n^2})$。
+
+取 $x_n=\dfrac{n^2}{n+1}$，容易发现 $\lim\limits_{n\to\infty}x_n=\infty$，由 $\lim\limits_{x\to\infty}(1+\dfrac1x)^x=e$ 及归结原则可知，$\lim\limits_{n\to\infty}(1+\dfrac{n+1}{n^2})^{\frac{n^2}{n+1}}=e$。
+
+又有 $\lim\limits_{n\to\infty}(1+\dfrac{n+1}{n^2})^{\frac{n^2}{n+1}}\cdot(1+\dfrac{n+1}{n^2})=e\cdot 1=e$。
+
+由迫敛性，$\lim\limits_{n\to\infty}(1+\dfrac1n+\dfrac1{n^2})^n=e$。
+
+## 习题 3.5
+
+> 1. 证明下列各式：
+>
+> $(2)x\sin\sqrt{x}=O(x^{\frac32})(x\to0^+)$
+>
+> $(4)(1+x)^n=1+nx+o(x)(x\to0)(n\in N^+)$
+
+$(2)$
+
+即证 $\exist L>0,\forall x\in U^\circ_+(0),|\dfrac{x\sin\sqrt{x}}{x^{\frac32}}|\le L$。
+
+取 $L=1$，当 $x>0$ 时，有 $|\sin\sqrt{x}|\le|\sqrt{x}|$。
+
+所以 $|x\sin\sqrt{x}|\le |x^{\frac32}|$，也就是 $|\dfrac{x\sin\sqrt{x}}{x^{\frac32}}|\le 1$，证毕。
+
+> 2. 应用定理 3.13 求下列极限：
+>
+> $(1)\lim\limits_{x\to\infty}\dfrac{x\arctan\dfrac1x}{x-\cos x}$
+>
+> $(2)\lim\limits_{x\to0}\dfrac{\sqrt{1+x^2}-1}{1-\cos x}$
+
+$(1)$
+
+记 $t=\dfrac1x$，则 $x\to\infty$ 时 $t\to0$，此时 $t\sim\arctan t$。
+
+$$
+\begin{aligned}
+\lim_{x\to\infty}\dfrac{x\arctan\dfrac1x}{x-\cos x}&=\lim_{t\to0}\dfrac{\dfrac1t\arctan t}{\dfrac1t-\cos\dfrac1t}\\
+&=\lim_{t\to0}\dfrac{\arctan t}{1-t\cos\dfrac1t}\\
+&=\lim_{t\to0}\dfrac{t}{1-t\cos\dfrac1t}
+\end{aligned}
+$$
+
+$t\to 0$ 时，$t$ 是无穷小，$|\cos\dfrac1t|\le 1$ 有界，所以 $\lim\limits_{t\to0}t\cos\dfrac1t=0$。
+
+$$
+\begin{aligned}
+\lim_{t\to0}\dfrac{t}{1-t\cos\dfrac1t}&=\dfrac{\lim\limits_{t\to0}t}{\lim\limits_{t\to0}(1-t\cos\dfrac1t)}\\
+&=\dfrac01\\
+&=0
+\end{aligned}
+$$
+
+$(2)$
+
+当 $x\to0$ 时，$\sin x\sim x,1-\cos x\sim \dfrac{x^2}2$
+
+$$
+\begin{aligned}
+\lim\limits_{x\to0}\dfrac{\sqrt{1+x^2}-1}{1-\cos x}&=\lim\limits_{x\to0}\dfrac{(\sqrt{1+x^2}-1)(\sqrt{1+x^2}+1)}{(1-\cos x)(\sqrt{1+x^2}+1)}\\
+&=\lim\limits_{x\to0}\dfrac{x^2}{\dfrac{x^2}2(\sqrt{1+x^2}+1)}\\
+&=\lim\limits_{x\to0}\dfrac{2}{\sqrt{1+x^2}+1}\\
+&=\dfrac22\\
+&=1
+\end{aligned}
+$$
+
+> 3. 证明定理 3.14。
+>
+> $(i)$ 设 $f$ 在 $U^\circ(x_0)$ 上有定义且不等于 $0$。若 $f$ 为 $x\to x_0$ 时的无穷小量，则 $\dfrac 1f$ 为 $x\to x_0$ 时的无穷大量。
+>
+> $(ii)$ 若 $g$ 为 $x\to x_0$ 时的无穷大量，则 $\dfrac 1g$ 为 $x\to x_0$ 时的无穷小量。
+
+$(i)$
+
+由定义知 $\forall\epsilon>0,\exist\delta>0,\forall x\in U^\circ(x_0,\delta),0<|f(x)|<\epsilon$，也就是说 $|\dfrac1{f(x)}|>\dfrac1\epsilon$。
+
+$\forall M>0$，取 $\epsilon=\dfrac1M$，可得 $|\dfrac1{f(x)}|>M$，也就是说 $\dfrac1f$ 是 $x\to x_0$ 时的无穷大。
+
+$(ii)$
+
+由定义知 $\forall M>0,\exist\delta>0,\forall x\in U^\circ(x_0,\delta),|g(x)|>M$，也就是说 $|\dfrac1{g(x)}|<\dfrac1M$。
+
+$\forall\epsilon>0$，取 $M=\dfrac1\epsilon$，可得 $|\dfrac1{g(x)}|<\epsilon$ 也就是说 $\dfrac1g$ 时 $x\to x_0$ 时的无穷小。
+
+> 5. 试确定 $\alpha$ 的值，使下列函数与 $x^\alpha$ 当 $x\to0$ 时为同阶无穷小量：
+>
+> $(4)\sqrt[5]{3x^2-4x^3}$。
+
+即 $0<K\le|\dfrac{\sqrt[5]{3x^2-4x^3}}{x^\alpha}|\le L$。
+
+也就是 $0<K^5\le|x^{2-5\alpha}||3-4x|\le L^5$
+
+分讨一下。
+
+如果 $\alpha<\dfrac25$，那么 $\lim\limits_{x\to0}|x^{2-5\alpha}||3-4x|=0$，取 $\epsilon_0=K^5$，$\exist x_0\in U^\circ(0),|x_0^{2-5\alpha}||3-4x_0|<K^5$，矛盾，故舍去。
+
+如果 $\alpha>\dfrac25$，那么 $\lim\limits_{x\to0}|x^{2-5\alpha}||3-4x|=+\infty$，取 $M=L^5,\exist x_0\in U^\circ(0),|x_0^{2-5\alpha}||3-4x_0|>K^5$，矛盾，故舍去。
+
+如果 $\alpha=\dfrac25$，那么 $\lim\limits_{x\to0}\dfrac{\sqrt[5]{3x^2-4x^3}}{x^{\frac25}}=\lim\limits_{x\to0}\sqrt[5]{3-4x}=\sqrt[5]{3}\neq0$，此时二者是同阶无穷小。
+
+综上，$\alpha=\dfrac25$。
+

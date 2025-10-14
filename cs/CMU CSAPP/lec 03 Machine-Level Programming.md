@@ -88,8 +88,84 @@ case 只能是整数。会先计算 case 的最大值、最小值，然后添加
 
 如果 V 很大，那么就构建一个 ifelse tree，可以做到对数复杂度。
 
-函数调用：
+Procedures:
 
-参数以值的形式会被存在至多 6 个 reg 中，第一个是 %rdi，第二个是 %rsi，第三个是 `%rdx`.返回值在 `%rax`。
+ABI(Application Binary Interface) 规定了 Machine programming level 遵守的一些规范和约定。Linux,Window,MacOS 略有不同。
 
+Procedures 中有很多机制：passing control,passing data,memory management
 
+Stack:
+
+其实只是内存上的一块普通区域，其中 top 在低地址，bottom 在高地址。上面那些机制都要使用 stack 实现。%rsp 存的就是 top 地址。
+
+`push src` 获取 src，%rsp-=8，然后把值写进去。
+
+`pop dest` 读 %rsp，%rsp-=8，然后把值存到 dest。dest 必须是 reg。
+
+passing control:
+
+`call label/address`：把要返回到的位置（下一个指令） push 到 stack 里，跳转到 label/address
+
+`ret` 把地址从 stack 中提取出来，跳转过去。
+
+passing data:
+
+前六个参数依次放在 %rdi,%rsi,%rdx,%rcx,%r8,%r9；返回值放在 %rax。
+
+如果有多的参数，会被放入 stack。如下图，下方是 top，从下到上地址增加。
+
+![[Pasted image 20251012151748.png]]
+
+stack frame：在 stack 里，用于 call 的一块。在标准里，当前的 frame 是由 %rsp,%rbp 两个夹起来的，其中 %rbp 叫 base pointer。然而事实上，%rbp 大多数时候并不会被这么使用，而是作为一个普通 reg 被使用。所以其实没有什么机制帮你管理你当前的栈帧。
+
+![[Pasted image 20251012153407.png]]
+
+事实上在 call 的时候，有可能程序会声明比实际需要更多的栈空间，这是出于内存对齐的考虑。
+
+此外，关于寄存器的值，有如下规定。一部分是 caller saved，一部分是 callee saved
+
+![[Pasted image 20251012155337.png]]
+
+![[Pasted image 20251012155456.png]]
+
+Data:
+
+Arrays:
+
+1-dim 比较平凡。
+
+n-dim 就是行优先。
+
+我们常常说，一个数组的名字就是指向开头的指针。不完全对，你不能修改它（ar++），而且 sizeof(ar) 会真的告诉你这个数组占据的空间。对于一个二维数组而言，`ar[0]`,`*ar` 得到的指针式相同的，同时它们的 sizeof 都是对应的一维数组的大小。
+
+最好补一下关于复杂的指针类型的课。
+
+Structure:
+
+C 中，保证内存是按照你声明的顺序分配的。然而，这中间有一个对齐的问题。具体来说，如果一个数据类型要占据 $K$ bytes，那么为了保证这个数据类型的开头地址的相对位置是 $K$ 的倍数，编译器可能会插入一些空位置。同时还会对整个 struct 再对齐一次（依据其中元素的最大对齐要求）。
+
+## Misc
+
+实际的内存分配：
+
+程序运行在虚拟内存上，程序可以把它视为连续的一段。事实上，虽然运行在 64 位机器上，但是硬件本身限制我们只能用 47bits。Linux 会把栈底放在 0x00007FFFFFFFFFFF 这个位置。
+
+![[Pasted image 20251014144135.png]]
+
+Buffer overflow：
+
+任何能让你访问到本来不应该访问的地方的行为。在这个意义下，很多字符串函数都是不安全的，比方说 gets/strcpy/...
+
+通过这种方法，我们有可能能够覆写 stack 中的 ret address。如果我们在那个位置注入了我们的代码，就能让这段代码运行。
+
+为了避免这种问题，我们会做一个叫做 ASLR，在开始之前给栈里插入随机大小的空间，这样能让我们的地址随机化。
+
+也可以使用权限控制，把栈上的 bits 标记为不可执行。
+
+当然，还有一种 system-level 的保护方法，就是说，如果栈爆了，系统会直接检测到，然后停止执行。你可以使用 `-fstack-protecter`，虽然它已经是默认的了。这种办法叫 canary。在为数据声明栈空间之前，它先存一个值进去。比如，当读完一个字符串之后，它检查这个值是否被修改。如果被改了，就说明有问题。
+
+不过，对于前两个方式，我们确实有办法攻克。方案就是用它自己的代码。我们找到代码碎片（以 ret 结尾，叫做 gadget），然后把想执行的代码碎片的地址注入到栈里，就可以执行了。
+
+Union：
+
+用同一块地址储存不同的东西，会按照占空间最多的那个来分配内存。当你选择按不同的别名访问的时候，它不会修改位表示，只是会换一种方式来理解同样的数据。注意大小端序的问题。
