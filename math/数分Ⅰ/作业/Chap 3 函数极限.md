@@ -263,6 +263,20 @@ $(2)$
 
 所以 $|x\sin\sqrt{x}|\le |x^{\frac32}|$，也就是 $|\dfrac{x\sin\sqrt{x}}{x^{\frac32}}|\le 1$，证毕。
 
+$(4)$
+
+即证 $\lim\limits_{x\to0}\dfrac{(1+x)^n-1-nx}{x}=0$
+
+而
+
+$$
+\begin{aligned}
+\lim_{x\to0}\dfrac{(1+x)^n-1-nx}x&=\lim_{x\to0}\dfrac{\sum\limits_{k=2}^n\binom{n}{k}x^k}x\\
+&=\lim_{x\to0}\sum_{k=1}^{n-1}\binom{n}{k+1}x^k\\
+&=0
+\end{aligned}
+$$
+
 > 2. 应用定理 3.13 求下列极限：
 >
 > $(1)\lim\limits_{x\to\infty}\dfrac{x\arctan\dfrac1x}{x-\cos x}$
