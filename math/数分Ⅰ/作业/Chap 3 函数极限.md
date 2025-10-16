@@ -337,6 +337,32 @@ $(ii)$
 
 $\forall\epsilon>0$，取 $M=\dfrac1\epsilon$，可得 $|\dfrac1{g(x)}|<\epsilon$ 也就是说 $\dfrac1g$ 时 $x\to x_0$ 时的无穷小。
 
+> 4. 求下列函数所表示的曲线的渐近线：
+>
+> $(3)y=\dfrac{3x^3+4}{x^2-2x}$。
+
+$(3)$
+
+先求非竖直渐近线。
+
+$\lim\limits_{x\to\infty}\dfrac yx=\lim\limits_{x\to\infty}\dfrac{3x^3+4}{x^3-2x^2}=3$
+
+$\lim\limits_{x\to\infty}(y-3x)=\lim\limits_{x\to\infty}\dfrac{6x^2+4}{x^2-2x}=6$。
+
+所以，非垂直渐近线是 $y=3x+6$。
+
+再求竖直渐近线。
+
+$\lim\limits_{x\to0}\dfrac{3x^3+4}{x(x-2)}=\infty,\lim\limits_{x\to2}\dfrac{3x^3+4}{x(x-2)}=\infty$。
+
+所以有竖直渐近线 $x=0,x=2$。
+
+下面证明没有别的竖直渐近线。
+
+取 $x_0\neq0,2$，则 $\lim\limits_{x\to x_0}\dfrac{2x^3+4}{x(x-2)}=\dfrac{2x_0^3+4}{x_0(x_0-2)}$，这是一个确定的实数，所以 $x=x_0$ 不是竖直渐近线。
+
+综上，渐近线是 $y=3x+6,x=0,x=2$。
+
 > 5. 试确定 $\alpha$ 的值，使下列函数与 $x^\alpha$ 当 $x\to0$ 时为同阶无穷小量：
 >
 > $(4)\sqrt[5]{3x^2-4x^3}$。
@@ -347,9 +373,9 @@ $\forall\epsilon>0$，取 $M=\dfrac1\epsilon$，可得 $|\dfrac1{g(x)}|<\epsilon
 
 分讨一下。
 
-如果 $\alpha<\dfrac25$，那么 $\lim\limits_{x\to0}|x^{2-5\alpha}||3-4x|=0$，取 $\epsilon_0=K^5$，$\exist x_0\in U^\circ(0),|x_0^{2-5\alpha}||3-4x_0|<K^5$，矛盾，故舍去。
+如果 $\alpha<\dfrac25$，那么 $\lim\limits_{x\to0}|x^{2-5\alpha}||3-4x|=0$，取 $\epsilon_0=K^5$，$\forall x_0\in U^\circ(0),|x_0^{2-5\alpha}||3-4x_0|<K^5$，矛盾，故舍去。
 
-如果 $\alpha>\dfrac25$，那么 $\lim\limits_{x\to0}|x^{2-5\alpha}||3-4x|=+\infty$，取 $M=L^5,\exist x_0\in U^\circ(0),|x_0^{2-5\alpha}||3-4x_0|>K^5$，矛盾，故舍去。
+如果 $\alpha>\dfrac25$，那么 $\lim\limits_{x\to0}|x^{2-5\alpha}||3-4x|=+\infty$，取 $M=L^5,\forall x_0\in U^\circ(0),|x_0^{2-5\alpha}||3-4x_0|>K^5$，矛盾，故舍去。
 
 如果 $\alpha=\dfrac25$，那么 $\lim\limits_{x\to0}\dfrac{\sqrt[5]{3x^2-4x^3}}{x^{\frac25}}=\lim\limits_{x\to0}\sqrt[5]{3-4x}=\sqrt[5]{3}\neq0$，此时二者是同阶无穷小。
 
