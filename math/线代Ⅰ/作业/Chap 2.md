@@ -303,3 +303,95 @@ $\forall \alpha\in R^3$，设 $\alpha=(x_1,x_2,x_3)$，通过计算可以发现 
 另一方面，解方程组可以验证这组向量是线性无关的。所以它们是 $R^3$ 的一组基。
 
 通过计算，$\beta=\dfrac72\alpha_1-\dfrac52\alpha_2+\dfrac12\alpha_3$，所以 $\beta$ 关于这组基的坐标是 $(\dfrac72,-\dfrac52,\dfrac12)$。
+
+> 31. 已知：$\alpha=(1,2,-1,1),\beta=(2,3,1,-1),\gamma=(-1,-1,-2,2)$；
+>
+> $(1)$ 求 $\alpha,\beta,\gamma$ 的长度及夹角 $\langle\alpha,\beta\rangle$ 与 $\langle\alpha,\gamma\rangle$ 
+>
+> $(2)$ 求与 $\alpha,\beta,\gamma$ 都正交的所有向量。
+
+$(1)$
+
+$|\alpha|=\sqrt{1^2+2^2+(-1)^2+1^2}=\sqrt{7}$
+
+$|\beta|=\sqrt{2^2+3^2+1^2+(-1)^2}=\sqrt{15}$
+
+$|\gamma|=\sqrt{(-1)^2+(-1)^2+(-2)^2+2^2}=\sqrt{10}$
+
+$\langle\alpha,\beta\rangle=\arccos\dfrac{\alpha\cdot\beta}{|\alpha||\beta|}=\arccos\dfrac{6}{\sqrt{105}}=\arccos\dfrac{2\sqrt{105}}{35}$
+
+$\langle\alpha,\gamma\rangle=\arccos\dfrac{\alpha\cdot\gamma}{|\alpha||\gamma|}=\arccos\dfrac{1}{\sqrt{70}}=\arccos\dfrac{\sqrt{70}}{70}$
+
+$(2)$
+
+设 $\bold{x}=(x_1,x_2,x_3,x_4)$
+
+由题意知
+
+$$
+\begin{cases}
+\alpha\cdot\bold{x}=0\\
+\beta\cdot\bold{x}=0\\
+\gamma\cdot\bold{x}=0\\
+\end{cases}
+$$
+
+即 
+
+$$
+\begin{cases}
+x_1+2x_2-x_3+x_4&=0\\
+2x_1+3x_2+x_3-x_4&=0\\
+-x_1-x_2-2x_3+2x_4&=0\\
+\end{cases}
+$$
+
+解这个方程组，得到 $(x_1,x_2,x_3,x_4)=\lambda(-5,3,1,0)+\mu(5,-3,0,1)$
+
+所以，与 $\alpha,\beta,\gamma$ 都垂直的向量最终构成 $L((-5,3,1,0),(5,-3,0,1))$。
+
+> 37. 设 $\{\epsilon_1,\epsilon_2,\dots,\epsilon_5\}$ 是欧氏空间 $V$ 的一组单位正交基，$W=L(\alpha_1,\alpha_2,\alpha_3)$，其中 $\alpha_1=\epsilon_1+\epsilon_5,\alpha_2=\epsilon_1-\epsilon_2+\epsilon_4,\alpha_3=2\epsilon_1+\epsilon_2+\epsilon_3$。试求 $W$ 的一组单位正交基。
+
+首先，容易验证 $\alpha_1,\alpha_2,\alpha_3$ 线性无关。
+
+我们使用 Schmitdt 正交化过程。
+
+$\beta_1=\alpha_1=\epsilon_1+\epsilon_5$
+
+$\beta_2=\alpha_2-\dfrac{\beta_1\cdot\alpha_2}{\beta_1^2}\beta_1=\alpha_2-\dfrac12\beta_1=\dfrac12(\epsilon_1-2\epsilon_2+2\epsilon_4-\epsilon_5)$
+
+$\beta_3=\alpha_3-\dfrac{\beta_1\cdot\alpha_3}{\beta_1^2}\beta_1-\dfrac{\beta_2\cdot\alpha_3}{\beta_2^2}\beta_2=\alpha_3-\beta_1=\epsilon_1+\epsilon_2+\epsilon_3-\epsilon_5$
+
+最后单位化。
+
+$\gamma_1=\dfrac{\beta_1}{|\beta_1|}=\dfrac{\sqrt2}{2}(\epsilon_1+\epsilon_5)$
+
+$\gamma_2=\dfrac{\beta_2}{|\beta_2|}=\dfrac{\sqrt{10}}{10}(\epsilon_1-2\epsilon_2+2\epsilon_4-\epsilon_5)$
+
+$\gamma_3=\dfrac{\beta_3}{|\beta_3|}=\dfrac{1}{2}(\epsilon_1+\epsilon_2+\epsilon_3-\epsilon_5)$
+
+
+
+> 40. 设 $\{\epsilon_1,\dots,\epsilon_n\}$ 是 $n$ 维欧氏空间 $V$ 的一组单位正交基，证明：
+>
+> $(1)$ 如果 $\beta\in V$，且 $(\beta,\epsilon_i)=0(i=1,\dots,n)$，则 $\beta=0$；
+>
+> $(2)$ 如果 $\beta_1,\beta_2\in V$，且 $\forall\alpha\in V$，均有 $(\beta_1,\alpha)=(\beta_2,\alpha)$，则 $\beta_1=\beta_2$。
+
+$(1)$
+
+设 $\beta=\lambda_1\epsilon_1+\dots+\lambda_n\epsilon_n$
+
+由题知，$0=(\beta,\epsilon_i)=(\lambda_1\epsilon_1+\dots+\lambda_n\epsilon_n,\epsilon_i)=(\lambda_1\epsilon_1,\epsilon_i)+\dots+(\lambda_n\epsilon_n,\epsilon_i)=\lambda_i(i=1,\dots,n)$
+
+也就是说，$\beta=0$。
+
+$(2)$
+
+设 $\beta_1=\lambda_1\epsilon_1+\dots+\lambda_n\epsilon_n,\beta_2=\mu_1\epsilon_1+\dots+\mu_n\epsilon_n$。
+
+依次取 $\alpha=\epsilon_i(i=1,\dots,n)$
+
+由 $(\beta_1,\alpha)=(\beta_2,\alpha)$，即 $(\beta_1,\epsilon_i)=(\beta_2,\epsilon_i)$，可以得到 $\lambda_i=\mu_i$。
+
+也就是说，$\beta_1=\beta_2$。

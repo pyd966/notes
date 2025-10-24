@@ -179,3 +179,88 @@ $\forall x',x''\in[a,+\infty)$ 且 $|x'-x''|<\delta'$ 容易发现 $x',x''\in[a,
 若 $x',x''\in(M_0,+\infty)$，那么 $|f(x')-f(x'')|=|(f(x')-A)+(A-f(x''))|\le|f(x')-A|+|A-f(x'')|<\epsilon$。
 
 综上，$\forall x',x''\in[a,+\infty)$ 且 $|x'-x''|<\delta'$ 总有 $|f(x')-f(x'')|<\epsilon$，所以 $f$ 在 $[a,+\infty)$ 上一致连续。
+
+## 习题 4.3
+
+> 1. 求下列极限：
+>
+> $(1)\lim\limits_{x\to0}\dfrac{e^x\cos x+5}{1+x^2+\ln(1-x)}$
+>
+> $(5)\lim\limits_{x\to0}(1+\sin x)^{\cot x}$
+
+$(1)$
+
+这是关于 $x$ 的连续函数。
+
+$\lim\limits_{x\to0}\dfrac{e^x\cos x+5}{1+x^2+\ln(1-x)}=\dfrac{e^0\cos0+5}{1+0^2+\ln(1-0)}=6$
+
+$(2)$
+
+考虑 $x\in U^\circ(0,\dfrac\pi2)$，此时 $1+\sin x\neq0$。
+
+$\lim\limits_{x\to 0}(1+\sin x)^{\cot x}=\lim\limits_{x\to0}e^{\cot x\ln(1+\sin x)}=e^{\lim\limits_{x\to0}\cot x\ln(1+\sin x)}$
+
+而当 $x\to 0$ 时，$\cot x\sim\dfrac1x,\ln(1+\sin x)\sim\sin x\sim x$。
+
+所以 $\lim\limits_{x\to0}\cot x\ln(1+\sin x)=\lim\limits_{x\to0}\dfrac1x\cdot x=1$。
+
+所以 $\lim\limits_{x\to0}(1+\sin x)^{\cot x}=e^{\lim\limits_{x\to0}
+\cot x\ln(1+\sin x)}=e$。
+
+> 2. 设 $\lim\limits_{x\to\infty}a_n=a>0,\lim\limits_{n\to\infty}b_n=b$。证明：$\lim\limits_{n\to\infty}(a_n)^{b_n}=a^b$
+
+$\lim\limits_{n\to\infty}(a_n)^{b_n}=\lim\limits_{n\to\infty}e^{b_n\ln a_n}=e^{\lim\limits_{n\to\infty}b_n\ln a_n}=e^{(\lim\limits_{n\to\infty}b_n)(\lim\limits_{n\to\infty}\ln a_n)}=e^{b(\ln\lim\limits_{n\to\infty}a_n)}=e^{b\ln a}=a^b$。
+
+## 第四章总练习题
+
+> 5. 设 $f$ 在 $[a,b]$ 上连续，且对任何 $x\in[a,b]$，存在 $y\in[a,b]$，使得
+>
+> $$
+> |f(y)|\le\dfrac12|f(x)|
+> $$
+>
+> 证明：存在 $\xi\in[a,b]$，使得 $f(\xi)=0$。
+
+记 $g(x)=|f(x)|$，则 $g(x)$ 也在 $[a,b]$ 上连续，有上下界，设最小值为 $g(x_0)=m$。
+
+反证法，假设 $f(x)\neq0$ 恒成立，也就是说 $g(x)>0$，$m>0$。
+
+由题目条件，$\exist x_1\in[a,b],g(x_1)\le\dfrac12 g(x_0)<g(x_0)=m$，与 $m$ 是最小值矛盾。
+
+故假设不成立，结论成立。
+
+> 7. 设 $f$ 在 $[0,+\infty)$ 上连续，满足 $0\le f(x)\le x,x\in[0,+\infty)$。设 $a_1\ge0,a_{n+1}=f(a_n),n=1,2,\dots$，证明：
+>
+> $(1)$ $\{a_n\}$ 为收敛数列；
+>
+> $(2)$ 设 $\lim\limits_{n\to\infty}a_n=t$，则有 $f(t)=t$；
+>
+> $(3)$ 若条件改为 $0\le f(x)<x,x\in(0,+\infty)$，则 $t=0$。
+
+$(1)$
+
+$a_{n+1}=f(a_n)\le a_n$，所以 $\{a_n\}$ 递减。
+
+$a_{n+1}=f(a_n)\ge0$，所以 $\{a_n\}$ 有下界。
+
+由单调有界定理，$\{a_n\}$ 收敛。
+
+$(2)$
+
+在 $a_{n+1}=f(a_n)$ 两边同时取极限。
+
+$$
+\begin{aligned}
+\lim\limits_{n\to\infty}a_{n+1}&=\lim\limits_{n\to\infty}f(a_n)\\
+t&=f(\lim\limits_{n\to\infty} a_n)\\
+t&=f(t)
+\end{aligned}
+$$
+
+$(3)$
+
+由于 $a_n\ge 0$ 恒成立，所以 $t\ge 0$。
+
+假设 $t>0$，则由 $(2)$ 知 $t=f(t)<t$ 矛盾。
+
+所以 $t=0$。
