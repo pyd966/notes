@@ -140,6 +140,28 @@ $f'(x+1)=3x^2$
 
 $f'(x-1)=3(x-2)^2$
 
+## 习题 5.3
+
+> 1. 求下列由参数方程所确定的导数 $\dfrac{\text{d}y}{\text{d}x}$：
+>
+> $(1)\begin{cases}x=\cos^4t\\y=\sin^4t\end{cases}$，在 $t=\dfrac\pi3$ 处。
+
+$\dfrac{\text{d}y}{\text{d}x}=\dfrac{\frac{\text{d}y}{\text{d}t}}{\frac{\text{d}x}{\text{d}t}}=\dfrac{4\sin^3t\cdot(\cos t)}{4\cos^3t\cdot(-\sin t)}=-\dfrac{\sin^2t}{\cos^2t}$
+
+当 $t=\dfrac\pi3$ 时，结果为 $-3$。
+
+> 3. 设曲线方程为 $\begin{cases}x=1-t^2\\y=t-t^2\end{cases}$，求它在下列点处的切线方程与法线方程：
+>
+> $(1)t=1$。
+
+$\dfrac{\text{d}y}{\text{d}x}=\dfrac{\frac{\text{d}y}{\text{d}t}}{\frac{\text{d}x}{\text{d}t}}=\dfrac{1-2t}{-2t}=\dfrac12$，这是切线的斜率，记作 $k$。
+
+当 $t=1$ 时，$x_0=0,y_0=0$。
+
+所以切线方程：$y-y_0=k(x-x_0)$，即 $y=\dfrac12x$。
+
+法线方程：$y-y_0=-\dfrac1k(x-x_0)$，即 $y=-2x$。
+
 ## 习题 5.4
 
 > 1. 求下列函数在指定点的高阶导数：
@@ -157,6 +179,8 @@ $f''(0)=0,f''(1)=-\dfrac{3\sqrt2}{8},f''(-1)=\dfrac{3\sqrt2}{8}$
 > 3. 求下列函数的高阶导数：
 >
 > $(2)f(x)=e^{-x^2}$，求 $f'''(x)$
+>
+> $(4)f(x)=x^3e^x$，求 $f^{(10)}(x)$。
 
 $(2)$
 
@@ -166,3 +190,55 @@ $f''(x)=(4x^2-2)e^{-x^2}$
 
 $f'''(x)=(-8x^3+12x)e^{-x^2}$
 
+$(4)$
+
+记 $g(x)=x^3,h(x)=e^x$。
+
+$$
+\begin{aligned}
+f^{(10)}(x)&=\sum_{k=0}^{10}\binom{10}{k}g^{(k)}(x)h^{(10-k)}(x)\\
+&=\sum_{k=0}^3\binom{10}{k}g^{(k)}(x)e^x\\
+&=e^x(x^3+30x^2+270x+720)
+\end{aligned}
+$$
+
+> 5. 求下列函数的 $n$ 阶导数：
+>
+> $(4)y=\dfrac{\ln x}{x}$
+
+记 $c_n=\sum\limits_{k=1}^n\dfrac1k$
+
+那么 $y^{(n)}=\dfrac{(-1)^nn!(\ln x-c_n)}{x^{n+1}}$
+
+采用归纳法证明，当 $n=0,1$ 时成立。
+
+假设 $n=k$ 成立，下证 $n=k+1$ 成立。
+
+$y^{(k+1)}=(y^{(k)})'=\dfrac{(-1)^nn!(\frac1x\cdot x^{n+1}-(n+1)x^n(\ln x-c_n))}{x^{2n+2}}=\dfrac{(-1)^nn!(-(n+1)\ln x+(n+1)c_n+1)}{x^{n+2}}=\dfrac{(-1)^{n+1}(n+1)!(\ln x-c_n-\frac1{n+1})}{x^{n+2}}=\dfrac{(-1)^{n+1}(n+1)!(\ln x-c_{n+1})}{x^{n+2}}$。
+
+证毕。
+
+> 6. 求由下列参数方程所确定的函数的二阶导数 $\dfrac{\text{d}^2y}{\text{d}x^2}$
+>
+> $(1)\begin{cases}x=a\cos^3t\\y=a\sin^3t\end{cases}$
+
+$$
+\begin{aligned}
+\dfrac{\text{d}^2y}{\text{d}x^2}&=\dfrac{\text{d}}{\text{d}x}(\dfrac{\text{d}y}{\text{d}x})\\
+&=\dfrac{\text{d}}{\text{d}t}(\dfrac{\text{d}y}{\text{d}x})/\dfrac{\text{d}x}{\text{d}t}\\
+\end{aligned}
+$$
+
+而我们知道 $\dfrac{\text{d}y}{\text{d}x}=\dfrac{\frac{\text{d}y}{\text{d}t}}{\frac{\text{d}x}{\text{d}t}}=-\dfrac{\sin t}{\cos t},\dfrac{\text{d}}{\text{d}t}(\dfrac{\text{d}y}{\text{d}x})=-\dfrac{1}{\cos^2t}$
+
+所以 $\dfrac{\text{d}^2y}{\text{d}x^2}=\dfrac1{3a\sin t\cos^4 t}$。
+
+## 习题 5.5
+
+> 2. 求下列函数的微分：
+>
+> $(3)y=x^2\cos2x$
+
+$y'=2x\cos2x-2x^2\sin2x$
+
+所以 $\text{d}y=(2x\cos2x-2x^2\sin2x)\text{d}x$。
