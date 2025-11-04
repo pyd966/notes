@@ -22,3 +22,9 @@ exception handling 就是说，processor 也可能会遇到 runtime-error，比�
 为了帮助我们实现最终的 processor，我们先实现一个比较慢的 processor，以此来了解执行一个 instruction 需要哪些 stage。
 
 那大概需要 fetch,decode,excute,memory,write back,pc update 这些部分。
+
+这里我们把硬件分成了需要时序的部分（内存，PC，CC，reg file）以及不需要时序的 combinational logic。值得一提的是，我们认为内存和 reg file 的 read 部分是不需要时序控制的。
+
+我们能成功的关键就在于，一个指令执行的所有 stage 都不依赖于某一个别的 stage 的更新。换句话说，随着时序一声令下，一个指令的所有 stage 可以仅由开始的 state（内存，PC，CC，reg）计算出最终它们的结果。注意，这并不意味着各个 stage 之间没有互相依赖。这个做法的目的是，保证一个时钟周期内能执行完一条指令。
+
+接下来就是仔细地实现每个 stage 的功能，把它们拼起来就好了。
