@@ -63,3 +63,115 @@ $(2)$
 $\exist\xi\in(0,h),\dfrac{|f(h)-f(0)|}{|h-0|}=\dfrac{\arctan h}{h}=f'(\xi)=\dfrac1{1+\xi^2}\in(\dfrac1{1+h^2},1)$。
 
 所以 $\dfrac h{1+h^2}<\arctan h<h$。
+
+> 6. 确定下列函数的单调区间：
+>
+> $(3)f(x)=\sqrt{2x-x^2}$
+
+$f$ 的定义域为 $[0,2]$。
+
+$f'(x)=(2x-x^2)^{-\frac12}(1-x)$，定义域为 $(0,2)$。
+
+不难发现，当 $x\in(0,1)$ 时 $f'(x)>0$，当 $x=1$ 时 $f'(x)=0$，当 $x\in(1,2)$ 时 $f'(x)<0$。
+
+所以函数在 $(0,1)$ 严格单调增，在 $(1,2)$ 严格单调增。
+
+又函数在 $x=1$ 处连续，在 $x=0$ 处右连续，在 $x=2$ 处左连续。
+
+进而在 $[0,1]$ 严格单调增，在 $[1,2]$ 严格单调减。
+
+> 7. 应用函数的单调性证明下列不等式：
+>
+> $(1)\tan x>x-\dfrac{x^3}3,x\in(0,\dfrac\pi2)$
+>
+> $(2)\dfrac{2x}\pi<\sin x<x,x\in(0,\dfrac\pi2)$
+
+$(1)$
+
+令 $f(x)=\tan x-x+\dfrac{x^3}3$。
+
+$f'(x)=\dfrac1{\cos^2x}-1+x^2,f''(x)=\dfrac{2\sin x}{\cos^3x}+2x$
+
+当 $x\in(0,\dfrac\pi2)$ 时 $f''(x)>0$，所以 $f'$ 在 $(0,\dfrac\pi2)$ 上严格单调增，又 $f'$ 在 $x=0$ 连续，所以 $f'$ 在 $[0,\dfrac\pi2)$ 上严格单调增。
+
+$\forall x\in(0,\dfrac\pi2),f'(x)>f'(0)=0$。
+
+所以 $f$ 在 $(0,\dfrac\pi2)$ 严格单调增，又 $f$ 在 $x=0$ 连续，所以在 $[0,\dfrac\pi2)$ 严格单调增。
+
+所以当 $x\in(0,\dfrac\pi2)$ 时，$f(x)>f(0)=0$，即 $\tan x>x-\dfrac{x^3}3$。
+
+$(2)$
+
+先证右边，记 $f(x)=x-\sin x$，则 $f'(x)=1-\cos x$，当 $x\in(0,\dfrac\pi2)$ 时 $f'(x)>0,f(x)$ 严格增，又 $f$ 在 $x=0$ 连续，故 $f$ 在 $[0,\dfrac\pi2)$ 严格增。
+
+当 $x\in(0,\dfrac\pi2)$ 时，$f(x)>f(0)=0$，即 $x>\sin x$。
+
+再证左边，记 $g(x)=\sin x-\dfrac{2x}\pi$，则 $g'(x)=\cos x-\dfrac2\pi,g''(x)=-\sin x$。
+
+当 $x\in(0,\dfrac\pi2)$ 时，$g''(x)<0$，$g'(x)$ 严格减，又 $g'(x)$ 在 $x=0$ 连续，所以在 $x\in[0,\dfrac\pi2)$ 严格减。
+
+又 $g'(0)=1-\dfrac2\pi>0,g'(\dfrac\pi2)=-\dfrac2\pi<0$，所以存在唯一的 $x_0\in(0,\dfrac\pi2)$，$g'(x_0)=0$。
+
+当 $x\in(0,x_0),g'(x)>g'(x_0)=0$，故 $g(x)$ 增，又 $x=0,x=x_0$ 连续故 $[0,x_0]$ 增，$g(x)>g(0)=0$。
+
+当 $x\in(x_0,\dfrac\pi2),g'(x)<g'(x_0)=0$，故 $g(x)$ 减，又 $x=\dfrac\pi2$ 连续，故 $(x_0,\dfrac\pi2]$ 减，$g(x)>g(\dfrac\pi2)=0$。
+
+综上当 $x\in(0,\dfrac\pi2)$ 时，$g(x)>0$，即 $\sin x>\dfrac{2x}\pi$。
+
+> 13. 设 $a>0$，证明函数 $f(x)=x^3+ax+b$ 存在唯一的零点。
+
+先证零点存在。
+
+$\lim\limits_{x\to+\infty}f(x)=+\infty,\lim\limits_{x\to-\infty}f(x)=-\infty$，所以 $\exist x_1,x_2,f(x_1)<0,f(x_2)>0$。
+
+由连续函数介值定理，$\exist x_0,f(x_0)=0$。
+
+再证零点唯一。
+
+反证，假设至少有两个零点 $\epsilon_1<\epsilon_2$。
+
+对 $f$ 在 $[\epsilon_1,\epsilon_2]$ 使用罗尔中值定理，$\exist\epsilon_0\in(\epsilon_1,\epsilon_2),f'(\epsilon_0)=0$。
+
+然而 $f'(x)=3x^2+a\ge a>0$，所以矛盾。
+
+假设不成立，零点存在且唯一。
+
+> 14. 证明：$\dfrac{\tan x}x>\dfrac x{\sin x},x\in(0,\dfrac\pi2)$
+
+记 $f(x)=\dfrac{\tan x\sin x}{x^2}$，则 $f'(x)=\dfrac{\sin x(\dfrac x{\cos^2x}+x-2\tan x)}{x^3}$。
+
+记 $g(x)=\dfrac x{\cos^2x}+x-2\tan x$
+
+$g'(x)=\dfrac{2x\sin x+\cos^3x-\cos x}{\cos^3 x}$
+
+记 $h(x)=2x\sin x+\cos^3x-\cos x$，则 $h'(x)=2x\cos x+3\sin x(1-\cos^2x)=2x\cos x+3\sin^3x$。
+
+当 $x\in(0,\dfrac\pi2)$ 时，$h'(x)>0$，所以 $h(x)>h(0)=0$。
+
+所以 $g'(x)>0,g(x)>g(0)=0$。
+
+所以 $f'(x)>0,f(x)>f(0+0)=1$。
+
+即 $\dfrac{\tan x}x>\dfrac x{\sin x}$。
+
+## 习题 6.2
+
+> 1. 试问函数 $f(x)=x^2,g(x)=x^3$ 在区间 $[-1,1]$ 上能否应用柯西中值定理得到相应的结论？为什么？
+
+不能，因为当 $f'(x)=2x,g'(x)=3x^2$，当 $x=0$ 时 $f'(x)=g'(x)=0$。
+
+> 2. 设函数 $f$ 在 $[a,b]$ 上连续，在 $(a,b)$ 上可导，证明：存在 $\xi\in(a,b)$，使得
+>
+> $$
+> 2\xi(f(b)-f(a))=(b^2-a^2)f'(\xi)
+> $$
+
+取 $g(x)=x^2$。
+
+对 $f,g$ 在 $[a,b]$ 上使用柯西中值定理，得
+
+$$
+\exist\xi\in[a,b],\dfrac{f(b)-f(a)}{b^2-a^2}=\dfrac{f(b)-f(a)}{g(b)-g(a)}=\dfrac{f'(\xi)}{g'(\xi)}=\dfrac{f'(\xi)}{2\xi}
+$$
+
+即 $2\xi(f(b)-f(a))=(b^2-a^2)f'(\xi)$。

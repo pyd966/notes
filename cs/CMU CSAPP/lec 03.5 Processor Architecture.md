@@ -27,4 +27,20 @@ exception handling 就是说，processor 也可能会遇到 runtime-error，比�
 
 我们能成功的关键就在于，一个指令执行的所有 stage 都不依赖于某一个别的 stage 的更新。换句话说，随着时序一声令下，一个指令的所有 stage 可以仅由开始的 state（内存，PC，CC，reg）计算出最终它们的结果。注意，这并不意味着各个 stage 之间没有互相依赖。这个做法的目的是，保证一个时钟周期内能执行完一条指令。
 
-接下来就是仔细地实现每个 stage 的功能，把它们拼起来就好了。
+接下来就是仔细地实现每个 stage 的功能，把它们拼起来就好了。因为我们之前合理地划分了 stage，所以这一部分内容繁杂但并不困难，我们在这里略去。
+
+## Pipeline
+
+整体的思路是，每个 instruction 可以被划分为若干个 stage，这些 stage 是可以顺序执行的，并且不是所有 instruction 都会用到所有 stage。
+
+为了提高 stage 的利用率，我们可以采用流水线模式，让 instruction 按顺序流过 stage，需要执行哪个就执行一次，这样虽然执行单个指令的耗时（latecy）变长了，但是单位时间内可以处理的指令（throughput）变多了。
+
+这样会遇到问题。
+
+最大的问题是，后面的指令可能依赖前面的指令。比如 data dependency 和 control dependency。
+
+其次，由于各个 stage 耗时不同，而我们的 clock cycle 必须按照最慢的来设置，所以可能造成浪费。
+
+最后，两个 stage 之间我们要插入一个 clocked reg 来控制流程，但是 reg 的读写也是需要时间的，并且这个会成为瓶颈。
+
+上面是问题，下面先说说怎么搞一个 pipelined processor。
