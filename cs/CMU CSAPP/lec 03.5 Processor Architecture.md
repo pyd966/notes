@@ -39,8 +39,18 @@ exception handling 就是说，processor 也可能会遇到 runtime-error，比�
 
 最大的问题是，后面的指令可能依赖前面的指令。比如 data dependency 和 control dependency。
 
+关于 data dependency，我们有 stalling 和 forwarding 两种方法。第一个就相当于是插入一个 nop 指令阻塞流水线一会；第二个相当于是一旦我们的需要的值被算出来了就直接转发回来。事实上，大部分时间我们不需要 stalling，只有在 load/use hazard 的时候，因为涉及到内存这个执行顺序很靠后的 stage，可能会需要插入至多一个 bubble。
+
+关于 control denpendency，我们采用 predicting 的方法来解决。具体地，只有 conditional jump 和 ret 指令会有这个问题。对于 conditional jump 我们粗暴地认为 jump 总会成功，对于 ret 指令，我们不做预测，等待 ret 执行完毕后再填充流水线。当然真实的 cpu 要先进得多，不过我们这样简化之后，只需要处理预测出错时复原的情况就可以了。
+
+那怎么处理这个情况呢？很简单，你在 Execute 阶段能检测到错误，此时已经有两个不该被执行的指令被执行了，它们目前在 Fetch,Decode 阶段。好消息是，只有指令进入 Execute 阶段才会对 programmer-visible state 产生影响，所以我们可以简单地在下一个 cycle 把 bubble 插入到 Decode,Execute 阶段，然后给 Fetch 阶段正确的地址即可。这样做是无偏的，只有效率上有损失。
+
 其次，由于各个 stage 耗时不同，而我们的 clock cycle 必须按照最慢的来设置，所以可能造成浪费。
 
 最后，两个 stage 之间我们要插入一个 clocked reg 来控制流程，但是 reg 的读写也是需要时间的，并且这个会成为瓶颈。
+
+除此以外，processor 还要考虑 exceptions。这可以分为两类。对于 internal exception，我们的 processor 需要处理 halt，非法指令，非法读写内存这几种清苦那个。对于 external exception，我们不用管，但是现实中会有用户点击鼠标、网络接到输入等等事件发生。
+
+然而即使是我们的简化 exceptions，还是有一些特殊情况需要考虑：如果 pipeline 里有多个 instructions 同时报错该扔出哪个？如果一个 instruction 先报错但是后来由于 prediction 错误被 cancel 了呢？如果有一个 instruction 在 Memory state 报错，但是它后面的那个 instruction 已经在 Execute stage 修改了我们的 state 该怎么还原？
 
 上面是问题，下面先说说怎么搞一个 pipelined processor。

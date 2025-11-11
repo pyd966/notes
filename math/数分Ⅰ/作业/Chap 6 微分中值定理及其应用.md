@@ -175,3 +175,126 @@ $$
 $$
 
 即 $2\xi(f(b)-f(a))=(b^2-a^2)f'(\xi)$。
+
+> 3. 设函数 $f$ 在点 $a$ 处具有连续的二阶导数。证明：
+>
+> $$
+> \lim_{h\to0}\dfrac{f(a+h)+f(a-h)-2f(a)}{h^2}=f''(a)
+> $$
+
+左式是 $\frac00$ 型
+
+$$
+\begin{aligned}
+\lim_{h\to0}\dfrac{f(a+h)+f(a-h)-2f(a)}{h^2}&=\lim_{h\to0}\dfrac{f'(a+h)-f'(a-h)}{2h}\\
+&=\dfrac12\lim_{h\to0}\dfrac{f'(a+h)-f'(h)}{h}+\dfrac12\lim_{h\to0}\dfrac{f'(h)-f'(a-h)}h\\
+&=f''(a)
+\end{aligned}
+$$
+
+> 5. 求下列不定式极限：
+>
+> $(6)\lim\limits_{x\to0}(\dfrac1x-\dfrac1{e^x-1})$
+>
+> $(8)\lim\limits_{x\to1}x^{\frac1{1-x}}$
+
+$(6)$
+
+这是一个 $\infty-\infty$ 型极限，通分后化为 $\frac{0}{0}$ 型。
+
+$$
+\begin{aligned}
+\lim_{x\to0}(\dfrac1x-\dfrac1{e^x-1})&=\lim_{x\to0}\dfrac{e^x-x-1}{x(e^x-1)}\\
+&=\lim_{x\to0}\dfrac{e^x-1}{(x+1)e^x-1}\\
+&=\lim_{x\to0}\dfrac{e^x}{(x+2)e^x}\\
+&=\lim_{x\to0}\dfrac{1}{x+2}\\
+&=\dfrac12
+\end{aligned}
+$$
+
+$(8)$
+
+$\lim\limits_{x\to1}x^{\frac1{1-x}}=\lim\limits_{x\to1}e^{\frac1{1-x}\ln x}$
+
+而指数是 $\frac00$ 型不定式。
+
+$$
+\begin{aligned}
+\lim_{x\to1}\dfrac{\ln x}{1-x}&=\lim_{x\to1}-\dfrac{1}{x}\\
+&=-1
+\end{aligned}
+$$
+
+所以 $\lim\limits_{x\to1}x^{\frac1{1-x}}=e^{-1}=\dfrac1e$。
+
+> 6. 设函数 $f$ 在 $a$ 的某个邻域上具有二阶导数。证明：对充分小的 $h$，存在 $\theta,0<\theta<1$，使得
+>
+> $$
+> \dfrac{f(a+h)+f(a-h)-2f(a)}{h^2}=\dfrac{f''(a+\theta h)+f''(a-\theta h)}{2}
+> $$
+
+先证明 $\exist h'\in(0,h),s.t. \dfrac{f(a+h)+f(a-h)-2f(a)}{h^2}=\dfrac{f'(a+h')-f'(a-h')}{2h'}$。
+
+构造函数 $F(h)=f(a+h)+f(a-h)-2f(a),G(h)=h^2$。
+
+则 $\exist h'\in(0,h),s.t. \dfrac{f(a+h)+f(a-h)-2f(a)}{h^2}=\dfrac{F(h)-F(0)}{G(h)-G(0)}=\dfrac{F'(h')}{G'(h')}=\dfrac{f'(a+h')-f'(a-h')}{2h'}$。
+
+再构造函数 $\phi(h)=f'(a+h')-f'(a-h'),\psi(h)=2h$。
+
+则 $\exist h''\in(0,h'),s.t. \dfrac{f'(a+h')-f'(a-h')}{2h'}=\dfrac{\phi(h')-\phi(0)}{\psi(h')-\psi(0)}=\dfrac{\phi'(h'')}{\psi'(h'')}=\dfrac{f''(a+h'')+f''(a-h'')}{2}$
+
+由于 $h''\in(0,h')\subseteq(0,h)$，所以 $\exist0<\theta<1,h''=\theta h$，即
+
+$$
+\dfrac{f(a+h)+f(a-h)-2f(a)}{h^2}=\dfrac{f''(a+\theta h)+f''(a-\theta h)}{2}
+$$
+
+> 7. 求下列不定式极限：
+>
+> $(7)\lim\limits_{x\to0}\dfrac{(1+x)^{\frac1x}-e}{x}$
+>
+> $(8)\lim\limits_{x\to+\infty}(\dfrac\pi2-\arctan x)^{\frac1{\ln x}}$
+
+$(7)$
+
+这是 $\frac00$ 型不定式。
+
+$$
+\lim_{x\to0}\dfrac{(1+x)^{\frac1x}-e}{x}=\lim_{x\to0}\dfrac{e^{\frac1x\cdot\ln(1+x)}\cdot\dfrac{\frac x{1+x}-\ln(1+x)}{x^2}}{1}
+$$
+
+注意到 $\dfrac{\frac{x}{1+x}-\ln(1+x)}{x^2}$ 仍然是 $\frac00$ 型不定式。
+
+$$
+\lim\limits_{x\to0}\dfrac{\frac{x}{1+x}-\ln(1+x)}{x^2}=\lim_{x\to0}\dfrac{\frac{1}{(1+x)^2}-\frac1{1+x}}{2x}=\lim_{x\to0}-\dfrac{1}{2(1+x)^2}=-\dfrac12
+$$
+
+所以 $\lim\limits_{x\to0}\dfrac{(1+x)^{\frac1x}-e}{x}=\lim\limits_{x\to0}e^{\frac1x\cdot\ln(1+x)}\cdot\lim\limits_{x\to0}\dfrac{\frac{x}{1+x}-\ln(1+x)}{x^2}=-\dfrac e2$。
+
+$(8)$
+
+当 $x>0$ 时，$\dfrac\pi2-\arctan x>0$。
+
+$$
+\lim\limits_{x\to+\infty}(\dfrac\pi2-\arctan x)^{\frac1{\ln x}}=\lim_{x\to+\infty}e^{(\dfrac{\ln(\frac\pi2-\arctan x)}{\ln x})}
+$$
+
+而指数为 $\frac\infty\infty$ 型
+
+$$
+\lim_{x\to+\infty}\dfrac{\ln(\frac\pi2-\arctan x)}{\ln x}=\lim_{x\to+\infty}\dfrac{\frac{1}{\frac\pi2-\arctan x}\cdot(-\frac{1}{1+x^2})}{\frac1x}=\lim_{x\to+\infty}-\dfrac{x}{(1+x^2)(\frac\pi2-\arctan x)}
+$$
+
+考察 $\lim\limits_{x\to+\infty}(1+x^2)(\dfrac\pi2-\arctan x)=\lim\limits_{x\to+\infty}\dfrac{\frac\pi2-\arctan x}{\frac1{1+x^2}}=\lim\limits_{x\to+\infty}\dfrac{1+x^2}{2x}=+\infty$。
+
+所以这是 $\frac\infty\infty$ 型
+
+$$
+\lim_{x\to+\infty}-\dfrac{x}{(1+x^2)(\frac\pi2-\arctan x)}=\lim_{x\to+\infty}-\dfrac{1}{2x(\frac\pi2-\arctan x)-1}
+$$
+
+考察 $\lim\limits_{x\to+\infty}2x(\dfrac\pi2-\arctan x)=\lim\limits_{x\to+\infty}\dfrac{\frac\pi2-\arctan x}{\frac1{2x}}=\lim\limits_{x\to+\infty}\dfrac{2x^2}{1+x^2}=2$
+
+所以 $\lim\limits_{x\to+\infty}-\dfrac{x}{(1+x^2)(\frac\pi2-\arctan x)}=-1$
+
+所以 $\lim\limits_{x\to+\infty}(\dfrac\pi2-\arctan x)^{\frac1{\ln x}}=\dfrac1e$。
