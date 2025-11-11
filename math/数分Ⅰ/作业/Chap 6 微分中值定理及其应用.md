@@ -187,7 +187,7 @@ $$
 $$
 \begin{aligned}
 \lim_{h\to0}\dfrac{f(a+h)+f(a-h)-2f(a)}{h^2}&=\lim_{h\to0}\dfrac{f'(a+h)-f'(a-h)}{2h}\\
-&=\dfrac12\lim_{h\to0}\dfrac{f'(a+h)-f'(h)}{h}+\dfrac12\lim_{h\to0}\dfrac{f'(h)-f'(a-h)}h\\
+&=\dfrac12\lim_{h\to0}\dfrac{f'(a+h)-f'(a)}{h}+\dfrac12\lim_{h\to0}\dfrac{f'(a)-f'(a-h)}h\\
 &=f''(a)
 \end{aligned}
 $$
@@ -239,7 +239,7 @@ $$
 
 则 $\exist h'\in(0,h),s.t. \dfrac{f(a+h)+f(a-h)-2f(a)}{h^2}=\dfrac{F(h)-F(0)}{G(h)-G(0)}=\dfrac{F'(h')}{G'(h')}=\dfrac{f'(a+h')-f'(a-h')}{2h'}$。
 
-再构造函数 $\phi(h)=f'(a+h')-f'(a-h'),\psi(h)=2h$。
+再构造函数 $\phi(h)=f'(a+h)-f'(a-h),\psi(h)=2h$。
 
 则 $\exist h''\in(0,h'),s.t. \dfrac{f'(a+h')-f'(a-h')}{2h'}=\dfrac{\phi(h')-\phi(0)}{\psi(h')-\psi(0)}=\dfrac{\phi'(h'')}{\psi'(h'')}=\dfrac{f''(a+h'')+f''(a-h'')}{2}$
 
