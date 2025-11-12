@@ -131,3 +131,445 @@ $f(A)g(A)=(\sum\limits_{i=0}^{m-1}A^i)(A^0-A)=\sum\limits_{i=0}^{m-1}A^i-\sum_{i
 $A^{n+1}=A^nA=\begin{pmatrix}a^n&na^{n-1}b\\0&a^n\end{pmatrix}\begin{pmatrix}a&b\\0&a\end{pmatrix}=\begin{pmatrix}a^{n+1}&(n+1)a^nb\\0&a^{n+1}\end{pmatrix}$
 
 所以，$f(A)g(A)=A^0-A^m=\begin{pmatrix}1-a^m&-ma^{m-1}b\\0&1-a^m\end{pmatrix}$
+
+> 21. 设方阵 $A$ 满足 $A^2-A-2E=O$，证明：
+>
+> $(1)$ $A$ 和 $E-A$ 都是可逆矩阵，并求它们的逆矩阵；
+>
+> $(2)$ $A+E$ 和 $A-2E$ 不可能同时都是可逆的。
+
+$(1)$
+
+由 $A^2-A-2E=O$ 可知 $A(A-E)=2E$，即 $A(\dfrac{A-1}{2})=E$，由定义知 $A$ 可逆，$A^{-1}=\dfrac{A-1}{2}$。
+
+同理可得 $(E-A)(-\dfrac{A}{2})=E$，所以 $E-A$ 可逆，$(E-A)^{-1}=-\dfrac{A}2$。
+
+$(2)$
+
+由 $A^2-A-2E=O$ 可知 $(A+E)(A-2E)=O$。
+
+反证法，如果二者均可逆，则 $(A+E)(A-2E)$ 也可逆，但是零矩阵 $O$ 是不可逆的。
+
+> 23. 设 $A,B$ 是同阶非奇异矩阵（即可逆矩阵），证明下列等式彼此等价：
+>
+> $$
+> AB=BA;\ AB^{-1}=B^{-1}A\\
+> B^{-1}A^{-1}=A^{-1}B^{-1};\ A^{-1}B=BA^{-1}
+> $$
+
+$(1)\Rightarrow(4)$
+
+$$
+\begin{aligned}
+&AB=BA\\
+&\Rightarrow A^{-1}AB=A^{-1}BA\\
+&\Rightarrow B=A^{-1}BA\\
+&\Rightarrow BA^{-1}=A^{-1}B
+\end{aligned}
+$$
+
+$(4)\Rightarrow(3)$
+
+$$
+\begin{aligned}
+&A^{-1}B=BA^{-1}\\
+&\Rightarrow B^{-1}A^{-1}B=A^{-1}\\
+&\Rightarrow B^{-1}A^{-1}=A^{-1}B^{-1}
+\end{aligned}
+$$
+
+$(3)\Rightarrow(2)$
+
+$$
+\begin{aligned}
+&B^{-1}A^{-1}=A^{-1}B^{-1}\\
+&\Rightarrow AB^{-1}A^{-1}=B^{-1}\\
+&\Rightarrow AB^{-1}=B^{-1}A
+\end{aligned}
+$$
+
+$(2)\Rightarrow(1)$
+
+$$
+\begin{aligned}
+&AB^{-1}=B^{-1}A\\
+&\Rightarrow BAB^{-1}=A\\
+&\Rightarrow BA=AB
+\end{aligned}
+$$
+
+> 31. 用初等变换法求下列矩阵的逆矩阵：
+>
+> $(4)\begin{pmatrix}2&3&4&1\\ 3&4&1&2\\ 4&1&2&3\\ 1&-1&1&-1\end{pmatrix}$
+>
+> $(6)\begin{pmatrix}1&2&3&4\\ 4&1&2&3\\ 3&4&1&2\\ 2&3&4&1\end{pmatrix}$
+
+$(4)$
+
+$$
+A = \begin{pmatrix}
+2 & 3 & 4 & 1 \\
+3 & 4 & 1 & 2 \\
+4 & 1 & 2 & 3 \\
+1 & -1 & 1 & -1
+\end{pmatrix}
+$$
+
+增广矩阵 $[A | I]$:
+
+$$
+\left(\begin{array}{cccc|cccc}
+2 & 3 & 4 & 1 & 1 & 0 & 0 & 0 \\
+3 & 4 & 1 & 2 & 0 & 1 & 0 & 0 \\
+4 & 1 & 2 & 3 & 0 & 0 & 1 & 0 \\
+1 & -1 & 1 & -1 & 0 & 0 & 0 & 1
+\end{array}\right)
+$$
+
+变换过程：
+
+$$
+\xrightarrow{[1] \leftrightarrow [4]}
+\left(\begin{array}{cccc|cccc}
+1 & -1 & 1 & -1 & 0 & 0 & 0 & 1 \\
+3 & 4 & 1 & 2 & 0 & 1 & 0 & 0 \\
+4 & 1 & 2 & 3 & 0 & 0 & 1 & 0 \\
+2 & 3 & 4 & 1 & 1 & 0 & 0 & 0
+\end{array}\right)
+$$
+
+$$
+\xrightarrow{[2] \leftarrow [2] - 3[1],\ [3] \leftarrow [3] - 4[1],\ [4] \leftarrow [4] - 2[1]}
+\left(\begin{array}{cccc|cccc}
+1 & -1 & 1 & -1 & 0 & 0 & 0 & 1 \\
+0 & 7 & -2 & 5 & 0 & 1 & 0 & -3 \\
+0 & 5 & -2 & 7 & 0 & 0 & 1 & -4 \\
+0 & 5 & 2 & 3 & 1 & 0 & 0 & -2
+\end{array}\right)
+$$
+
+$$
+\xrightarrow{[2] \leftarrow [2] \times \frac{1}{7}}
+\left(\begin{array}{cccc|cccc}
+1 & -1 & 1 & -1 & 0 & 0 & 0 & 1 \\
+0 & 1 & -\frac{2}{7} & \frac{5}{7} & 0 & \frac{1}{7} & 0 & -\frac{3}{7} \\
+0 & 5 & -2 & 7 & 0 & 0 & 1 & -4 \\
+0 & 5 & 2 & 3 & 1 & 0 & 0 & -2
+\end{array}\right)
+$$
+
+$$
+\xrightarrow{[1] \leftarrow [1] + [2],\ [3] \leftarrow [3] - 5[2],\ [4] \leftarrow [4] - 5[2]}
+\left(\begin{array}{cccc|cccc}
+1 & 0 & \frac{5}{7} & -\frac{2}{7} & 0 & \frac{1}{7} & 0 & \frac{4}{7} \\
+0 & 1 & -\frac{2}{7} & \frac{5}{7} & 0 & \frac{1}{7} & 0 & -\frac{3}{7} \\
+0 & 0 & -\frac{4}{7} & \frac{24}{7} & 0 & -\frac{5}{7} & 1 & -\frac{13}{7} \\
+0 & 0 & \frac{24}{7} & -\frac{4}{7} & 1 & -\frac{5}{7} & 0 & \frac{1}{7}
+\end{array}\right)
+$$
+
+$$
+\xrightarrow{[3] \leftarrow [3] \times \left(-\frac{7}{4}\right)}
+\left(\begin{array}{cccc|cccc}
+1 & 0 & \frac{5}{7} & -\frac{2}{7} & 0 & \frac{1}{7} & 0 & \frac{4}{7} \\
+0 & 1 & -\frac{2}{7} & \frac{5}{7} & 0 & \frac{1}{7} & 0 & -\frac{3}{7} \\
+0 & 0 & 1 & -6 & 0 & \frac{5}{4} & -\frac{7}{4} & \frac{13}{4} \\
+0 & 0 & \frac{24}{7} & -\frac{4}{7} & 1 & -\frac{5}{7} & 0 & \frac{1}{7}
+\end{array}\right)
+$$
+
+$$
+\xrightarrow{[1] \leftarrow [1] - \frac{5}{7}[3],\ [2] \leftarrow [2] + \frac{2}{7}[3],\ [4] \leftarrow [4] - \frac{24}{7}[3]}
+\left(\begin{array}{cccc|cccc}
+1 & 0 & 0 & 4 & 0 & -\frac{3}{4} & \frac{5}{4} & -\frac{7}{4} \\
+0 & 1 & 0 & -1 & 0 & \frac{1}{2} & -\frac{1}{2} & \frac{1}{2} \\
+0 & 0 & 1 & -6 & 0 & \frac{5}{4} & -\frac{7}{4} & \frac{13}{4} \\
+0 & 0 & 0 & 20 & 1 & -5 & 6 & -11
+\end{array}\right)
+$$
+
+$$
+\xrightarrow{[4] \leftarrow [4] \times \frac{1}{20}}
+\left(\begin{array}{cccc|cccc}
+1 & 0 & 0 & 4 & 0 & -\frac{3}{4} & \frac{5}{4} & -\frac{7}{4} \\
+0 & 1 & 0 & -1 & 0 & \frac{1}{2} & -\frac{1}{2} & \frac{1}{2} \\
+0 & 0 & 1 & -6 & 0 & \frac{5}{4} & -\frac{7}{4} & \frac{13}{4} \\
+0 & 0 & 0 & 1 & \frac{1}{20} & -\frac{1}{4} & \frac{3}{10} & -\frac{11}{20}
+\end{array}\right)
+$$
+
+$$
+\xrightarrow{[1] \leftarrow [1] - 4[4],\ [2] \leftarrow [2] + [4],\ [3] \leftarrow [3] + 6[4]}
+\left(\begin{array}{cccc|cccc}
+1 & 0 & 0 & 0 & -\frac{1}{5} & \frac{1}{4} & \frac{1}{20} & \frac{9}{20} \\
+0 & 1 & 0 & 0 & \frac{1}{20} & \frac{1}{4} & -\frac{1}{5} & -\frac{1}{20} \\
+0 & 0 & 1 & 0 & \frac{3}{10} & -\frac{1}{4} & \frac{1}{20} & -\frac{1}{20} \\
+0 & 0 & 0 & 1 & \frac{1}{20} & -\frac{1}{4} & \frac{3}{10} & -\frac{11}{20}
+\end{array}\right)
+$$
+
+逆矩阵为：
+
+$$
+A^{-1} = \begin{pmatrix}
+-\frac{1}{5} & \frac{1}{4} & \frac{1}{20} & \frac{9}{20} \\
+\frac{1}{20} & \frac{1}{4} & -\frac{1}{5} & -\frac{1}{20} \\
+\frac{3}{10} & -\frac{1}{4} & \frac{1}{20} & -\frac{1}{20} \\
+\frac{1}{20} & -\frac{1}{4} & \frac{3}{10} & -\frac{11}{20}
+\end{pmatrix}
+$$
+
+$(6)$
+
+$$
+B = \begin{pmatrix}
+1 & 2 & 3 & 4 \\
+4 & 1 & 2 & 3 \\
+3 & 4 & 1 & 2 \\
+2 & 3 & 4 & 1
+\end{pmatrix}
+$$
+
+增广矩阵 $[B | I]$:
+
+$$
+\left(\begin{array}{cccc|cccc}
+1 & 2 & 3 & 4 & 1 & 0 & 0 & 0 \\
+4 & 1 & 2 & 3 & 0 & 1 & 0 & 0 \\
+3 & 4 & 1 & 2 & 0 & 0 & 1 & 0 \\
+2 & 3 & 4 & 1 & 0 & 0 & 0 & 1
+\end{array}\right)
+$$
+
+变换过程：
+
+$$
+\xrightarrow{[2] \leftarrow [2] - 4[1],\ [3] \leftarrow [3] - 3[1],\ [4] \leftarrow [4] - 2[1]}
+\left(\begin{array}{cccc|cccc}
+1 & 2 & 3 & 4 & 1 & 0 & 0 & 0 \\
+0 & -7 & -10 & -13 & -4 & 1 & 0 & 0 \\
+0 & -2 & -8 & -10 & -3 & 0 & 1 & 0 \\
+0 & -1 & -2 & -7 & -2 & 0 & 0 & 1
+\end{array}\right)
+$$
+
+$$
+\xrightarrow{[2] \leftrightarrow [4]}
+\left(\begin{array}{cccc|cccc}
+1 & 2 & 3 & 4 & 1 & 0 & 0 & 0 \\
+0 & -1 & -2 & -7 & -2 & 0 & 0 & 1 \\
+0 & -2 & -8 & -10 & -3 & 0 & 1 & 0 \\
+0 & -7 & -10 & -13 & -4 & 1 & 0 & 0
+\end{array}\right)
+$$
+
+$$
+\xrightarrow{[2] \leftarrow [2] \times (-1)}
+\left(\begin{array}{cccc|cccc}
+1 & 2 & 3 & 4 & 1 & 0 & 0 & 0 \\
+0 & 1 & 2 & 7 & 2 & 0 & 0 & -1 \\
+0 & -2 & -8 & -10 & -3 & 0 & 1 & 0 \\
+0 & -7 & -10 & -13 & -4 & 1 & 0 & 0
+\end{array}\right)
+$$
+
+$$
+\xrightarrow{[1] \leftarrow [1] - 2[2],\ [3] \leftarrow [3] + 2[2],\ [4] \leftarrow [4] + 7[2]}
+\left(\begin{array}{cccc|cccc}
+1 & 0 & -1 & -10 & -3 & 0 & 0 & 2 \\
+0 & 1 & 2 & 7 & 2 & 0 & 0 & -1 \\
+0 & 0 & -4 & 4 & 1 & 0 & 1 & -2 \\
+0 & 0 & 4 & 36 & 10 & 1 & 0 & -7
+\end{array}\right)
+$$
+
+$$
+\xrightarrow{[3] \leftarrow [3] \times \left(-\frac{1}{4}\right)}
+\left(\begin{array}{cccc|cccc}
+1 & 0 & -1 & -10 & -3 & 0 & 0 & 2 \\
+0 & 1 & 2 & 7 & 2 & 0 & 0 & -1 \\
+0 & 0 & 1 & -1 & -\frac{1}{4} & 0 & -\frac{1}{4} & \frac{1}{2} \\
+0 & 0 & 4 & 36 & 10 & 1 & 0 & -7
+\end{array}\right)
+$$
+
+$$
+\xrightarrow{[1] \leftarrow [1] + [3],\ [2] \leftarrow [2] - 2[3],\ [4] \leftarrow [4] - 4[3]}
+\left(\begin{array}{cccc|cccc}
+1 & 0 & 0 & -11 & -\frac{13}{4} & 0 & -\frac{1}{4} & \frac{5}{2} \\
+0 & 1 & 0 & 9 & \frac{5}{2} & 0 & \frac{1}{2} & -2 \\
+0 & 0 & 1 & -1 & -\frac{1}{4} & 0 & -\frac{1}{4} & \frac{1}{2} \\
+0 & 0 & 0 & 40 & 11 & 1 & 1 & -9
+\end{array}\right)
+$$
+
+$$
+\xrightarrow{[4] \leftarrow [4] \times \frac{1}{40}}
+\left(\begin{array}{cccc|cccc}
+1 & 0 & 0 & -11 & -\frac{13}{4} & 0 & -\frac{1}{4} & \frac{5}{2} \\
+0 & 1 & 0 & 9 & \frac{5}{2} & 0 & \frac{1}{2} & -2 \\
+0 & 0 & 1 & -1 & -\frac{1}{4} & 0 & -\frac{1}{4} & \frac{1}{2} \\
+0 & 0 & 0 & 1 & \frac{11}{40} & \frac{1}{40} & \frac{1}{40} & -\frac{9}{40}
+\end{array}\right)
+$$
+
+$$
+\xrightarrow{[1] \leftarrow [1] + 11[4],\ [2] \leftarrow [2] - 9[4],\ [3] \leftarrow [3] + [4]}
+\left(\begin{array}{cccc|cccc}
+1 & 0 & 0 & 0 & -\frac{9}{40} & \frac{11}{40} & \frac{1}{40} & \frac{1}{40} \\
+0 & 1 & 0 & 0 & \frac{1}{40} & -\frac{9}{40} & \frac{11}{40} & \frac{1}{40} \\
+0 & 0 & 1 & 0 & \frac{1}{40} & \frac{1}{40} & -\frac{9}{40} & \frac{11}{40} \\
+0 & 0 & 0 & 1 & \frac{11}{40} & \frac{1}{40} & \frac{1}{40} & -\frac{9}{40}
+\end{array}\right)
+$$
+
+逆矩阵为：
+
+$$
+B^{-1} = \begin{pmatrix}
+-\frac{9}{40} & \frac{11}{40} & \frac{1}{40} & \frac{1}{40} \\
+\frac{1}{40} & -\frac{9}{40} & \frac{11}{40} & \frac{1}{40} \\
+\frac{1}{40} & \frac{1}{40} & -\frac{9}{40} & \frac{11}{40} \\
+\frac{11}{40} & \frac{1}{40} & \frac{1}{40} & -\frac{9}{40}
+\end{pmatrix}
+$$
+
+> 33. 利用逆矩阵（或用初等变换法），解下列矩阵方程：
+>
+> $(2)\begin{pmatrix}2&3&-1\\ 1&2&0\\ -1&2&-2\end{pmatrix}X=\begin{pmatrix}2&1\\ -1&0\\ 3&1\end{pmatrix}$
+>
+> $(3)A\begin{pmatrix}1&0&0\\1&1&0\\1&1&1\end{pmatrix}=\begin{pmatrix}1&-2&1\\0&1&-1\end{pmatrix}$
+
+$(2)$
+
+矩阵方程：
+
+$$
+A=\begin{pmatrix}
+2 & 3 & -1\\
+1 & 2 & 0\\
+-1 & 2 & -2\\
+\end{pmatrix}
+$$
+
+$$
+B=\begin{pmatrix}
+2 & 1\\
+-1 & 0\\
+3 & 1\\
+\end{pmatrix}
+$$
+
+增广矩阵 $[A | B]$
+
+$$
+\left(\begin{array}{ccc|cc}
+2 & 3 & -1 & 2 & 1 \\
+1 & 2 & 0 & -1 & 0 \\
+-1 & 2 & -2 & 3 & 1
+\end{array}\right)
+$$
+
+变换过程：
+
+$$
+\xrightarrow{[1]\leftrightarrow[2]}
+\left(\begin{array}{ccc|cc}
+1 & 2 & 0 & -1 & 0 \\
+2 & 3 & -1 & 2 & 1 \\
+-1 & 2 & -2 & 3 & 1
+\end{array}\right)
+$$
+
+$$
+\xrightarrow{[2]\leftarrow[2]-2[1],\ [3]\leftarrow[3]+[1]}
+\left(\begin{array}{ccc|cc}
+1 & 2 & 0 & -1 & 0 \\
+0 & -1 & -1 & 4 & 1 \\
+0 & 4 & -2 & 2 & 1
+\end{array}\right)
+$$
+
+$$
+\xrightarrow{[2]\leftarrow -[2]}
+\left(\begin{array}{ccc|cc}
+1 & 2 & 0 & -1 & 0 \\
+0 & 1 & 1 & -4 & -1 \\
+0 & 4 & -2 & 2 & 1
+\end{array}\right)
+$$
+
+$$
+\xrightarrow{[1]\leftarrow[1]-2[2],\ [3]\leftarrow[3]-4[2]}
+\left(\begin{array}{ccc|cc}
+1 & 0 & -2 & 7 & 2 \\
+0 & 1 & 1 & -4 & -1 \\
+0 & 0 & -6 & 18 & 5
+\end{array}\right)
+$$
+
+$$
+\xrightarrow{[3]\leftarrow[3]/(-6)}
+\left(\begin{array}{ccc|cc}
+1 & 0 & -2 & 7 & 2 \\
+0 & 1 & 1 & -4 & -1 \\
+0 & 0 & 1 & -3 & -\frac{5}{6}
+\end{array}\right)
+$$
+
+$$
+\xrightarrow{[1]\leftarrow[1]+2[3],\ [2]\leftarrow[2]-[3]}
+\left(\begin{array}{ccc|cc}
+1 & 0 & 0 & 1 & \frac{1}{3} \\
+0 & 1 & 0 & -1 & -\frac{1}{6} \\
+0 & 0 & 1 & -3 & -\frac{5}{6}
+\end{array}\right)
+$$
+
+解得：
+
+$$
+X = \begin{pmatrix}
+1 & \frac{1}{3} \\
+-1 & -\frac{1}{6} \\
+-3 & -\frac{5}{6}
+\end{pmatrix}
+$$
+
+$(3)$
+
+$$
+B=\begin{pmatrix}
+1 & 0 & 0\\
+1 & 1 & 0\\
+1 & 1 & 1\\
+\end{pmatrix}
+$$
+
+$$
+C=\begin{pmatrix}
+1 & -2 & 1\\
+0 & 1 & -1\\
+\end{pmatrix}
+$$
+
+可以知道
+
+$$
+B^{-1}=\begin{pmatrix}
+1 & 0 & 0\\
+-1 & 1 & 0\\
+0 & -1 & 1
+\end{pmatrix}
+$$
+
+则 $A=CB^{-1}$
+
+可得
+
+$$
+A=\begin{pmatrix}
+3 & -3 & 1\\
+-1 & 2 & -1\\
+\end{pmatrix}
+$$
