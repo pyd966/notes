@@ -298,3 +298,180 @@ $$
 所以 $\lim\limits_{x\to+\infty}-\dfrac{x}{(1+x^2)(\frac\pi2-\arctan x)}=-1$
 
 所以 $\lim\limits_{x\to+\infty}(\dfrac\pi2-\arctan x)^{\frac1{\ln x}}=\dfrac1e$。
+
+## 习题 6.3
+
+> 2. 按例 $4$ 的方法求下列极限：
+>
+> $(2)\lim\limits_{x\to\infty}(x-x^2\ln(1+\dfrac1x))$
+>
+> $(3)\lim\limits_{x\to0}\dfrac1x(\dfrac1x-\cot x)$
+
+$(2)$
+
+记 $t=\dfrac1x$，则 $x\to\infty$ 时 $t\to0$，
+
+$$
+\ln(1+\dfrac1x)=\ln(1+t)=t-\dfrac{t^2}{2}+o(t^2)
+$$
+
+$$
+\begin{aligned}
+\lim_{x\to\infty}(x-x^2\ln(1+\dfrac1x))&=\lim_{t\to0}(\dfrac1t-\dfrac{\ln(1+t)}{t^2})\\
+&=\lim_{t\to0}\dfrac{t-(t-\frac{t^2}2+o(t^2))}{t^2}\\
+&=\lim_{t\to0}(\dfrac{o(t^2)}{t^2}+\dfrac12)\\
+&=\dfrac12
+\end{aligned}
+$$
+
+$(3)$
+
+$$
+\tan x=x+\dfrac13x^3+o(x^5)
+$$
+
+$$
+\begin{aligned}
+\lim_{x\to0}\dfrac1x(\dfrac1x-\cot x)&=\lim_{x\to0}\dfrac{\tan x-x}{x^2\tan x}\\
+&=\lim_{x\to0}\dfrac{\frac13x^3+o(x^5)}{x^3+\frac13x^5+o(x^7)}\\
+&=\lim_{x\to0}\dfrac{\frac13x^3+o(x^5)}{x^3+o(x^5)}\\
+&=\lim_{x\to0}\dfrac{\frac13+o(x^2)}{1+o(x^2)}\\
+&=\dfrac13
+\end{aligned}
+$$
+
+> 3. 求下列函数在指定点处带拉格朗日型余项的泰勒公式：
+>
+> $(1)f(x)=x^3+4x^2+5$，在 $x=1$ 处。
+
+$(1)$
+
+$f(x)=x^3+4x^2+5,f(1)=10$
+
+$f'(x)=3x^2+8x,f'(1)=11$
+
+$f''(x)=6x+8,f''(1)=14$
+
+$f'''(x)=6,f'''(1)=6$
+
+$f^{(n)}(x)=0,f^{(n)}(1)=0(n\ge4)$
+
+所以
+
+$f(x)=10+11(x-1)+7(x-1)^2+(x-1)^3$
+
+> 4. 估计下列近似公式的绝对误差：
+>
+> $(1)\sin x\approx x-\dfrac{x^3}6,|x|\le\dfrac12$。
+
+$(1)$
+
+$\sin x=x-\dfrac{x^3}6+\dfrac{f^{(5)}(\xi)}{5!}x^5,\xi\in(-|x|,|x|)$
+
+误差 $\epsilon=|\dfrac{f^{(5)}(\xi)}{5!}x^5|=|\dfrac{\cos\xi}{120}x^5|\le|x|^5|\dfrac1{120}|\le\dfrac1{3840}$
+
+## 习题 6.4
+
+> 1. 求下列函数的极值：
+>
+> $(3)f(x)=\dfrac{(\ln x)^2}{x}$
+
+$(3)$
+
+$f'(x)=\dfrac{\ln x(2-\ln x)}{x^2}$
+
+令 $f'(x)=0$ 得 $x=1,e^2$。
+
+$f''(x)=\dfrac{2\ln^2x-6\ln x+2}{x^3}$
+
+$f''(1)=2>0,f''(e^2)=-\dfrac{2}{e^6}<0$
+
+所以，$f$ 在 $x=1$ 处取得极小值 $f(1)=0$，在 $x=e^2$ 处取得极大值 $f(e^2)=\dfrac4{e^2}$。
+
+> 2. 设
+>
+> $$
+> f(x)=\begin{cases}
+> x^4\sin^2\dfrac1x&,x\neq0\\
+> 0&,x=0\\
+> \end{cases}
+> $$
+>
+> $(1)$ 证明：$x=0$ 是极小值点；
+>
+> $(2)$ 说明 $f$ 在极小值点 $x=0$ 是否满足极值的第一充分条件或第二充分条件。
+
+$(1)$
+
+$\forall x\in U^\circ(0),f(x)=x^4\sin^2\dfrac1x\ge0=f(0)$
+
+故 $x=0$ 是极小值点。
+
+$(2)$
+
+$f'(x)=2x^2\sin\dfrac1x(2x\sin\dfrac1x-\cos\dfrac1x),x\neq0$
+
+因为 $\lim\limits_{x\to0}f(x)=0=f(0)$，$f$ 是连续的，
+
+又 $\lim\limits_{x\to0}f'(x)=0$，所以 $f'(0)=0$。
+
+$$
+f'(x)=\begin{cases}
+2x^2\sin\dfrac1x(2x\sin\dfrac1x-\cos\dfrac1x)&,x\neq0\\
+0&,x=0
+\end{cases}
+$$
+
+当 $x\in U^\circ_-(0,\dfrac\pi2)$，$f'(x)<0$；
+
+当 $x\in U^\circ_+(0,\dfrac\pi2)$，$f'(x)>0$。
+
+因此符合第一充分条件。
+
+$$
+\begin{aligned}
+f''(0)&=\lim\limits_{x\to0}\dfrac{2x^2\sin\dfrac1x(2x\sin\dfrac1x-\cos\dfrac1x)}{x}\\
+&=\lim_{x\to0}2x\sin\dfrac1x(2x\sin\dfrac1x-\cos\dfrac1x)\\
+&=0
+\end{aligned}
+$$
+
+因此不符合第二充分条件。
+
+> 4. 求下列函数在给定区间上的最大、最小值：
+>
+> $(1)f(x)=x^5-5x^4+5x^3+1,x\in[-1,2]$
+
+$(1)$
+
+$f'(x)=5x^4-20x^3+15x^2=5x^2(x-1)(x-3)$。
+
+令 $f'(x)=0$ 得 $x=0,1,3$，舍去 $x=3$。
+
+$f(-1)=-10,f(0)=1,f(1)=2,f(2)=-7$。
+
+最大值为 $f(1)=2$，最小值为 $f(-1)=-10$。
+
+> 5. 设 $f(x)$ 在区间 $I$ 上连续，并且在 $I$ 上仅有唯一的极值点 $x_0$。证明：若 $x_0$ 是 $f$ 的极大（小）值点，则 $x_0$ 必是 $f(x)$ 在 $I$ 上的最大（小）值点。
+
+不妨假设 $x_0$ 是 $f$ 得极大值点。
+
+反证法，假设 $x_0$ 不是最大值点，那么 $\exist x_1\in I,f(x_1)>f(x_0)$，我们不妨假设 $x_1>x_0$。
+
+在区间 $[x_0,x_1]$ 中，设 $f$ 在 $x_2$ 处取得最小值 $f(x_2)=m$。
+
+因为 $\forall x\in U^\circ(x_0),f(x)\le f(x_0)$，且这里等号取不到，否则会产生多个极值点。因此 $x_2\neq x_0,x_1$。
+
+因此 $x_2$ 是 $(x_0,x_1)$ 中得最小值，自然也是极小值，与极值点唯一矛盾。
+
+所以假设不成立，原命题成立。
+
+> 11. 设 $f(x)=a\ln x+bx^2+x$ 在 $x_1=1,x_2=2$ 处都取得极值，试求 $a$ 与 $b$，并问这时 $f$ 在 $x_1$ 与 $x_2$ 是取得极大值还是极小值？
+
+$f'(x)=\dfrac ax+2bx+1$
+
+由题可知 $f'(x_1)=f'(x_2)=0$，可解得 $\begin{cases}a=-\frac23\\b=-\frac16\end{cases}$。
+
+检验，此时 $f''(x)=\dfrac2{3x^2}-\dfrac13,f''(x_1)=\dfrac13>0,f''(x_2)=-\dfrac16<0$。
+
+所以 $f$ 在 $x_1$ 取得极小值，$x_2$ 取得极大值。
