@@ -475,3 +475,65 @@ $f'(x)=\dfrac ax+2bx+1$
 检验，此时 $f''(x)=\dfrac2{3x^2}-\dfrac13,f''(x_1)=\dfrac13>0,f''(x_2)=-\dfrac16<0$。
 
 所以 $f$ 在 $x_1$ 取得极小值，$x_2$ 取得极大值。
+
+## 习题 6.5
+
+> 2. 问 $a$ 和 $b$ 为何值时，点 $(1,3)$ 为曲线 $y=ax^3+bx^2$ 的拐点？
+
+记 $f(x)=ax^3+bx^2$，则 $f'(x)=3ax^2+2bx,f''(x)=6ax+2b$。
+
+由 $(1,3)$ 是拐点可知，$\begin{cases}f(1)=3\\ f''(1)=0\end{cases}$。
+
+解得 $\begin{cases}a=-\frac32\\ b=\frac92\end{cases}$。
+
+检验：
+
+当 $a=-\dfrac32,b=\dfrac92$ 时，$f''(x)=-9x+9=-9(x-1)$
+
+所以当 $x\in(-\infty,1)$ 时，$f''(x)>0$，当 $x\in(1,+\infty)$ 时，$f''(x)<0$。
+
+则 $(1,3)$ 是拐点。
+
+> 4. 设 $f$ 为区间 $I$ 上严格凸函数。证明：若 $x_0\in I$ 为 $f$ 的极小值点，则 $x_0$ 为 $f$ 在 $I$ 唯一的极小值点。
+
+反证，假设存在极小值点 $x_1\neq x_0$，不妨令 $x_0<x_1$。
+
+由于 $x_0,x_1$ 是极小值点，所以 $\exist x_0'\in U^\circ_+(x_0),f(x_0')>f(x_0)$。
+
+同理 $\exist x_1'\in U^\circ_-(x_1),f(x_1')>f(x_1)$。
+
+也就是说 $x_0<x_0'<x_1'<x_1$。
+
+$\dfrac{f(x_0)-f(x_0')}{x_0-x_0'}>0>\dfrac{f(x_1')-f(x_1)}{x_1'-x_1}$。
+
+但是，由凸函数性质知
+
+$$
+\dfrac{f(x_0)-f(x_0')}{x_0-x_0'}<\dfrac{f(x_0)-f(x_1')}{x_0-x_1'}<\dfrac{f(x_1')-f(x_1)}{x_1'-x_1}
+$$
+
+矛盾，故假设不成立。
+
+> 5. 应用凸函数概念证明如下不等式：
+>
+> $(2)$ 对任何非负实数 $a,b$，有 $2\arctan(\dfrac{a+b}2)\ge\arctan a+\arctan b$。
+
+$(2)$
+
+等价于 $\arctan(\dfrac{a+b}2)\ge\dfrac12\arctan a+\dfrac12\arctan b$
+
+记 $f(x)=\arctan x$，则 $f'(x)=\dfrac1{1+x^2},f''(x)=-\dfrac{2x}{(1+x^2)^2}$。
+
+当 $x\ge0$ 时，$f''(x)\le0$，所以 $f(x)$ 是凹函数。
+
+由 Jensen 不等式，$f(\dfrac{a+b}2)\ge\dfrac12f(a)+\dfrac12f(b)$，跟所证命题等价。
+
+> 6. 证明：$\sin\pi x\le \dfrac{\pi^2}2x(1-x)$，其中 $x\in[0,1]$。
+
+记 $f(x)=\sin\pi x-\dfrac{\pi^2}2x(1-x)$
+
+则 $f'(x)=\pi\cos\pi x-\dfrac{\pi^2}2(1-2x),f''(x)=-\pi^2\sin\pi x+\pi^2=\pi^2(1-\sin\pi x)\ge0$。
+
+所以 $f(x)$ 是凸函数，$f(x)\le\max\{f(0),f(1)\}=0$。
+
+所以 $\sin\pi x\le\dfrac{\pi^2}2x(1-x)$。

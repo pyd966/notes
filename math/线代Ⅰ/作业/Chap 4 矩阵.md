@@ -132,6 +132,32 @@ $A^{n+1}=A^nA=\begin{pmatrix}a^n&na^{n-1}b\\0&a^n\end{pmatrix}\begin{pmatrix}a&b
 
 所以，$f(A)g(A)=A^0-A^m=\begin{pmatrix}1-a^m&-ma^{m-1}b\\0&1-a^m\end{pmatrix}$
 
+> 19. 设 $B=\{\alpha_1,\alpha_2,\alpha_3\}$ 是三维向量空间 $V$ 的一组基，$\sigma\in L(V,V)$ 关于基 $B$ 所对应的矩阵为 $A$，求 $\text{Im}\sigma,\text{Ker}\sigma$。
+>
+> $(1)A=\begin{pmatrix}1&0&2\\-1&2&1\\1&2&5\\\end{pmatrix}$
+>
+> $(2)A=\begin{pmatrix}1&-2&1\\-1&2&-1\\-2&4&-2\\\end{pmatrix}$
+
+$(1)$
+
+记 $\beta_1=\alpha_1-\alpha_2+\alpha_3,\beta_2,\beta_3$ 同理。
+
+$\text{Im}\sigma=L(\beta_1,\beta_2,\beta_3)$，可以发现 $\beta_3=2\beta_1+\dfrac32\beta_2$，同时 $\beta_1,\beta_2$ 线性无关。
+
+所以 $\text{Im}\sigma=L(\beta_1,\beta_2)$。
+
+解方程 $AX=O$，得到 $X=k(-2,-\dfrac32,1)$，所以 $\text{Ker}\sigma=L(-2\alpha_1-\dfrac32\alpha+2+\alpha_3)$。
+
+$(2)$
+
+同上记 $\beta_1,\beta_2,\beta_3$。
+
+$\text{Im}=L(\beta_1,\beta_2,\beta_3)$，可以发现 $\beta_2=-2\beta_1,\beta_3=\beta_1$。
+
+所以 $\text{Im}\sigma=L(\beta_1)$。
+
+解方程 $AX=O$，得到 $X=k_1(-1,0,1)+k_2(2,1,0)$，所以 $\text{Ker}\sigma=L(-\alpha_1+\alpha_3,2\alpha_1+\alpha_2)$。
+
 > 21. 设方阵 $A$ 满足 $A^2-A-2E=O$，证明：
 >
 > $(1)$ $A$ 和 $E-A$ 都是可逆矩阵，并求它们的逆矩阵；
@@ -573,3 +599,83 @@ A=\begin{pmatrix}
 -1 & 2 & -1\\
 \end{pmatrix}
 $$
+
+> 35. 用初等变换法，求下列矩阵的秩：
+>
+> $(2)\begin{pmatrix}1&3&-2&5&4\\1&4&1&3&5\\1&4&2&4&3\\2&7&-3&6&13\\\end{pmatrix}$
+
+$(2)$
+
+进行初等行变换，最终得到
+
+$$
+\begin{pmatrix}
+1&0&0&22&-21\\
+0&1&0&-5&7\\
+0&0&1&1&-2\\
+0&0&0&0&0\\
+\end{pmatrix}
+$$
+
+容易发现，这个矩阵的秩是 $3$。
+
+因为初等行变换不改变矩阵的秩，所以 $r(A)=3$。
+
+> 44. 设
+>
+> $$
+> A=\begin{pmatrix}1&2&0&0&0\\2&5&0&0&0\\0&0&-2&1&0\\0&0&0&-2&1\\0&0&0&0&-2\\\end{pmatrix}\ B=\begin{pmatrix}1&0&1&0\\-1&2&3&0\\1&2&0&4\\0&1&2&4\\0&0&1&4\\\end{pmatrix}
+> $$
+>
+> 用矩阵分块的方法：$(1)$ 计算 $A^2,AB$；$(2)$ 求 $A^{-1}$。
+
+$A_{1,1}=\begin{pmatrix}1 & 2\\ 2 & 5\\\end{pmatrix},A_{1,2}=(0)_{2\times3},A_{2,1}=(0)_{3\times2},A_{2,2}=\begin{pmatrix}-2 & 1 & 0\\ 0 & -2 & 1\\ 0 & 0 & -2\\\end{pmatrix}$
+
+$B_{1,1}=\begin{pmatrix}1 & 0\\ -1 & 2\\\end{pmatrix},B_{1,2}=\begin{pmatrix}1 & 0\\3 & 0\\\end{pmatrix},B_{2,1}=\begin{pmatrix}1 & 2\\0 & 1\\0 & 0\\\end{pmatrix},B_{2,2}=\begin{pmatrix}0 & 4\\2 & 4\\1 & 4\\\end{pmatrix}$
+
+$(1)$
+
+$A^2=\begin{pmatrix}A_{1,1} & O\\ O & A_{2,2}\\\end{pmatrix}^2=\begin{pmatrix}A_{1,1}^2 & O\\O & A_{2,2}^2\end{pmatrix}=\begin{pmatrix}5 & 12 & 0 & 0 & 0\\12 & 29 & 0 & 0 & 0\\ 0 & 0 & 4 & -4 & 1\\0 & 0 & 0 & 4 & -4\\ 0 & 0 & 0 & 0 & 4\\\end{pmatrix}$
+
+$AB=\begin{pmatrix}A_{1,1} & O\\ O & A_{2,2}\\\end{pmatrix}\begin{pmatrix}B_{1,1} & B_{1,2}\\ B_{2,1} & B_{2,2}\\\end{pmatrix}=\begin{pmatrix}A_{1,1}B_{1,1} & A_{1,1}B_{1,2}\\ A_{2,2}B_{2,1} & A_{2,2}B_{2,2}\\\end{pmatrix}=\begin{pmatrix}-1 & 4 & 7 & 0\\-3 & 10 & 17 & 0\\-2 & -3 & 2 & -4\\0 & -2 & -3 & -4\\ 0 & 0 & -2 & -8\\\end{pmatrix}$
+
+$(2)$
+
+经验证可知 $A_{1,1}^{-1}=\begin{pmatrix}5 & -2\\-2 & 1\\\end{pmatrix},A_{1,2}^{-1}=\begin{pmatrix}-\frac12 & -\frac14 & -\frac18\\0 & -\frac12 & -\frac14\\0 & 0 & -\frac12\end{pmatrix}$。
+
+而 $A$ 是对角块矩阵，$A^{-1}=\begin{pmatrix}A_{1,1}^{-1} & O\\O & A_{2,2}^{-1}\end{pmatrix}=\begin{pmatrix}5 & -2 & 0 & 0 & 0\\-2 & 1 & 0 & 0 & 0\\0 & 0 & -\frac12 & -\frac14 & -\frac18\\0 & 0 & 0 & -\frac12 & -\frac14\\0 & 0 & 0 & 0 & -\frac12\\\end{pmatrix}$
+
+> 53. 已知 $R^3$ 的基 $B_1=\{\alpha_1,\alpha_2,\alpha_3\}$ 和 $B_2=\{\beta_1,\beta_2,\beta_3\}$ 为
+>
+> $$
+> \alpha_1=(1,2,1),\ \alpha_2=(2,3,3),\ \alpha_3=(3,7,1)\\
+> \beta_1=(3,1,4),\ \beta_2=(5,2,1),\ \beta_3=(1,1,-6)\\
+> $$
+>
+> $(1)$ 求 $\gamma=(3,6,2)$ 在基 $B_1$ 下的坐标；
+>
+> $(2)$ 求基 $B_1$ 变为基 $B_2$ 的变换矩阵；
+>
+> $(3)$ 利用变换矩阵，求 $\gamma$ 在基 $B_2$ 下的坐标。
+
+$(1)$
+
+可以发现 $\gamma=-2\alpha_1+\alpha_2+\alpha_3$，所以 $(\gamma)_{B_1}=(-2,1,1)$。
+
+$(2)$
+
+取自然基 $B_3=\{e_1,e_2,e_3\}$。
+
+基 $B_3$ 变换为 $B_1$ 的矩阵为 $P_1=\begin{pmatrix}\alpha_1,\alpha_2,\alpha_3\end{pmatrix}$，同理，基 $B_3$ 变换为 $B_2$ 的矩阵为 $P_2=\begin{pmatrix}\beta_1,\beta_2,\beta_3\end{pmatrix}$。
+
+$(\alpha_1,\alpha_2,\alpha_3)=(e_1,e_2,e_3)P_1,(\beta_1,\beta_2,\beta_3)=(e_1,e_2,e_3)P_2$。
+
+可以得到 $(e_1,e_2,e_3)=(\alpha_1,\alpha_2,\alpha_3)P_1^{-1}$。
+
+代入得 $(\beta_1,\beta_2,\beta_3)=(\alpha_1,\alpha_2,\alpha_3)P_1^{-1}P_2$。
+
+变换矩阵 $P_1^{-1}P_2=\begin{pmatrix}-27 & -71 & -41\\9 & 20 & 9\\4 & 12 & 8\\\end{pmatrix}$
+
+$(3)$
+
+$(\gamma)_{B_2}=(P_1^{-1}P_2)^{-1}(\gamma)_{B_1}=P_2^{-1}P_1\begin{pmatrix}-2\\1\\1\end{pmatrix}=\begin{pmatrix}\dfrac{153}4 & -\dfrac{53}2 & \dfrac{83}4\end{pmatrix}^T$
