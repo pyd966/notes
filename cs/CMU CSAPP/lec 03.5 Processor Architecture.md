@@ -54,3 +54,37 @@ exception handling 就是说，processor 也可能会遇到 runtime-error，比�
 然而即使是我们的简化 exceptions，还是有一些特殊情况需要考虑：如果 pipeline 里有多个 instructions 同时报错该扔出哪个？如果一个 instruction 先报错但是后来由于 prediction 错误被 cancel 了呢？如果有一个 instruction 在 Memory state 报错，但是它后面的那个 instruction 已经在 Execute stage 修改了我们的 state 该怎么还原？
 
 上面是问题，下面先说说怎么搞一个 pipelined processor。
+
+这个看我 lab 写的 record 吧。
+
+现在我的问题是，我可以理解这种设计的合理性。然而，当我想要自己设计一个功能（比如当 JX 指令的结果已知时，直接跳转到正确位置，而非预测）时，我发现往里面添加 reg 或者修改逻辑是一个很复杂的任务。这应该是由于我没有完全理解它的整个结构。
+
+但是我不太想细抠实现细节，所以暂时先这样吧。
+
+## Performance
+
+这里采用 CPI(Clocks Per Instruction) 来衡量 cpu 的性能。
+
+我认为这是不合适的。
+
+这样的指标忽略了我们把一个指令拆成 5stages 带来的速度提升。在最开始的 SEQ 实现当中，CPI=1，而我们的 PIPE CPI>1，但这并不意味着 PIPE 更差。事实上，受益于 5stages，PIPE 的一个 cycle 用时要比 SEQ 短得多，所以 PIPE 的实际运行速度应当更快。
+
+因此，倘若硬件已给定，我们讨论 CPI 是有意义的。但倘若我们仍可随意修改硬件，那么用 CPI 作为衡量指标就不太有参考价值。
+
+## Things ToBeDone
+
+Multicycle Instructions：
+
+目前为止，我们的所有 instruction 都可以在 1 cycle 内解决。然而很多指令实际上需要多 cycle。比如乘除法，比如浮点运算。你当然可以从软件层面实现这个功能，在编译时把一个指令编译成很多个指令。但是 microarchitecture level 也可以做很多事情。
+
+首先添加为这些运算专门设计的硬件。之后有两条路：直接让指令在 Estage 停留它所需要的时间，或者开一条分支出来，让耗时长的指令独立于主线执行，并且把支路再次 pipelined。
+
+The Memory:
+
+我们假设从内存的读写操作都能在 1cycle 内完成，这是十分不现实的。
+
+我们忽略了自修改代码（这有可能导致 load/use hazard）。
+
+有一个很有意思的点：在实际的 processor 中，short duration（如简单的 cache miss）会通过添加更多 stall 的方式被处理；long duration（如数据根本不在 memory 里而是在 disk 中）会抛出一个 page fault exception，然后由 os 来处理这个问题。
+
+这样做是很合理的，因为 page fault 的 cost 极高，相较之下，唤醒 os 带来的额外开销可以忽略不计。
