@@ -95,4 +95,34 @@ CPU 有多个部分，可能负责 Arith,Read,Load 等等，每个部件可能�
 
 此外，这里的更加 elaborate 的 forwarding mechanism 也值得提及。这里采用的技术，被称为 register renaming。一个会修改 reg r 的 operation 在被 decode 之后，会给 r 分配一个别名 t，并记录 pair(r,t)，表示 t 会修改 r。之后再访问 r 的 operation 会分配别名 s，记录 pair(t,s)。当第一个指令执行结束得到结果 v 后，会记录 pair(v,t)，然后使用 t 作为 operand 的就可以开始执行了。
 
-评判 performance 的指标有如下三个：latency, issue time, capacity。latency 指的是一个指令从开始到结束所需的时间；issue time 指的是两个指令开始执行的时间间隔（在 pipeline 中我们已经知道这两个指标反映的并不是同一回事）；capacity 指的是可以执行这个任务的单元个数。
+评判 performance 的指标有如下三个：latency, issue time, capacity。latency 指的是一个指令从开始到结束所需的时间；issue time 指的是两个指令开始执行的时间间隔（在 pipeline 中我们已经知道这两个指标反映的并不是同一回事）；capacity 指的是可以执行这个任务的单元个数。然而最能反映性能的其实是 thourghout(1/issue time) 这一个指标，因为在大量指令存在的情况下，我并不关心 latency，我只关心我能执行单位时间内有多少指令能执行完成。但是，这并不意味着别的指令不重要。latency 反应系统“启动”需要的时间，在 pipeline 需要清空的情境下至关重要，对一些需要得到结果才能执行此后程序的指令而言，latency 也是重要的。
+
+latency bound 说的是程序完全相互依赖，pipeline 完全不生效时的 bound（对 asm 来说，这已经是最差情况了）；throughput bound 说的是程序完全不依赖，在现有硬件资源被最大化利用的条件下的 bound。
+
+下面简单说一下书里讲的这个 data-flow representation。这是一个相当理想化的、用来分析程序循环由 data-dependency 导致的 time bound 的工具。它进行了如下假设：所有 functional unit 的 capacity 都是无限的、编译器足够聪明、所有的 JX 都被正确 pred 只需要进行 check、你的循环次数多到不影响循环主线的操作都可以被忽略不计。
+
+在这样的假设之下，我们把各个指令之间数据依赖和更新的关系画成一个 DAG，然后复制无穷份连到一块，把侧向延伸出去的删掉，这样会得到若干个 chain，在这个 DAG 上，每个节点是一个操作，把操作的 latency 作为点权，计算最长路，就可以得到 critical path，这就是我们程序效率的瓶颈。
+
+这样的分析暗示了，我们可以通过改造程序结构的方式进一步利用 parallelism。
+
+首先，loop unrolling 可以帮助你减少 boundary check，这样可以节省一部分时间。但是这样的优化仍然受到 latency bound 的限制。
+
+为了进一步利用 parallelism，我们可以利用我们要进行的运算的性质，把运算分成两部分分别进行，最后再合并。通过这样的技术，我们可以最大化利用多个 functional unit，从而有可能达到 throughput bound。通过简单的思考，当 $k\ge C*L$ 的时候我们可以达到最好效果。
+
+这种技术有两种实现形式。第一种是，开两个变量，分开存运算得到的两部分结果；另一种是，仍然使用之前那个变量，只是这次在后面加括号改变运算顺序（reassociation transformation）。
+
+两种实现形式没有本质区别，事实上后一种就是把第一种的一部分工作交给编译器来做，所以会更好写一点。
+
+以上的讨论仅使用 latency 和 throughput 作为我们的下界，这样的估计仍然是理想化的，下面讨论更精细的估计。
+
+最大的三个没有考虑到的因素，一个是 reg，一个是 jump，一个是 mem。
+
+reg 的个数并不是无限的，如果你 loop unrolling 太多阶的话，就会导致 reg 不够用，编译器只能把一部分 reg 的值存到 stack 里，这会使效率大打折扣。
+
+jump 需要 prediction，现代 cpu 在这方面已经做得很好了，只要你的 branch 是有一定规律的。对于没有规律的 branch，我们每次要付出清空流水线的沉重代价。为了减少这种情况，可以鼓励编译器使用 conditional move，具体做法是在代码中更多使用三目运算符（？）。
+
+mem 更复杂一点，这里有很多微妙的情况。mem 操作可以分成 load/store 两种，每种 functional unit 都会维护一个自己的 buffer。store 操作被分为两步，先计算出 address，在 store 的 buffer 里新开一个 entry，再计算要存的 value，把 value 也写入同一个 entry。
+
+有一个微妙的 dependency 产生了。如果前面有一个 store 操作，后面一个 load 操作，并且它们恰好访问同一个 address（这需要 store 操作算完 address 之后才能知道），那么后面的这个 load 操作会依赖于计算 value 的操作。
+
+优化大型项目时，找到 bottleneck 是重要的。profiling 技术可以做到这一点，在 Unix 上有一个工具 `gprof` 可以使用。
