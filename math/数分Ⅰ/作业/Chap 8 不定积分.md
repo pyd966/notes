@@ -296,3 +296,146 @@ $$
 $$
 \int\dfrac{dx}{(x-1)(x^2+1)^2}=\dfrac14\ln|x-1|-\dfrac18\ln|x^2+1|-\dfrac12\arctan x+\dfrac{1-x}{4(x^2+1)}+C
 $$
+
+> 2. 求下列不定积分：
+>
+> $(1)\int \dfrac{dx}{5-3\cos x}$
+>
+> $(2)\int\dfrac{dx}{2+\sin^2x}$
+>
+> $(4)\int\dfrac{x^2}{\sqrt{1+x-x^2}}dx$
+>
+> $(6)\int\dfrac1{x^2}\sqrt{\dfrac{1-x}{1+x}}dx$
+
+$(1)$
+
+记 $t=\tan\dfrac x2$，则 $x=2\arctan t,\cos x=\dfrac{1-t^2}{1+t^2}$
+
+所以
+
+$$
+\int\dfrac{dx}{5-3\cos x}=\int\dfrac{1+t^2}{2+8t^2}\cdot(\dfrac2{1+t^2})dt=\int\dfrac{dt}{1+4t^2}=\dfrac12\int\dfrac{d(2t)}{1+(2t)^2}=\dfrac12\arctan(2t)+C
+$$
+
+答案为 $\dfrac12\arctan(2\tan\dfrac x2)+C$
+
+$(2)$
+
+记 $t=\tan x$，则 $x=\arctan t$
+
+$$
+\int\dfrac{dx}{2+\sin^2x}=\int\dfrac{\sin^2x+\cos^2x}{3\sin^2x+2\cos^2x}dx=\int\dfrac{t^2+1}{3t^2+2}\cdot(\dfrac{dt}{t^2+1})=\dfrac{1}{2\sqrt{\frac32}}\int\dfrac{d(\sqrt{\frac32}t)}{(\sqrt{\frac32}t)^2+1}=\dfrac{\sqrt{6}}6\arctan(\dfrac{\sqrt{6}}{2}t)+C
+$$
+
+答案为 $\dfrac{\sqrt{6}}6\arctan(\dfrac{\sqrt6}2\tan x)+C$
+
+$(4)$
+
+$1+x-x^2=-(x-\dfrac12)^2+\dfrac54$，记 $u=x-\dfrac12$。
+
+$$
+\int\dfrac{x^2}{\sqrt{1+x-x^2}}dx=\int\dfrac{(u+\frac12)^2}{\sqrt{\frac54-u^2}}du
+$$
+
+记 $u=\dfrac{\sqrt5}2\sin t$，其中 $t\in(-\dfrac\pi2,\dfrac\pi2)$。
+
+则
+
+$$
+\int\dfrac{(u+\frac12)^2}{\sqrt{\frac54-u^2}}du=\int\dfrac{(\frac{\sqrt5}2\sin t+\frac12)^2}{\frac{\sqrt{5}}2\cos t}d(\dfrac{\sqrt{5}}2\sin t)=\int(\dfrac54\sin^2t+\dfrac{\sqrt5}2\sin t+\dfrac14)dt=-\dfrac5{16}\sin2t-\dfrac{\sqrt{5}}2\cos t+\dfrac78t+C
+$$
+
+答案为 $-\dfrac5{16}\sin(2\arcsin\dfrac{2x-1}{\sqrt{5}})-\dfrac{\sqrt{5}}2\cos(\arcsin\dfrac{2x-1}{\sqrt{5}})+\dfrac78\arcsin\dfrac{2x-1}{\sqrt{5}}+C$
+
+$(6)$
+
+记 $t=\sqrt{\dfrac{1-x}{1+x}}$，则 $x=\dfrac{1-t^2}{1+t^2}$。
+
+$$
+\int\dfrac1{x^2}\sqrt{\dfrac{1-x}{1+x}}dx=\int(\dfrac{1+t^2}{1-t^2})^2t\cdot d(\dfrac{1-t^2}{1+t^2})=-4\int\dfrac{t^2dt}{(1-t^2)^2}
+$$
+
+而
+
+$$
+\int\dfrac{t^2}{(1-t^2)^2}dt=\int\dfrac t2d(\dfrac1{1-t^2})dt=\dfrac{t}{2(1-t^2)}-\int\dfrac{dt}{2(1-t^2)}
+$$
+
+记 $t=\sin u$，则
+
+$$
+\int\dfrac{dt}{2(1-t^2)}=\dfrac12\int\dfrac{\cos udu}{\cos^2u}=\dfrac12\int\sec udu=\dfrac12\ln|\sec u+\tan u|+C=\dfrac12\ln|t+1|-\dfrac14\ln(1-t^2)+C
+$$
+
+所以
+
+$$
+\int\dfrac{t^2}{(1-t^2)^2}dt=\dfrac{t}{2(1-t^2)}-\dfrac12\ln|t+1|+\dfrac14\ln(1-t^2)+C
+$$
+
+答案是 $-\dfrac{\sqrt{1-x^2}}{x}+2\ln|\sqrt{\dfrac{1-x}{1+x}}+1|-\ln(\dfrac{2x}{1+x})+C$
+
+## 第八章总练习题
+
+> 1. 求下列不定积分：
+>
+> $(5)\int e^{\sqrt{x}}dx$
+>
+> $(15)\int\dfrac{x^2}{(1-x)^{100}}dx$
+>
+> $(18)\int\dfrac{dx}{\sqrt{\sin x\cos^7x}}$
+>
+> $(19)\int e^x(\dfrac{1-x}{1+x^2})^2dx$
+
+$(5)$
+
+记 $x=t^2$，则 $t=\sqrt{x}$
+
+$$
+\int e^{\sqrt{x}}dx=\int 2te^tdt=2\int td(e^t)=2(te^t-\int e^tdt)=2(t-1)e^t+C=2(\sqrt{x}-1)e^{\sqrt{x}}+C
+$$
+
+$(15)$
+
+记 $t=1-x$，则 $x=1-t$。
+
+$$
+\int\dfrac{x^2}{(1-x)^{100}}dx=\int\dfrac{(1-t)^2}{t^{100}}d(1-t)=-\int(\dfrac{dt}{t^{100}}-\dfrac{2dt}{t^{99}}+\dfrac{dt}{t^{98}})=\dfrac1{99}t^{-99}-\dfrac1{49}t^{-98}+\dfrac1{97}t^{-97}+C
+$$
+
+答案为 $\dfrac1{99}(1-x)^{-99}-\dfrac1{49}(1-x)^{-98}+\dfrac1{97}(1-x)^{-97}+C$
+
+$(18)$
+
+记 $t=\tan x$，则 $x=\arctan t$。
+
+$$
+\int\dfrac{dx}{\sqrt{\sin x\cos^7x}}=\int\dfrac{(\sin^2x+\cos^2x)^2}{\sqrt{\sin x\cos^7x}}dx=\int\dfrac{(t^2+1)^2}{\sqrt{t}}\cdot(\dfrac{dt}{1+t^2})=\int\dfrac{1+t^2}{\sqrt{t}}dt
+$$
+
+记 $\sqrt{t}=u$，则 $t=u^2$。
+
+$$
+\int\dfrac{1+t^2}{\sqrt{t}}dt=\int\dfrac{u^4+1}{u}\cdot(2udu)=2\int(u^4+1)du=\dfrac25u^5+2u+C
+$$
+
+答案为 $\dfrac25 \tan^{\frac52}x+2\tan^{\frac12}x+C$。
+
+$(19)$
+
+$$
+\int e^x\dfrac{(1-x)^2}{(1+x^2)^2}dx=\int\dfrac{e^xdx}{1+x^2}-\int\dfrac{2xe^xdx}{(1+x^2)^2}
+$$
+
+而
+
+$$
+\int\dfrac{e^xdx}{1+x^2}=\int\dfrac{d(e^x)}{1+x^2}=\dfrac{e^x}{1+x^2}+\int\dfrac{2xe^x}{(1+x^2)^2}
+$$
+
+所以
+
+$$
+\int e^x\dfrac{(1-x)^2}{(1+x^2)^2}dx=\dfrac{e^x}{1+x^2}+C
+$$
+
