@@ -116,3 +116,85 @@ $$
 从而 $\int_a^bF(x)dx=0$。
 
 进而 $\int_a^bg(x)dx=\int_a^bf(x)dx-\int_a^bF(x)dx=\int_a^bf(x)dx$。
+
+## 习题 9.4
+
+> 2. 不求出定积分的值，比较下列各对定积分的大小：
+>
+> $(1)\int_0^1 xdx$ 与 $\int_0^1x^2dx$。
+
+$(1)$
+
+当 $0\le x\le1$ 时，$x^2\le x$。
+
+所以 $\int_0^1xdx\ge\int_0^1x^2dx$。
+
+> 3. 证明下列不等式：
+>
+> $(1)\dfrac\pi2<\int_0^{\frac\pi2}\dfrac{dx}{\sqrt{1-\frac12\sin^2x}}<\dfrac{\pi}{\sqrt2}$
+>
+> $(4)3\sqrt{e}<\int_e^{4e}\dfrac{\ln x}{\sqrt{x}}dx<6$
+
+$(1)$
+
+$$
+\dfrac1{\sqrt{1-\frac12\sin^2x}}=\dfrac1{\sqrt{\frac{3+\cos2x}4}}\in[1,\sqrt2]
+$$
+
+同时积分，得到
+
+$$
+\dfrac\pi2<\int_0^{\frac\pi2}\dfrac{dx}{\sqrt{1-\frac12\sin^2x}}<\dfrac\pi{\sqrt{2}}
+$$
+
+$(4)$
+
+记 $f(x)=\dfrac{\ln x}{\sqrt x}$，则 $f'(x)=\dfrac{\sqrt{x}(2-\ln x)}{2x^2}$。
+
+当 $x\in(e,e^2)$ 时，$f'(x)>0$；当 $x\in(e^2,4e)$ 时，$f'(x)<0$。
+
+所以 $\min\limits_{x\in[e,4e]}f(x)=\min\{f(e),f(4e)\}=\dfrac1{\sqrt e}$，$\max\limits_{x\in[e,4e]}f(x)=f(e^2)=\dfrac2e$。
+
+所以 $\dfrac1{\sqrt e}\le\dfrac{\ln x}{\sqrt{x}}\le\dfrac2e$。
+
+同时积分，得
+
+$$
+3\sqrt e\le\int_e^{4e}\dfrac{\ln x}{\sqrt x}dx\le 6
+$$
+
+容易发现等号是取不到的，原不等式成立。
+
+> 6. 试求心形线 $r=a(1+\cos\theta),0\le\theta\le2\pi$ 上各点极径的平均值。
+
+即求 $\dfrac1{2\pi}\int_0^{2\pi}a(1+\cos\theta)d\theta=\dfrac a{2\pi}\left.(\theta+\sin\theta)\right|_0^{2\pi}=a$
+
+> 11. 证明：
+>
+> $(1)\ln(1+n)<1+\dfrac12+\dots+\dfrac1n<1+\ln n$
+>
+> $(2)\lim\limits_{n\to\infty}\dfrac{1+\frac12+\dots+\frac1n}{\ln n}=1$
+
+$(1)$
+
+$(1+\dfrac1{n+1})^n<e<(1+\dfrac1n)^{n+1}$
+
+所以，$n\ln(1+\dfrac1{n+1})<1<(n+1)\ln(1+\dfrac1n)$。
+
+所以，$\ln(1+\dfrac1{n+1})<\dfrac1n<\ln(1+\dfrac1{n-1})$
+
+上式求和，即得
+
+$$
+\ln(1+n)<1+\dfrac12+\dots+\dfrac1n<1+\ln n
+$$
+
+$(2)$
+
+变形得
+
+$$
+\dfrac{\ln n+\ln(1+\frac1n)}{\ln n}=\dfrac{\ln(1+n)}{\ln n}<\dfrac{1+\frac12+\dots+\frac1n}{\ln n}<\dfrac{1+\ln n}{\ln n}
+$$
+
+同时取极限 $n\to\infty$，由夹逼定理得 $\lim\limits_{n\to\infty}\dfrac{1+\frac12+\dots+\frac1n}{\ln n}=1$
