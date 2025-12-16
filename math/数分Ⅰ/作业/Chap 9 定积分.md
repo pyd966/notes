@@ -198,3 +198,175 @@ $$
 $$
 
 同时取极限 $n\to\infty$，由夹逼定理得 $\lim\limits_{n\to\infty}\dfrac{1+\frac12+\dots+\frac1n}{\ln n}=1$
+
+## 习题 9.5
+
+> 1. 设 $f$ 为连续函数，$u,v$ 均为可导函数，且可实行复合 $f\circ u$ 与 $f\circ v$。证明：
+>
+> $$
+> \dfrac{d}{dx}\int_{u(x)}^{v(x)}f(t)dt=f(v(x))v'(x)-f(u(x))u'(x)
+> $$
+
+任取在 $f$ 定义域内的一常数 $a$。记 $f(x)$ 的一个原函数是 $F(x)$。
+
+$$
+\int_{u(x)}^{v(x)}f(t)dt=\int_{u(x)}^af(t)dt+\int_a^{v(x)}f(t)dt
+$$
+
+两边同时对 $x$ 求导。
+
+$$
+\begin{aligned}
+\dfrac{d}{dx}\int_{u(x)}^{v(x)}f(t)dt&=\dfrac{d}{dx}\int_{u(x)}^af(t)dt+\dfrac{d}{dx}\int_a^{v(x)}f(t)dt\\
+&=-\dfrac{d}{dx}\int_a^{u(x)}f(t)dt+\dfrac{d}{dx}\int_a^{v(x)}f(t)dt\\
+&=-\dfrac{d}{dx}F(u(x))+\dfrac{d}{dx}F(v(x))\\
+&=f(v(x))v'(x)-f(u(x))u'(x)
+\end{aligned}
+$$
+
+> 3. 求下列极限：
+>
+> $(1)\lim\limits_{x\to0}\dfrac1x\int_0^x\cos t^2dt$
+>
+> $(2)\lim\limits_{x\to\infty}\dfrac{(\int_0^xe^{t^2}dt)^2}{\int_0^xe^{2t^2}dt}$
+
+$(1)$
+
+记 $\cos x^2$ 的原函数是 $F(x)$，容易发现极限为 $\dfrac00$ 型。
+
+$$
+\begin{aligned}
+\lim_{x\to0}\dfrac{F(x)}{x}&=\lim_{x\to0}F'(x)\\
+&=\lim_{x\to0}\cos x^2\\
+&=1
+\end{aligned}
+$$
+
+$(2)$
+
+记 $e^{x^2}$ 的原函数为 $F(x)$，$e^{2x^2}$ 的原函数为 $G(x)$。
+
+容易发现极限为 $\dfrac{\infty}{\infty}$ 型。
+
+$$
+\begin{aligned}
+\lim_{x\to\infty}\dfrac{F^2(x)}{G(x)}&=\lim_{x\to\infty}\dfrac{2F(x)F'(x)}{G'(x)}\\
+&=\lim_{x\to\infty}\dfrac{2(\int_0^xe^{t^2}dt)\cdot e^{x^2}}{e^{2x^2}}\\
+&=\lim_{x\to\infty}\dfrac{2F(x)}{e^{x^2}}\\
+&=\lim_{x\to\infty}\dfrac{2F'(x)}{2xe^{x^2}}\\
+&=\lim_{x\to\infty}\dfrac1x\\
+&=0
+\end{aligned}
+$$
+
+> 4. 计算下列定积分：
+>
+> $(1)\int_0^{\frac\pi2}\cos^5x\sin2xdx$
+>
+> $(3)\int_0^ax^2\sqrt{a^2-x^2}dx$ $(a>0)$
+>
+> $(5)\int_0^1\dfrac{dx}{e^x+e^{-x}}$
+>
+> $(6)\int_0^{\frac\pi2}\dfrac{\cos x}{1+\sin^2x}dx$
+
+$(1)$
+
+$$
+\begin{aligned}
+\int_0^{\frac\pi2}\cos^5x\sin2xdx&=\int_0^{\frac\pi2}2\sin x\cos^6xdx\\
+&=-2\int_0^{\frac\pi2}\cos^6xd(\cos x)\\
+&\xlongequal{t=\cos x}-2\int_1^0t^6dt\\
+&=\dfrac27
+\end{aligned}
+$$
+
+$(3)$
+
+记 $x=a\sin t$，则
+
+$$
+\begin{aligned}
+\int_0^ax^2\sqrt{a^2-x^2}dx&=\int_0^{\frac\pi2}a^4\sin^2t\cos^2tdt\\
+&=\int_0^{\frac\pi2}\dfrac{a^4(1-\cos4t)dt}8\\
+&=\dfrac{a^4}8\left.(t-\dfrac14\sin4t)\right|_0^\frac\pi2\\
+&=\dfrac{\pi a^4}{16}
+\end{aligned}
+$$
+
+$(5)$
+
+记 $t=e^x$，则 $x=\ln t$。
+
+$$
+\int_0^1\dfrac{dx}{e^x+e^{-x}}=\int_1^e\dfrac{dt}{1+t^2}=\arctan e-\dfrac\pi4
+$$
+
+$(6)$
+
+记 $t=\sin x$
+
+$$
+\int_0^{\frac\pi2}\dfrac{\cos x}{1+\sin^2x}dx=\int_0^{\frac\pi2}\dfrac{d(\sin x)}{1+\sin^2x}=\int_0^{1}\dfrac{dt}{1+t^2}=\dfrac\pi4
+$$
+
+> 7. 设 $f$ 为连续函数。证明：
+>
+> $(2)\int_0^\pi xf(\sin x)dx=\dfrac\pi2\int_0^\pi f(\sin x)dx$
+
+$(2)$
+
+记 $xf(\sin x)$ 的原函数为 $F(x)$，记 $t=\sin x$，记 $u=\pi-x$。
+
+则 $F'(x)=xf(\sin x)$，所以 $F'(x)+F'(\pi-x)=\pi f(x)$。
+
+两边同时积分得
+
+$$
+\int_0^{\frac\pi2}F'(x)dx+F'(\pi-x)dx=\pi\int_0^{\frac\pi2}f(x)dx
+$$
+
+也即
+
+$$
+\begin{aligned}
+\dfrac\pi2\int_0^\pi f(\sin x)dx&=\dfrac\pi2(\int_0^{\frac\pi2}f(\sin x)dx+\int_{\frac\pi2}^{\pi}f(\sin x)dx)\\
+&=\dfrac\pi2(\int_0^1f(t)d(\arcsin t)+\int_1^0f(t)d(\pi-\arcsin t))\\
+&=\pi\int_0^1f(t)d(\arcsin t)\\
+&=\pi\int_0^{\frac\pi2}f(\sin x)dx\\
+&=\int_0^{\frac\pi2}F'(x)dx+F'(\pi-x)dx\\
+&=\int_0^{\frac\pi2}F'(x)dx+\int_\pi^{\frac\pi2}F'(u)d(\pi-u)\\
+&=\int_0^{\frac\pi2}F'(x)dx+\int_{\frac\pi2}^\pi F'(u)du\\
+&=\int_0^{\pi}F'(x)dx\\
+&=\int_0^\pi xf(\sin x)dx
+\end{aligned}
+$$
+
+> 10. 设 $f$ 为连续可微函数，试求
+>
+> $$
+> \dfrac{d}{dx}\int_a^x(x-t)f'(t)dt
+> $$
+>
+> 并用此结果求 $\dfrac{d}{dx}\int_0^x(x-t)\sin tdt$。
+
+记 $F(x)=\int_a^x(x-t)f'(t)dt$。
+
+则
+
+$$
+F(x)=\int_a^xxf'(t)dt-\int_a^xtf'(t)dt=x\int_a^xf'(t)dt-\int_a^xtf'(t)dt
+$$
+
+记 $xf'(x)$ 的原函数为 $G(x)$。
+
+则
+
+$$
+\dfrac{d}{dx}F(x)=\int_a^xf'(t)dt+xf'(x)-xf'(x)=f(x)-f(a)
+$$
+
+在上式中取 $f(t)=-\cos t,a=0$，我们知道
+
+$$
+\dfrac{d}{dx}\int_0^x(x-t)\sin tdt=\dfrac{d}{dx}\int_a^x(x-t)f'(t)dt=f(x)-f(a)=1-\cos x
+$$
