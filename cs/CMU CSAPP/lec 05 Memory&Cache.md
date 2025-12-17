@@ -142,3 +142,10 @@ no-write-allocate 就是说 miss 时我直接改这个地址存在的那个层�
 在现代 cpu 中，每个 core 有自己独享的 L1 d-cache, L1 i-cache, L2 unified cache；所有 core 共享 L3 unified cache。这所有的 cache 都在 cpu chip 上。
 
 ![[Pasted image 20251215200920.png]]
+
+# Summary
+
+## Memory Mountain
+
+为什么说改变 size 就是在改变 temporal locality？
+
