@@ -268,6 +268,16 @@ $$
 > $(5)\int_0^1\dfrac{dx}{e^x+e^{-x}}$
 >
 > $(6)\int_0^{\frac\pi2}\dfrac{\cos x}{1+\sin^2x}dx$
+>
+> $(7)\int_0^1\arcsin xdx$
+>
+> $(9)\int_{\frac1e}^e|\ln x|dx$
+>
+> $(10)\int_0^1 e^{\sqrt x}dx$
+>
+> $(11)\int_0^a x^2\sqrt{\dfrac{a-x}{a+x}}dx(a>0)$
+>
+> $(12)\int_0^{\frac\pi2}\dfrac{\cos\theta}{\sin\theta+\cos\theta}d\theta$
 
 $(1)$
 
@@ -307,6 +317,77 @@ $(6)$
 
 $$
 \int_0^{\frac\pi2}\dfrac{\cos x}{1+\sin^2x}dx=\int_0^{\frac\pi2}\dfrac{d(\sin x)}{1+\sin^2x}=\int_0^{1}\dfrac{dt}{1+t^2}=\dfrac\pi4
+$$
+
+$(7)$
+
+记 $x=\sin t$，则 $t=\arcsin x$。
+
+$$
+\int_0^1\arcsin xdx=\int_0^{\frac\pi2}td(\sin t)=\left.t\sin t\right|_0^{\frac\pi2}-\int_0^{\frac\pi2}\sin tdt=\dfrac\pi2-1
+$$
+
+$(9)$
+
+记 $x=e^t$，则 $t=\ln x$。
+
+$$
+\int_{\frac1e}^e|\ln x|dx=\int_{-1}^1|t|d(e^t)=\int_0^1td(e^t)-\int_{-1}^0td(e^t)=(\left.te^t\right|_0^1-\int_0^1e^tdt)-(\left.te^t\right|_{-1}^0-\int_{-1}^0e^tdt)=2-\dfrac2e
+$$
+
+$(10)$
+
+记 $t=\sqrt{x}$，则 $x=t^2$。
+
+$$
+\int_0^1e^{\sqrt x}dx=\int_0^12te^tdt=2\int_0^1td(e^t)=2(\left.te^t\right|_0^1-\int_0^1e^tdt)=2
+$$
+
+$(11)$
+
+记 $x=a\sin t$，则
+
+$$
+\begin{aligned}
+\int_0^ax^2\sqrt{\dfrac{a-x}{a+x}}dx&=\int_0^{\frac\pi2}a^2\sin^2t\sqrt{\dfrac{1-\sin t}{1+\sin t}}\cdot a\cos tdt\\
+&=a^3\int_0^{\frac\pi2}\sin^2t\sqrt{\dfrac{(1-\sin t)^2}{1-\sin^2t}}\cos tdt\\
+&=a^3\int_0^{\frac\pi2}\sin^2t(1-\sin t)dt\\
+&=a^3\int_0^{\frac\pi2}(\sin^2t-\sin^3t)dt
+\end{aligned}
+$$
+
+而
+
+$$
+\int_0^{\frac\pi2}\sin^2tdt=\int_0^{\frac\pi2}\dfrac{1-\cos2t}{2}dt=\left.(\dfrac{2t-\sin2t}4)\right|_0^{\frac\pi2}=\dfrac\pi4
+$$
+
+$$
+\int_0^{\frac\pi2}\sin^3tdt=\int_0^{\frac\pi2}(1-\cos^2t)d(-\cos t)=-\int_1^0(1-u^2)du=\left.(u-\dfrac13u^3)\right|_0^1=\dfrac23
+$$
+
+所以
+
+$$
+\int_0^ax^2\sqrt{\dfrac{a-x}{a+x}}dx=a^3\int_0^{\frac\pi2}(\sin^2t-\sin^3t)dt=\dfrac{3\pi-8}{12}a^3
+$$
+
+$(12)$
+
+记 $\alpha=\dfrac\pi2-\theta$，则
+
+$$
+\int_0^{\frac\pi2}\dfrac{\sin\theta}{\sin\theta+\cos\theta}d\theta=-\int_{\frac\pi2}^0\dfrac{\cos\alpha}{\cos\alpha+\sin\alpha}d\alpha=\int_0^{\frac\pi2}\dfrac{\cos\alpha}{\cos\alpha+\sin\alpha}d\alpha
+$$
+
+$$
+\int_0^{\frac\pi2}(\dfrac{\sin\theta}{\sin\theta+\cos\theta}+\dfrac{\cos\theta}{\sin\theta+\cos\theta})d\theta=\int_0^{\frac\pi2}d\theta=\dfrac\pi2
+$$
+
+所以
+
+$$
+\int_0^{\frac\pi2}\dfrac{\sin\theta}{\sin\theta+\cos\theta}d\theta=\dfrac\pi4
 $$
 
 > 7. 设 $f$ 为连续函数。证明：
@@ -369,4 +450,48 @@ $$
 
 $$
 \dfrac{d}{dx}\int_0^x(x-t)\sin tdt=\dfrac{d}{dx}\int_a^x(x-t)f'(t)dt=f(x)-f(a)=1-\cos x
+$$
+
+## 第九章总练习题
+
+> 1. 证明：若 $\varphi$ 在 $[a,b]$ 上连续，$f$ 二阶可导，且 $f''(x)\ge 0$，则有
+>
+> $$
+> \dfrac1{b-a}\int_a^b f(\varphi(t))dt\ge f(\dfrac1{b-a}\int_a^b\varphi(t)dt)
+> $$
+
+记 $\dfrac1{b-a}\int_a^bf(\varphi(t))dt=A,\dfrac1{b-a}\int_a^b\varphi(t)dt=B$。
+
+$\forall\epsilon>0,\exist\delta_1$，使得对于任何分割 $T$ 和介点组 $\{\xi_i\}$，只要 $||T||<\delta_1$ 就有 $|\sum\limits_{i=1}^nf(\varphi(\xi_i))\Delta t_i-A|<\epsilon$。
+
+已知 $f$ 为下凸函数，由 Jensen 不等式知，$\sum\limits_{i=1}^nf(\varphi(\xi_i))\cdot\dfrac{\Delta t_i}{b-a}\ge f(\dfrac1{b-a}\sum\limits_{i=1}^n\varphi(\xi_i)\Delta t_i)$。
+
+同理，对于同一个 $\epsilon$，$\exist\delta_2$，使得对于任何分割 $T$ 和介点组 $\{\xi_i\}$，只要 $||T||<\delta_2$ 就有 $|\dfrac1{b-a}\sum\limits_{i=1}^n\varphi(\xi_i)\Delta t_i-B|<\epsilon$。
+
+综上，我们有
+
+$$
+A>\sum_{i=1}^nf(\varphi(\xi_i))\Delta t_i-\epsilon\ge f(\dfrac1{b-a}\sum_{i=1}^n\varphi(\xi_i)\Delta t_i)-\epsilon>f(B)-2\epsilon
+$$
+
+也就是说 $A+2\epsilon>f(B)$，所以有 $A\ge f(B)$。
+
+> 2. 利用上题的结论证明：若 $f$ 在 $[a,b]$ 上连续，且 $f(x)>0$，则
+>
+> $$
+> \ln(\dfrac1{b-a}\int_a^b f(x)dx)\ge\dfrac1{b-a}\ln f(x)dx
+> $$
+
+取 $g(x)=-\ln x$，则 $g''(x)=\dfrac1{x^2}\ge0$，满足上题条件。
+
+由上题可知，
+
+$$
+\dfrac1{b-a}\int_a^b(-\ln f(x)dx)\ge-\ln(\dfrac1{b-a}\int_a^bf(x)dx)
+$$
+
+所以
+
+$$
+\ln(\dfrac1{b-a}\int_a^bf(x)dx)\ge\dfrac1{b-a}\int_a^b\ln f(x)dx
 $$
