@@ -12,7 +12,9 @@
 
 > 6. 求三叶形曲线 $r=a\sin3\theta(a>0)$ 所围图形的面积。
 
-所求面积 $S=\dfrac12\int_0^{2\pi}r^2d\theta=\dfrac{a^2}2\int_0^{2\pi}\sin^23\theta d\theta=\dfrac{a^2}2\int_0^{2\pi}\dfrac{1-\cos6\theta}2d\theta=\dfrac{\pi a}4$
+在 $[0,2\pi]$ 中，当 $r\ge0$ 时，$\theta\in[0,\dfrac\pi3]\cup[\dfrac{2\pi}3,\pi]\cup[\dfrac{4\pi}3,\dfrac{5\pi}3]$。
+
+由对称性，所求面积 $S=\dfrac32\int_0^{\frac\pi3}r^2d\theta=\dfrac{3a^2}2\int_0^{\frac\pi3}\sin^23\theta d\theta=\dfrac{3a^2}2\int_0^{\frac\pi3}\dfrac{1-\cos6\theta}2d\theta=\dfrac{\pi a^2}4$
 
 ## 习题 10.3
 
