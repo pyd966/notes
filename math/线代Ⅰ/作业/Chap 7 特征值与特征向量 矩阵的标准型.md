@@ -148,3 +148,89 @@ $2+1=3$，所以 $A$ 可以对角化。
 所以 $P^{-1}A^kP=(P^{-1}AP)^k=\text{diag}(1,1,-2)^k=\text{diag}(1^k,1^k,(-2)^k)$
 
 所以 $A^k=P\text{diag}(1,1,(-2)^k)P^{-1}=\begin{pmatrix}\dfrac{2+(-2)^k}3 & \dfrac{-1+(-2)^k}3 & \dfrac{-1+(-2)^k}3\\ \dfrac{-1+(-2)^k}3 & \dfrac{2+(-2)^k}3 & \dfrac{-1+(-2)^k}3\\ \dfrac{-1+(-2)^k}3 & \dfrac{-1+(-2)^k}3 & \dfrac{2+(-2)^k}3\end{pmatrix}$
+
+> 37. 用配方法将下列二次型 $X^TAX$ 化为标准型，并给出坐标变换 $X=CY$ 的变换矩阵 $C$。
+>
+> $(4)A=\begin{pmatrix}1 & 3 & -2 & 0\\ 3 & 7 & 0 & -2\\ -2 & 0 & -4 & -4\\ 0 & -2 & -4 & -1\\\end{pmatrix}$
+
+$(4)$
+
+$$
+\begin{aligned}
+f(X)=X^TAX&=x_1^2+7x_2^2-4x_3^2-x_4^2+6x_1x_2-4x_1x_3-4x_2x_4-8x_3x_4\\
+&=(x_1+3x_2-2x_3)^2-2x_2^2-8x_3^2-x_4^2-4x_2x_4+12x_2x_3-8x_3x_4\\
+&=(x_1+3x_2-2x_3)^2-2(x_2-3x_3+x_4)^2+10x_3^2-20x_3x_4+x_4^2\\
+&=(x_1+3x_2-2x_3)^2-2(x_2-3x_3+x_4)^2+10(x_3-x_4)^2-9x_4^2\\
+\end{aligned}
+$$
+
+记 
+
+$$
+\begin{pmatrix}y_1\\ y_2\\ y_3\\ y_4\end{pmatrix}=\begin{pmatrix}1 & 0 & 0 & 0\\ 3 & 1 & 0 & 0\\ -2 & -3 & 1 & 0\\ 0 & 1 & -1 & 1\\\end{pmatrix}\begin{pmatrix}x_1\\ x_2\\ x_3\\ x_4\\\end{pmatrix}
+$$
+
+所以
+
+$$
+X=\begin{pmatrix}1 & 0 & 0 & 0\\ 3 & 1 & 0 & 0\\ -2 & -3 & 1 & 0\\ 0 & 1 & -1 & 1\\\end{pmatrix}^{-1}Y=\begin{pmatrix}1 & 0 & 0 & 0\\ -3 & 1 & 0 & 0\\ -7 & 3 & 1 & 0\\ -4 & 2 & 1 & 1\\\end{pmatrix}Y
+$$
+
+> 43. 求下列二次型中的参数 $t$，使二次型正定：
+>
+> $(1)5x_1^2+x_2^2+tx_3^2+4x_1x_2-2x_1x_3-2x_2x_3$
+>
+> $(2)x_1^2+x_2^2+3x_3^2+2tx_1x_2+2x_1x_3$
+
+$(1)$
+
+对应的矩阵 $A=\begin{pmatrix}5 & 2 & -1\\ 2 & 1 & -1\\ -1 & -1 & t\\\end{pmatrix}$。
+
+为了使二次型正定，需要三个顺序主子式为正。
+
+$$
+S_1=\begin{vmatrix}5\end{vmatrix}=5\\
+S_2=\begin{vmatrix}5 & 2\\ 2 & 1\end{vmatrix}=1\\
+S_3=\begin{vmatrix}5 & 2 & -1\\ 2 & 1 & -1\\ -1 & -1 & t\\\end{vmatrix}=2-t\\
+$$
+
+令 $S_3>0$，解得 $t<2$。
+
+$(2)$
+
+对应的矩阵 $A=\begin{pmatrix}1 & t & 1\\ t & 1 & 0\\ 1 & 0 & 3\\\end{pmatrix}$。
+
+$$
+S_1=\begin{vmatrix}1\end{vmatrix}=1\\
+S_2=\begin{vmatrix}1 & t\\ t & 1\\\end{vmatrix}=1-t^2\\
+S_3=\begin{vmatrix}1 & t & 1\\ t & 1 & 0\\ 1 & 0 & 3\\\end{vmatrix}=2-3t^2\\
+$$
+
+令 $S_2,S_3>0$，得 $t\in(-\dfrac{\sqrt6}3,\dfrac{\sqrt6}3)$
+
+> 48. 设 $A,B$ 皆是 $n$ 阶正定矩阵；$k,l$ 都是正数，用定义证明 $kA+tB$ 也是正定矩阵。
+
+$\forall X\neq0$，
+
+$$
+X^T(kA+tB)X=kX^TAX+tX^TBX>0
+$$
+
+所以 $kA+tB$ 也是正定矩阵。
+
+> 53. 设 $A$ 是 $n$ 阶正定矩阵，$X=(x_1,x_2,\dots,x_n)^T$，证明：
+>
+> $$
+> f(x)=\det\begin{pmatrix}0 & X^T\\ X & A\\ \end{pmatrix}
+> $$
+>
+> 是一个负定二次型。
+
+$$
+f(x)=\det\begin{pmatrix}0 & X^T\\ X & A\\\end{pmatrix}=\det A\det(-XA^{-1}X^T)=-(\det A)(XA^{-1}X^T)
+$$
+
+因为 $A$ 是正定矩阵，所以 $A^{-1}$ 也是正定矩阵。
+
+$\forall X\neq0$，$XA^{-1}X^T>0$，所以 $f(x)<0$。
+
