@@ -16,6 +16,36 @@
 
 由对称性，所求面积 $S=\dfrac32\int_0^{\frac\pi3}r^2d\theta=\dfrac{3a^2}2\int_0^{\frac\pi3}\sin^23\theta d\theta=\dfrac{3a^2}2\int_0^{\frac\pi3}\dfrac{1-\cos6\theta}2d\theta=\dfrac{\pi a^2}4$
 
+## 习题 10.2
+
+> 2. 求下列平面曲线绕轴旋转所围成立体的体积：
+>
+> $(1)y=\sin x,0\le x\le\pi$，绕 $x$ 轴；
+>
+> $(2)x=a(t-\sin t),y=a(1-\cos t)(a>0),0\le t\le2\pi$，绕 $x$ 轴；
+>
+> $(3)\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}=1$，绕 $y$ 轴。
+
+$(1)$
+
+$$
+V=\pi\int_0^\pi\sin^2xdx=\pi\int_0^\pi\dfrac{1-\cos2x}2dx=\dfrac{\pi^2}2
+$$
+
+$(2)$
+
+$$
+V=\pi\int_0^{2\pi}y^2x'dt=a^3\pi\int_0^{2\pi}(1-\cos t)^3dt=a^3\pi\int_0^{2\pi}(\dfrac52-\dfrac{15}4\cos t+\dfrac32\cos2t-\dfrac14\cos3t)dt=5a^3\pi^2
+$$
+
+$(3)$
+
+$x=a\cos t,y=b\sin t,t\in[-\dfrac\pi2,\dfrac\pi2]$
+
+$$
+V=\pi\int_{-\frac\pi2}^{\frac\pi2}x^2y'dt=a^2b\pi\int_{-\frac\pi2}^{\frac\pi2}\cos^3tdt=a^2b\pi\int_{-\frac\pi2}^{\frac\pi2}(\dfrac34\cos t+\dfrac14\cos3t)dt=\dfrac{4a^2b\pi}3
+$$
+
 ## 习题 10.3
 
 > 1. 求下列曲线的弧长：

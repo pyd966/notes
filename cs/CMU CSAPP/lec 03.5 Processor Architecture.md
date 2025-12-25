@@ -49,7 +49,7 @@ exception handling 就是说，processor 也可能会遇到 runtime-error，比�
 
 最后，两个 stage 之间我们要插入一个 clocked reg 来控制流程，但是 reg 的读写也是需要时间的，并且这个会成为瓶颈。
 
-除此以外，processor 还要考虑 exceptions。这可以分为两类。对于 internal exception，我们的 processor 需要处理 halt，非法指令，非法读写内存这几种清苦那个。对于 external exception，我们不用管，但是现实中会有用户点击鼠标、网络接到输入等等事件发生。
+除此以外，processor 还要考虑 exceptions。这可以分为两类。对于 internal exception，我们的 processor 需要处理 halt，非法指令，非法读写内存这几种情况。对于 external exception，我们不用管，但是现实中会有用户点击鼠标、网络接到输入等等事件发生。
 
 然而即使是我们的简化 exceptions，还是有一些特殊情况需要考虑：如果 pipeline 里有多个 instructions 同时报错该扔出哪个？如果一个 instruction 先报错但是后来由于 prediction 错误被 cancel 了呢？如果有一个 instruction 在 Memory state 报错，但是它后面的那个 instruction 已经在 Execute stage 修改了我们的 state 该怎么还原？
 
