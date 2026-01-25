@@ -15,5 +15,5 @@ $$
 $(3)$
 
 $$
-\int_0^{+\infty}\dfrac1{\sqrt{e^x}}dx=\lim_{u\to+\infty}\int_0^u\dfrac{dx}{\sqrt{e^x}}=\lim_{u\to\infty}(-2e^{-\frac u2}+2)=2
+\int_0^{+\infty}\dfrac1{\sqrt{e^x}}dx=\lim_{u\to+\infty}\int_0^u\dfrac{dx}{\sqrt{e^x}}=\lim_{u\to+\infty}(-2e^{-\frac u2}+2)=2
 $$
