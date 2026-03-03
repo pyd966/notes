@@ -118,3 +118,91 @@ $b)$
 不是，因为这个断言不能判断真假。
 
 如果该断言为真，那么由断言本身，该断言为假；如果该断言为假，那么由断言本身，该断言为真。
+
+## Section 1.2
+
+> 4. 要想使用机场的无线网络，你必须支付每日的使用费，除非你是该服务的一个订户。用 $w:$“你能使用机场的无线网络”，$d:$“你支付每日的使用费”和 $r:$“你是该服务的一个订户”来表达你的答案。
+
+$w\rightarrow(d\lor r)$
+
+> 10. 下列系统规范说明一致吗？“每当对系统软件进行升级时，用户不能访问文件系统。如果用户能访问文件系统，那么他们能保存新文件。如果用户不能保存新文件，那么系统软件未被升级。”
+
+$p:$ 系统软件进行升级
+
+$q:$ 用户可以访问文件系统
+
+$r:$ 用户可以保存新文件
+
+$p\rightarrow\neg q$， $q\rightarrow r$， $\neg r\rightarrow\neg p$
+
+只要取 $p,q,r$ 分别为 TFT 即可验证该系统规范说明一致。
+
+> 22. 当你规划一个聚会时需要知道该邀请什么人。在你可能邀请的人中有三个棘手的朋友。你知道如果 Jasmine 参加，她对 Samir 在场会感到不快；Samir 仅当 Kanti 到场才会出席；而 Kanti 不会出席除非 Jasmine 也在场。你如何邀请三人的组合而不使某人不愉快。
+
+记 $p,q,r$ 分别表示邀请 Jasmine, Samir, Kanti。
+
+则 $p\rightarrow\neg q,q\rightarrow r,r\rightarrow p$。
+
+若 $q$ 为 T，则 $r,p$ 均为 T，这导出 $q$ 为 F 矛盾。
+
+故 $q$ 为 F，若 $r$ 为 T，则 $p$ 为 T；若 $r$ 为 F，则 $p$ 均可。
+
+故邀请的组合可以是 TFT, FFF, TFF。
+
+## Section 1.3
+
+> 6. 用真值表证明德·摩根第一定律。
+>
+> $\neg(p\land q)\equiv\neg p\lor\neg q$。
+
+|$p$|$q$|$\neg p$|$\neg q$|$p\land q$|$\neg(p\land q)$|$\neg p\lor\neg q$|
+|--|--|--|--|--|--|--|
+|F|F|T|T|F|T|T|
+|F|T|T|F|F|T|T|
+|T|F|F|T|F|T|T|
+|T|T|F|F|T|F|F|
+
+> 8. 用德·摩根律求下列命题的否定。
+>
+> $a)$ Kwame 将在工业界找一份工作或者去研究生院读书。
+>
+> $b)$ Yoshiko 掌握 Java 和微积分。
+
+$a)$ Kwame 既没有在工业界找到一份工作，也没有去研究生院读书。
+
+$b)$ Yoshiko 没有掌握 Java，或者没有掌握微积分。
+
+> 10. 对于下面的每一个复合命题，用条件-析取式（例 3）找出不含条件的等价复合命题。
+>
+> $a)$ $\neg p\rightarrow\neg q$
+>
+> $b)$ $(p\lor q)\rightarrow\neg p$
+>
+> $c)$ $(p\rightarrow\neg q)\rightarrow(\neg p\rightarrow q)$
+
+$a)$
+
+$\neg p\rightarrow\neg q\equiv \neg(\neg p)\lor\neg q\equiv p\lor\neg q$
+
+$b)$
+
+$(p\lor q)\rightarrow\neg p\equiv\neg(p\lor q)\lor\neg p\equiv(\neg p\land\neg q)\lor\neg p\equiv\neg p$
+
+$c)$
+
+$(p\rightarrow\neg q)\rightarrow(\neg p\rightarrow q)\equiv(\neg p\lor\neg q)\rightarrow(\neg(\neg p)\lor q)\equiv\neg(\neg p\lor\neg q)\lor(p\lor q)\equiv (p\land q)\lor(p\lor q)\equiv p\lor q$
+
+> 12. 用真值表证明下列条件语句为永真式。
+>
+> $b)$ $[(p\rightarrow q)\land(q\rightarrow r)]\rightarrow(p\rightarrow r)$
+
+|$p$|$q$|$r$|$p\rightarrow q$|$q\rightarrow r$|$p\rightarrow r$|$(p\rightarrow q)\land(q\rightarrow r)$|$[(p\rightarrow q)\land(q\rightarrow r)]\rightarrow(p\rightarrow r)$|
+|--|--|--|--|--|--|--|--|
+|F|F|F|T|T|T|T|T|
+|F|F|T|T|T|T|T|T|
+|F|T|F|T|F|T|F|T|
+|F|T|T|T|T|T|T|T|
+|T|F|F|F|T|F|F|T|
+|T|F|T|F|T|T|F|T|
+|T|T|F|T|F|F|F|T|
+|T|T|T|T|T|T|T|T|
