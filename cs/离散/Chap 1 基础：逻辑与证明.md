@@ -206,3 +206,60 @@ $(p\rightarrow\neg q)\rightarrow(\neg p\rightarrow q)\equiv(\neg p\lor\neg q)\ri
 |T|F|T|F|T|T|F|T|
 |T|T|F|T|F|F|F|T|
 |T|T|T|T|T|T|T|T|
+
+> 34. Show that $(p ∨ q) ∧ (¬p ∨ r) → (q ∨ r)$ is a tautology.
+
+$$
+\begin{aligned}
+(p\lor q)\land(\lnot p\lor r)\rightarrow(q\lor r)&\equiv
+\lnot((p\lor q)\land(\lnot p\lor r))\lor (q\lor r)\\
+&\equiv(\lnot(p\lor q)\lor\lnot(\lnot p\lor r))\lor q\lor r\\
+&\equiv((\lnot p\land\lnot q)\lor(p\land\lnot r))\lor q\lor r\\
+&\equiv((\lnot p\lor (p\land\lnot r))\land(\lnot q\lor(p\land\lnot r)))\lor q\lor r\\
+&\equiv(((\lnot p\lor p)\land(\lnot p\lor\lnot r))\land((\lnot q\lor p)\land(\lnot q\lor\lnot r)))\lor q\lor r\\
+&\equiv((\lnot p\lor\lnot r)\land(\lnot q\lor p)\land(\lnot q\lor\lnot r))\lor q\lor r\\
+&\equiv(q\lor r\lor\lnot p\lor\lnot r)\land(\lnot q\lor p\lor q\lor r)\land(\lnot q\lor\lnot r\lor q\lor r)\\
+&\equiv T
+\end{aligned}
+$$
+
+> 36. Show that $(p ∧ q) → r$ and $(p → r) ∧ (q → r)$ are not logically equivalent.
+
+Assign TFF to $p,q,r$, we can get $(p\land q)\rightarrow r=T$ while $(p\rightarrow r)\land(q\rightarrow r)=F$.
+
+> 44. Find a compound proposition involving the propositional variables $p$, $q$, and $r$ that is true when $p$ and $q$ are true and $r$ is false, but is false otherwise.
+
+$p\land q\land\lnot r$
+
+> 55. Find a compound proposition logically equivalent to $p → q$ using only the logical operator $↓$.
+
+$$
+\begin{aligned}
+p\rightarrow q&\equiv \lnot p\lor q\\
+&\equiv (p\downarrow p)\lor q\\
+&\equiv ((p\downarrow p)\downarrow q)\downarrow((p\downarrow p)\downarrow q)
+\end{aligned}
+$$
+
+> [supplement] Find the Full Disjunctive (Conjunctive) Normal Form from truth table of following formula $((\lnot p\land q)\rightarrow(p\leftrightarrow r))\lor(q\rightarrow\lnot r)$
+
+Truth table:
+
+|$p$|$q$|$r$|$\lnot p\land q$|$p\leftrightarrow r$|$q\rightarrow\lnot r$|$(\lnot p\land q)\rightarrow(p\leftrightarrow r)$|$((\lnot p\land q)\rightarrow(p\leftrightarrow r))\lor(q\rightarrow\lnot r)$|
+|--|--|--|--|--|--|--|--|
+|F|F|F|F|T|T|T|T|
+|F|F|T|F|F|T|T|T|
+|F|T|F|T|T|T|T|T|
+|F|T|T|T|F|F|F|F|
+|T|F|F|F|F|T|T|T|
+|T|F|T|F|T|T|T|T|
+|T|T|F|F|F|T|T|T|
+|T|T|T|F|T|F|T|T|
+
+Full Disjunctive Normal Form:
+
+$(\lnot p\land\lnot q\land\lnot r)\lor(\lnot p\land\lnot q\land r)\lor(\lnot p\land q\land\lnot r)\lor(p\land\lnot q\land\lnot r)\lor(p\land\lnot q\land r)\lor(p\land q\land\lnot r)\lor(p\land q\land r)$
+
+Full Conjunctive Normal Form:
+
+$p\lor\lnot q\lnot r$
