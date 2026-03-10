@@ -263,3 +263,317 @@ $(\lnot p\land\lnot q\land\lnot r)\lor(\lnot p\land\lnot q\land r)\lor(\lnot p\l
 Full Conjunctive Normal Form:
 
 $p\lor\lnot q\lor\lnot r$
+
+## Section 1.4
+
+> 6. Let $N(x)$ be the statement “$x$ has visited North Dakota,”where the domain consists of the students in your school.Express each of these quantifications in English.
+> 
+> $c)$ $¬∃xN(x)$
+> 
+> $d)$ $∃x¬N(x)$
+> 
+> $e)$ $¬∀xN(x)$
+> 
+> $f)$ $∀x¬N(x)$
+
+$c)$
+
+There does not exist a student in my school that has visited North Dakota.
+
+$d)$
+
+There exists a student in my school that hasn't visited North Dakota.
+
+$e)$
+
+Not all students in my school have visited North Dakota.
+
+$f)$
+
+All students in my school haven't visited North Dakota.
+
+> 9. Let $P(x)$ be the statement “$x$ can speak Russian” and let $Q(x)$ be the statement “$x$ knows the computer language C++.” Express each of these sentences in terms of $P(x),Q(x)$, quantifiers, and logical connectives. The domain for quantifiers consists of all students at your school.
+>
+> $b)$ There is a student at your school who can speak Russian but who doesn’t know C++.
+>
+> $d)$ No student at your school can speak Russian or knows C++.
+
+$b)$
+
+$\exist x (P(x)\land\lnot Q(x))$
+
+$d)$
+
+$\lnot\exist x(P(x)\lor Q(x))$
+
+> 20. Suppose that the domain of the propositional function
+$P(x)$ consists of $−5, −3, −1, 1, 3$, and $5$. Express these
+statements without using quantifiers, instead using only
+negations, disjunctions, and conjunctions.
+>
+> $e)$ $∃x(¬P(x)) ∧ ∀x((x < 0) → P(x))$
+
+$e)$
+
+$(\lnot P(-5)\lor\lnot P(-3)\lor\lnot P(-1)\lor\lnot P(1)\lor\lnot P(3)\lor\lnot P(5))\land(P(-5)\land P(-3)\land P(-1))$
+
+Equivalently, $(P(-5)\land P(-3)\land P(-1))\land (\lnot P(1)\lor\lnot P(3)\lor\lnot P(5))$
+
+> 24. Translate in two ways each of these statements into logical
+expressions using predicates, quantifiers, and logical
+connectives. First, let the domain consist of the students
+in your class and second, let it consist of all people.
+>
+> $b)$ Somebody in your class has seen a foreign movie.
+>
+> $d)$ All students in your class can solve quadratic equations.
+
+$b)$
+
+$P(x):$ $x$ has seen a foreign movie.
+
+$Q(x):$ $x$ is in my class.
+
+First: $\exist x P(x)$
+
+Second: $\exist x(Q(x)\land P(x))$
+
+$d)$
+
+$P(x):$ $x$ can solve quadratic equations
+
+$Q(x):$ $x$ is in my class.
+
+First: $\forall x P(x)$
+
+Second: $\forall x(Q(x)\rightarrow P(x))$
+
+> 36. Express the negation of each of these statements in terms
+of quantifiers without using the negation symbol.
+> 
+> $a)$ $∀x(−2 < x < 3)$
+> 
+> $b)$ $∀x(0 ≤ x < 5)$
+> 
+> $c)$ $∃x(−4 ≤ x ≤ 1)$
+> 
+> $d)$ $∃x(−5 < x < −1)$
+
+$a)$
+
+$\exist x(x\le-2\lor x\ge 3)$
+
+$b)$
+
+$\exist x(x<0\lor x\ge 5)$
+
+$c)$
+
+$\forall x(x<-4\lor x>1)$
+
+$d)$
+
+$\forall x(x\le-5\lor x\ge-1)$
+
+> 42. Express each of these system specifications using predicates,
+quantifiers, and logical connectives.
+> 
+> $b)$ No directories in the file system can be opened and
+no files can be closed when system errors have been
+detected.
+
+$b)$
+
+$Err\rightarrow(\forall x(Dir(x)\rightarrow\lnot Open(x))\land\forall x(File(x)\rightarrow\lnot Close(x)))$
+
+> 46. Determine whether $∀x(P(x) ↔ Q(x))$ and $∀x P(x) ↔
+∀xQ(x)$ are logically equivalent. Justify your answer.
+
+No.
+
+Assign $P(x)=\begin{cases}0&,x=0\\ 1&,x=1\end{cases}$ and $Q(x)=\begin{cases}1&,x=0\\ 0&,x=1\end{cases}$.
+
+Then the first statement is false while the second is true.
+
+> 51. Establish these logical equivalences, where $x$ does not occur
+as a free variable in $A$. Assume that the domain is
+nonempty.
+>
+> $a)$ $∀x(P(x) → A) ≡ ∃xP(x) → A$
+
+$a)$
+
+$$
+\begin{aligned}
+\forall x(P(x)\rightarrow A)&\equiv \forall x(\lnot P(x)\lor A)\\
+&\equiv\forall x(\lnot P(x))\lor A\\
+&\equiv\lnot\exist x P(x)\lor A\\
+&\equiv\exist xP(x)\rightarrow A
+\end{aligned}
+$$
+
+## Section 1.5
+
+> 6. Let $C(x, y)$ mean that student $x$ is enrolled in class $y$,
+where the domain for $x$ consists of all students in your
+school and the domain for $y$ consists of all classes being
+given at your school. Express each of these statements by
+a simple English sentence.
+>
+> $e)$ $∃x∃y∀z((x ≠ y) ∧ (C(x, z) → C(y, z)))$
+>
+> $f)$ $∃x∃y∀z((x ≠ y) ∧ (C(x, z) ↔ C(y, z)))$
+
+$e)$
+
+There exist two different students and courses that student A enrolls form a subset of student B.
+
+$f)$
+
+There exist two different students whose course tables are identical.
+
+> 12. Let $I(x)$ be the statement “$x$ has an Internet connection”
+and $C(x, y)$ be the statement “$x$ and $y$ have chatted over
+the Internet,” where the domain for the variables $x$ and $y$
+consists of all students in your class. Use quantifiers to
+express each of these statements.
+>
+> $d)$ No one in the class has chatted with Bob.
+>
+> $h)$ Exactly one student in your class has an Internet connection.
+>
+> $k)$ Someone in your class has an Internet connection but
+has not chatted with anyone else in your class.
+>
+> $n)$ There are at least two students in your class who have
+not chatted with the same person in your class.
+
+$d)$
+
+$\lnot\exist xC(x, Bob)$
+
+$h)$
+
+$\exist x(I(x)\land\forall y(x\neq y\rightarrow\lnot I(y)))$
+
+$k)$
+
+$\exist x(I(x)\land\forall y(x\neq y\rightarrow\lnot C(x,y)))$
+
+$n)$
+
+$\exist x\exist y(x\neq y\land (\forall z((z\neq x\land z\neq y)\rightarrow(\lnot C(x,z)\lor\lnot C(y,z)))))$
+
+> 14. Use quantifiers and predicates with more than one variable
+to express these statements.
+>
+> $c)$ Some student in this class has visited Alaska but has
+not visited Hawaii.
+> 
+> $d)$ All students in this class have learned at least one programming
+language.
+> 
+> $e)$ There is a student in this class who has taken every
+course offered by one of the departments in this
+school.
+>
+> $f)$ Some student in this class grew up in the same town
+as exactly one other student in this class.
+
+$c)$
+
+$P(x,y):$ student $x$ has visited place $y$
+
+$\exist x(P(x,Alaska)\land\lnot P(x,Hawaii))$
+
+$d)$
+
+$P(x,y):$ student $x$ has learned programming language $y$
+
+$\forall x\exist y P(x,y)$
+
+$e)$
+
+$P(x,y):$ student $x$ has taken course $y$
+
+$Q(y,z):$ course $y$ is offered by department $z$
+
+$\exist x(\exist z(\forall y Q(y,z))\rightarrow P(x,y))$
+
+$f)$
+
+$P(x,y):$ student $x$ grew up in town $y$
+
+$\exist x\exist y(x\neq y\land(\exist z(P(x,z)\land P(y,z)\land\forall w((w\neq x\land w\neq y)\rightarrow\lnot P(w,z)))))$
+
+> 24. Translate each of these nested quantifications into an English
+statement that expresses a mathematical fact. The
+domain in each case consists of all real numbers.
+>
+> $a)$ $∃x∀y(x + y = y)$
+>
+> $d)$ $∀x∀y((x ≠ 0) ∧ (y ≠ 0) ↔ (xy ≠ 0))$
+
+$a)$
+
+Addictive identity exists.
+
+$d)$
+
+The multiplication of 2 non-zero real numbers is non-zero.
+
+> 32. Express the negations of each of these statements so that
+all negation symbols immediately precede predicates.
+>
+> $d)$ $∀y∃x∃z(T(x, y, z) ∨ Q(x, y))$
+
+$d)$
+
+$$
+\begin{aligned}
+\lnot\forall y\exist x\exist z(T(x,y,z)\lor Q(x,y))&\equiv\exist y\lnot\exist x\exist z(T(x,y,z)\lor Q(x,y))\\
+&\equiv\exist y\forall x\lnot\exist z(T(x,y,z)\lor Q(x,y))\\
+&\equiv\exist y\forall x\forall z\lnot(T(x,y,z)\lor Q(x,y))\\
+&\equiv\exist y\forall x\forall z(\lnot T(x,y,z)\land\lnot Q(x,y))
+\end{aligned}
+$$
+
+> 34. Find a common domain for the variables $x, y$, and
+$z$ for which the statement $∀x∀y((x ≠ y) → ∀z((z = x) ∨
+(z = y)))$ is true and another domain for which it is false.
+
+true: $\{0,1\}$
+
+false: $R$
+
+> 38. Express the negations of these propositions using quantifiers,
+and in English.
+>
+> $b)$ There is a student in this class who has never seen a
+computer.
+>
+> $d)$ There is a student in this class who has been in at least
+one room of every building on campus.
+
+$b)$
+
+All students in class have seen a computer
+
+$P(x):$ student $x$ has seen a computer
+
+$\forall x P(x)$
+
+$d)$
+
+For every student, there is a building, whose rooms he/her has never been to.
+
+$P(x,y):$ student $x$ has been to room $y$
+
+$Q(y,z):$ room $y$ is in building $z$
+
+$\forall x\exist z\forall y(\lnot Q(y,z)\lor\lnot P(x,y))$
+
+> 42. Use quantifiers to express the distributive laws of multiplication
+over addition for real numbers.
+
+$\forall x\forall y\forall z(x(y+z)=xy+xz)$
