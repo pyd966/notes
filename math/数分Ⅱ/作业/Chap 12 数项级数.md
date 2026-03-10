@@ -190,3 +190,110 @@ $$
 $$
 
 所以原级数收敛。
+
+## 习题 12.3
+
+> 1. 下列级数哪些是绝对收敛、条件收敛或发散的？
+>
+> $(3)$ $\sum\dfrac{(-1)^n}{n^{p+\frac1n}}$;
+>
+> $(4)$ $\sum(-1)^n\sin\dfrac2n$
+>
+> $(8)$ $\sum n!(\dfrac xn)^n$
+>
+> $(10)$ $1+\dfrac12-\dfrac13+\dfrac14+\dfrac15-\dfrac16+\dots$
+
+$(3)$
+
+当 $p>1$ 时，$\sum|\dfrac{(-1)^n}{n^{p+\frac1n}}|\le\sum\dfrac1{n^p}$，绝对收敛。
+
+当 $0<p\le 1$ 时，
+
+记 $a_n=\dfrac{(-1)^n}{n^p},b_n=\dfrac{1}{n^{\frac1n}}$，则 $|a_n|$ 单调趋于 $0$，$\sum a_n$ 是交错级数，所以由莱布尼茨判别法，$\sum a_n$ 收敛。
+
+记 $f(x)=\dfrac1{x^\frac1x}$，则 $f'(x)=\dfrac{(\ln x-1)}{x^{2+\frac1x}}$，当 $x\ge e$ 时 $f'(x)\ge0$，$f(x)$ 增。
+
+而 $b_n\le1$，所以从某项开始 $b_n$ 单调递增有上界。
+
+由阿贝尔判别法，级数收敛。
+
+而 $\sum|\dfrac{(-1)^n}{n^{p+\frac1n}}|\ge\dfrac1{n^{1+\frac1n}}$，$\lim\limits_{n\to\infty}\dfrac{\dfrac1{n^{1+\frac1n}}}{\dfrac1n}=1$，$\sum\dfrac1n$ 发散，故 $\sum\dfrac1{n^{1+\frac1n}}$ 发散。
+
+此时条件收敛。
+
+当 $p\le0$ 时，$\lim\limits_{n\to\infty}\dfrac1{n^{p+\frac1n}}=+\infty$，所以 $\lim\limits_{n\to\infty}\dfrac{(-1)^n}{n^{p+\frac1n}}\neq0$。
+
+此时发散。
+
+$(4)$
+
+记 $a_n=(-1)^n\sin\dfrac2n$，则从第二项开始 $|a_n|$ 单调趋于 $0$，由莱布尼茨判别法，$\sum a_n$ 收敛。
+
+容易证明 $\sin x\ge x-\dfrac{x^3}{6}$
+
+所以 $|a_n|\ge\dfrac2n-\dfrac4{3n^2}$，记 $b_n=\dfrac2n-\dfrac4{3n^2}$，可以证明 $b_n$ 是正项数列。
+
+而 $\sum\dfrac2n$ 发散，$\sum\dfrac4{3n^2}$ 收敛，所以 $\sum b_n$ 发散，$\sum|a_n|$ 发散。
+
+
+条件收敛。
+
+$(8)$
+
+记通项为 $a_n$，则 $\dfrac{a_{n+1}}{a_n}=\dfrac x{(1+\frac1n)^n}\to\dfrac xe$
+
+当 $x>e$ 时，发散；
+
+当 $0<x<e$ 时，绝对收敛；
+
+当 $x=e$ 时，$\ln a_n=\ln(n!)+n-n\ln n$，考虑 $\ln a_{n+1}-\ln a_n=1-\ln(1+\dfrac1n)^n\ge0$，所以 $a_n$ 单调增，发散。
+
+当 $x=0$ 时，绝对收敛；
+
+当 $-e<x<0$ 时，绝对收敛；
+
+当 $x\le-e$ 时，由于 $a_n\not\to0$，所以发散；
+
+$(10)$
+
+记 $p_n=\dfrac1{3n-2}+\dfrac1{3n-1}-\dfrac1{3n}=\dfrac{9n^2-2}{(3n-2)(3n-1)(3n)}$
+
+而 $\lim\limits_{n\to\infty}\dfrac{p_n}{\frac1n}=\dfrac13$，且 $\sum\dfrac1n$ 发散，所以 $\sum p_n$ 发散。
+
+所以不加括号的原级数发散。
+
+> 2. 应用阿贝尔判别法或狄利克雷判别法判断下列级数的敛散性：
+>
+> $(1)$ $\sum\dfrac{(-1)^n}{n}\cdot\dfrac{x^n}{1+x^n}$ $(x>0)$
+>
+> $(3)$ $\sum(-1)^n\dfrac{\cos^2n}n$
+
+$(1)$
+
+记 $a_n=\dfrac{(-1)^n}{n},b_n=\dfrac{x^n}{1+x^n}=\dfrac1{1+x^{-n}}$，由莱布尼茨判别法知 $\sum a_n$ 收敛，且易知 $b_n$ 有界且单调，所以 $\sum a_nb_n$ 收敛。
+
+下面考察 $\sum|a_nb_n|=\dfrac1{n(x^{-n}+1)}$。
+
+当 $x\ge 1$ 时 $\lim\limits_{n\to\infty}\dfrac{\dfrac1n}{\dfrac1{n(x^{-n}+1)}}=1$，由于 $\sum\dfrac1n$ 发散，所以 $\sum|a_nb_n|$ 发散，条件收敛。
+
+当 $0<x<1$ 时，$\lim\limits_{n\to\infty}\dfrac{\dfrac1{n^2}}{\dfrac1{n(x^{-n}+1)}}=+\infty$，而 $\sum\dfrac1{n^2}$ 收敛，所以 $\sum|a_nb_n|$ 收敛，绝对收敛。
+
+$(3)$
+
+$\sum(-1)^n\dfrac{\cos^2n}{n}=\sum(-1)^n(\dfrac{1}{2n}+\dfrac{\cos2n}{2n})$
+
+前者由莱布尼茨判别法收敛，后者考虑 $\sum(-1)^n\cos2n=\sum\cos n\pi\cos2n=\dfrac12\sum(\cos n(\pi+2)+\cos n(\pi-2))$
+
+而由课本定理，两项均有界，所以 $\sum(-1)^n\cos2n$ 有界，由狄利克雷判别法知收敛。
+
+而考虑 $\sum\dfrac{\cos^2n}{n}=\sum\dfrac1{2n}+\dfrac{\cos2n}{2n}$，前者发散，后者收敛，所以发散。
+
+故条件收敛。
+
+> 3. 设 $\sum a_nx^n$ 收敛，证明：级数 $\sum\dfrac{a_n}{n+1}x^{n+1}$ 收敛。
+
+由于 $\sum a_nx^n$ 收敛，所以 $\sum a_nx^{n+1}$ 也收敛。
+
+记 $b_n=a_nx^{n+1}$，则有 $\sum b_n$ 收敛，即证 $\sum\dfrac{b_n}{n+1}$ 收敛。
+
+由于 $\dfrac1{n+1}$ 单调趋于 $0$，所以由阿贝尔判别法，$\sum\dfrac{b_n}{n+1}$ 收敛。

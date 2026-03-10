@@ -262,4 +262,4 @@ $(\lnot p\land\lnot q\land\lnot r)\lor(\lnot p\land\lnot q\land r)\lor(\lnot p\l
 
 Full Conjunctive Normal Form:
 
-$p\lor\lnot q\lnot r$
+$p\lor\lnot q\lor\lnot r$

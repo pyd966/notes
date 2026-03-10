@@ -28,4 +28,23 @@
 
 Fan-in: 一个逻辑门能接收的输入。如果 fan-in 过大会很复杂，
 
-Fan-out: 一个逻辑门的输出最多能驱动后面的几个逻辑门。信号每经过一个逻辑门会衰减，可通过增加 buffer 来解决。
+Fan-out: 一个逻辑门的输出，在其跃迁时间不超过一个阈值的前提下，最多能驱动后面的几个逻辑门（标准负载，以一个 inv 门为基准）。信号每经过一个逻辑门会衰减，可通过增加 buffer 来解决。
+
+## Boolean Algebra
+
+![[Pasted image 20260309081918.png]]
+
+![[Pasted image 20260309081931.png]]
+### Dual
+
+变成对偶式，就是与或交换，10 交换。为了保证优先级不变，可能要加入必要的括号。
+
+## Simplification of logic functions
+
+### Cost Criterion
+
+Literal cost: 数一下函数表达式中有多少个 literal（命题变量以及其反）
+
+Gate input cost: 数一下除非门外的所有门，它们的 input 总数是多少。注意某个 term 中只含一个 literal 的情况。
+
+Gate input cost with NOTs: 数一下含非门的所有门 input 总数。注意，同一个命题变量的反只计一次。
