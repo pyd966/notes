@@ -577,3 +577,234 @@ $\forall x\exist z\forall y(\lnot Q(y,z)\lor\lnot P(x,y))$
 over addition for real numbers.
 
 $\forall x\forall y\forall z(x(y+z)=xy+xz)$
+
+## Section 1.6
+
+> 12. Show that the argument form with premises $(p ∧ t) →
+(r ∨ s), q → (u ∧ t), u → p$, and $¬s$ and conclusion $q → r$
+is valid by first using Exercise 11 and then using rules of
+inference from Table 1.
+
+First, from exercise 11, we know that if the argument with premises $(p\land t)\rightarrow(r\lor s),q\rightarrow(u\land t),u\rightarrow p,\lnot s,q$ and conclusion $r$ is valid, then the original argument is also valid.
+
+$q$, premise
+
+$q\rightarrow(u\land t)$, premise
+
+$u\land t$, modus ponens using 1,2
+
+$u$, simplification using 3
+
+$u\rightarrow p$, premise
+
+$p$, modus ponens using 4,5
+
+$t$, simplification using 3
+
+$p\land t$, conjunction using 6,7
+
+$(p\land t)\rightarrow(r\lor s)$, premise
+
+$r\lor s$, modus ponens using 8,9
+
+$\lnot s$, premise
+
+$r$, disjuctive syllogism using 10,11
+
+> 14. For each of these arguments, explain which rules of inference
+are used for each step.
+>
+> $d)$ “There is someone in this class who has been to
+France. Everyone who goes to France visits the
+Louvre. Therefore, someone in this class has visited
+the Louvre.”
+
+d)
+
+$p(x):$ $x$ is in the class
+
+$q(x):$ $x$ has been to France.
+
+$r(x):$ $x$ visits the Louvre.
+
+Premises: $\exist x(p(x)\land q(x)),\forall x(q(x)\rightarrow r(x))$
+
+Conclusion: $\exist x(p(x)\land r(x))$
+
+$\exist x(p(x)\land q(x))$, premise
+
+$p(c)\land q(c)$, existantial instantiation using 1
+
+$\forall x(q(x)\rightarrow r(x))$, premise
+
+$q(c)\rightarrow r(c)$, universal instantiation using 3
+
+$q(c)$, simplification using 2
+
+$r(c)$, modus ponens using 4,5
+
+$p(c)$, simplification using 2
+
+$p(c)\land r(c)$, conjuction using 6,7
+
+$\exist x(p(x)\land r(x))$, existantial generalization using 9
+
+> 18. What is wrong with this argument? Let $S(x, y)$ be “$x$ is
+shorter than $y$.” Given the premise $∃sS(s, Max)$, it follows
+that $S(Max, Max)$. Then by existential generalization
+it follows that $∃xS(x, x)$, so that someone is shorter
+than himself.
+
+The second step is wrong.
+
+We cannot specify which $s$ is instantized while using existantial instantiation.
+
+> 24. Identify the error or errors in this argument that supposedly
+shows that if $∀x(P(x) ∨ Q(x))$ is true then
+$∀xP(x) ∨ ∀xQ(x)$ is true.
+>
+> (1) $∀x(P(x) ∨ Q(x))$ Premise
+>
+> (2) $P(c) ∨ Q(c)$ Universal instantiation from (1)
+> 
+> (3) $P(c)$ Simplification from (2)
+> 
+> (4) $∀xP(x)$ Universal generalization from (3)
+> 
+> (5) $Q(c)$ Simplification from (2)
+> 
+> (6) $∀xQ(x)$ Universal generalization from (5)
+> 
+> (7) $∀x(P(x) ∨ ∀xQ(x))$ Conjunction from (4) and (6)
+
+Steps (4) and (6) are wrong.
+
+We cannot get a universal proposition when it's only true for some certain $c$ rather than all $c$.
+
+> 29. Use rules of inference to show that if $∀x(P(x) ∨ Q(x)),
+∀x(¬Q(x) ∨ S(x)), ∀x(R(x) → ¬S(x))$, and $∃x¬P(x)$ are
+true, then $∃x¬R(x)$ is true.
+
+Let's first change these premises into conclusion form.
+
+Premises: $\forall x(\lnot P(x)\to Q(x)),\forall x(Q(x)\to S(x)),\forall x(S(x)\to\lnot R(x)),\exist x\lnot P(x)$
+
+Conclusion: $\exist x\lnot R(x)$
+
+$\forall x(\lnot P(x)\to Q(x))$, premise
+
+$\exist x\lnot P(x)$, premise
+
+$\lnot P(c)$, existantial instantiation using 2
+
+$Q(c)$, universal modus ponens using 1,3
+
+$\forall x(Q(x)\to S(x))$, premise
+
+$S(c)$, universal modus ponens using 4,5
+
+$\forall x(S(x)\to\lnot R(x))$, premise
+
+$\lnot R(c)$, universal modus ponens using 6,7
+
+$\exist x\lnot R(x)$, existantial generalization using 8
+
+> 34. The Logic Problem, taken from WFF’N PROOF, The
+Game of Logic, has these two assumptions:
+>
+> (1) “Logic is difficult or not many students like logic.”
+>
+> (2) “If mathematics is easy, then logic is not difficult.”
+> 
+> By translating these assumptions into statements involving
+propositional variables and logical connectives, determine
+whether each of the following are valid conclusions
+of these assumptions:
+>
+> a) That mathematics is not easy, if many students like
+logic.
+
+a)
+
+$P:$ logic is difficult
+
+$Q:$ may students like logic
+
+$R:$ mathematics is easy.
+
+Premises: $P\lor\lnot Q,R\to\lnot P$
+
+Conclusion: $Q\to\lnot R$
+
+From exercise 11, we know that if we can prove the following argument form, the original is also valid.
+
+Premises: $P\lor\lnot Q,R\to\lnot P,Q$
+
+Conclusion: $\lnot R$
+
+$Q$, premise
+
+$P\lor\lnot Q$, premise
+
+$P$, disjunctive syllogism using 1,2
+
+$R\to\lnot P$, premise
+
+$\lnot R$, modus tollens using 3,4
+
+## Section 1.7
+
+> 7. Use a direct proof to show that every odd integer is the
+difference of two squares. [Hint: Find the difference of
+the squares of $k + 1$ and $k$ where $k$ is a positive integer.]
+
+Suppose $x$ is an odd integer, let's say $x=2k+1$.
+
+Then $(k+1)^2-k^2=2k+1=x$, so $x$ is indeed the difference of two squares.
+
+> 8. Prove that if $n$ is a perfect square, then $n + 2$ is not a perfect
+square.
+
+We use contradiction.
+
+Suppose $n+2$ is a perfect square, and $n$ is also a perfect square.
+
+Then $n=x^2,n+2=y^2$, where $x,y$ are integers, so $2=y^2-x^2=(y-x)(y+x)$
+
+Because $x,y$ are both integers, so $(y-x,y+x)=(1,2)/(2,1)/(-1,-2)/(-2,-1)$.
+
+Solve the equations given by any of these four cases, you'll find $x,y$ cannot be integers. This contradicts with our premises.
+
+So the original proposition is correct.
+
+> 36. Is this reasoning for finding the solutions of the equation
+$\sqrt{2x^2-1}=x$ correct? 
+>
+> (1) $\sqrt{2x^2-1}=x$ is given;
+> 
+> (2) $2x^2-1=x^2$ obtained by squaring both sides of (1);
+> 
+> (3) $x^2-1=0$, obtained by subtracting x2 from both
+sides of (2); 
+>
+> (4) $(x − 1)(x + 1) = 0$, obtained by factoring
+the left-hand side of $x^2-1$; 
+> 
+> (5) $x = 1$ or $x = −1$,
+which follows because $ab = 0$ implies that $a = 0$ or
+$b = 0$.
+
+No.
+
+(2) is not equivalent to (1).
+
+In fact, when $x=-1$, (2) is correct while (1) is not.
+
+## Section 1.8
+
+> 24. Use forward reasoning to show that if $x$ is a nonzero
+real number, then $x^2+\dfrac1{x^2}\ge2$ [Hint: Start with the inequality
+$(x − \dfrac1x)^2 ≥ 0$, which holds for all nonzero real
+numbers $x$.]
+
+If $x$ is a nonzero real number, then $(x-\dfrac1x)^2\ge0$, which gives $x^2-2+\dfrac1{x^2}\ge0$, which gives $x^2+\dfrac1{x^2}\ge 2$.
