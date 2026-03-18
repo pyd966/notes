@@ -728,7 +728,7 @@ a)
 
 $P:$ logic is difficult
 
-$Q:$ may students like logic
+$Q:$ many students like logic
 
 $R:$ mathematics is easy.
 
@@ -808,3 +808,19 @@ $(x − \dfrac1x)^2 ≥ 0$, which holds for all nonzero real
 numbers $x$.]
 
 If $x$ is a nonzero real number, then $(x-\dfrac1x)^2\ge0$, which gives $x^2-2+\dfrac1{x^2}\ge0$, which gives $x^2+\dfrac1{x^2}\ge 2$.
+
+> 26. The quadratic mean of two real numbers $x$ and $y$
+equals $\sqrt{\dfrac{x^2+y^2}2}$. By computing the arithmetic and
+quadratic means of different pairs of positive real numbers,
+formulate a conjecture about their relative sizes and
+prove your conjecture.
+
+When $x=1,y=1$, $\sqrt{\dfrac{x^2+y^2}2}=1,\dfrac{x+y}2=1$.
+
+When $x=2,y=1$，$\sqrt{\dfrac{x^2+y^2}2}=\dfrac{\sqrt{10}}2,\dfrac{x+y}2=\dfrac32$
+
+Conjecture: $\sqrt{\dfrac{x^2+y^2}2}\ge\dfrac{x+y}2$
+
+Proof:
+
+$\dfrac{(x-y)^2}4\ge 0$, so $\dfrac{(x-y)^2+(x+y)^2}4\ge\dfrac{(x+y)^2}4$, which yields $\dfrac{x^2+y^2}{2}\ge\dfrac{(x+y)^2}{4}$, which means $\sqrt{\dfrac{x^2+y^2}2}\ge\dfrac{x+y}2$

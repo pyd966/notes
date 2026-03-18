@@ -152,7 +152,7 @@ H = \bar{X}Y + XZ
 $$
 is to be used along with inverters to implement the following equation:
 $$
-G = \bar{A}\bar{B}\bar{C} + \bar{A}\bar{B}D + A\bar{B}\bar{C} + A\bar{B}\bar{D}
+G = \bar{A}\bar{B}C + \bar{A}BD + A\bar{B}\bar{C} + AB\bar{D}
 $$
 The overall circuit can be obtained by using Shannon's expansion theorem,
 $$
@@ -162,6 +162,16 @@ where $F_0(X)$ is $F$ evaluated with variable $X = 0$ and $F_1(X)$ is $F$ evalua
 
 For $G$, use $X = A$ to find $G_0$ and $G_1$ and then use $X = B$ for $G_0$ and $G_1$. Draw the top-level diagram for $G$ using $H$ as a hierarchical component.
 
+$G=\overline{A}(\overline{B}C+BD)+A(\overline{B}\overline{C}+B\overline{D})$
+
+So $G_0=\overline{B}C+BD,G_1=\overline{B}\overline{C}+B\overline{D}$
+
+Applying Shannon's expansion to $G_0,G_1$ won't change the way they look.
+
+Top-level diagram:
+
+![](fig4.jpg)
+
 ## 3-2
 Implement the Boolean function
 $$
@@ -169,31 +179,47 @@ F(A,B,C,D) = \Sigma m(1,3,4,11,12,13,14,15)
 $$
 with a 4-to-1-line multiplexer and external gates. Connect inputs A and B to the selection lines. The input requirements for the four data lines will be a function of the variables C and D. The values of these variables are obtained by expressing F as a function of C and D for each of the four cases when $AB = 00, 01, 10,$ and 11. These functions must be implemented with external gates.
 
+![](fig5.jpg)
+
+![](fig6.jpg)
+
 ## 3-3
 (a) Design a 4-to-16-line decoder using two 3-to-8-line decoders and 16 2-input AND gates.  
 (b) Design a 4-to-16-line decoder with enable using five 2-to-4-line decoders with enable.
 
+$(a)$
+
+![](fig7.jpg)
+
+$(b)$
+
+![](fig8.jpg)
+
 ## 3-4
 Design a combinational circuit that compares two 4-bit unsigned numbers A and B to see whether B is greater than A. The circuit has one output X, so that $X = 1$ if $A < B$ and $X = 0$ if $A \geq B$.
 
+![](fig9.jpg)
+
 ---
 
-## 3.20
+## 4-1
+
+3.20
 $< 3.5>$ What decimal number does the bit pattern $0\times 0C000000$ represent if it is a two's complement integer? An unsigned integer?
 
-## 3.21
+3.21
 $< 3.5>$ If the bit pattern $0\times 0C000000$ is placed into the Instruction Register, what MIPS instruction will be executed?
 
-## 3.22
+3.22
 $< 3.5>$ What decimal number does the bit pattern $0\times 0C000000$ represent if it is a floating point number? Use the IEEE 754 standard.
 
-## 3.23
+3.23
 $< 3.5>$ Write down the binary representation of the decimal number 63.25 assuming the IEEE 754 single precision format.
 
-## 3.24
+3.24
 $< 3.5>$ Write down the binary representation of the decimal number 63.25 assuming the IEEE 754 double precision format.
 
-## 4-2
+4-2
 3.27 $< 3.5>$ IEEE 754-2008 contains a half precision that is only 16 bits wide. The leftmost bit is still the sign bit, the exponent is 5 bits wide and has a bias of 15, and the mantissa is 10 bits long. A hidden 1 is assumed. Write down the bit pattern to represent $-1.5625\times 10^{-1}$ assuming a version of this format, which uses an excess-16 format to store the exponent. Comment on how the range and accuracy of this 16-bit floating point format compares to the single precision IEEE 754 standard.
 
 ---
