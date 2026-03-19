@@ -114,6 +114,60 @@ $\lim\limits_{n\to\infty}\dfrac{d}{dx}f_n(x)=\lim\limits_{n\to\infty}(1-x^{n-1})
 
 所以也不具有结论。
 
+> 6. 设 $S(x)=\sum\limits_{n=1}^\infty ne^{-nx},x>0$，计算 $\int_{\ln2}^{\ln3}S(t)dt$
+
+记 $u_n(x)=ne^{-nx}$，显然 $u_n(x)$ 在 $[\ln2,\ln3]$ 可积，且 $\int_{\ln2}^{\ln3}u_n(x)dx=2^{-n}-3^{-n}$
+
+下证 $u_n(x)$ 在 $[\ln2,\ln3]$ 上一致收敛。
+
+不难发现 $\lim\limits_{n\to\infty}\sup\limits_{x\in[\ln2,\ln3]}|u_n(x)|=\lim\limits_{n\to\infty}\dfrac n{2^n}=0$，所以一致收敛。
+
+所以 $\int_{\ln2}^{\ln3}S(t)dt=\sum\limits_{n=1}^{\infty}\int_{\ln2}^{\ln3}u_n(x)dx=\sum\limits_{n=1}^{\infty}(2^{-n}-3^{-n})=\dfrac12$
+
+> 7. 证明：函数 $f(x)=\sum\dfrac{\sin nx}{n^3}$ 在 $(-\infty,+\infty)$ 上连续，且有连续的导函数。
+
+记 $u_n(x)=\dfrac{\sin nx}{n^3}$。先证一致收敛。
+
+$$
+\lim_{n\to\infty}\sup_x|f(x)|=\lim_{n\to\infty}\dfrac1{n^3}=0
+$$
+
+由于 $u_n(x)$ 连续，所以 $f(x)$ 也连续。
+
+$u_n'(x)=\dfrac{\cos nx}{n^2}$，并且连续。
+
+同理易证 $\sum u_n'(x)$ 也一致收敛，所以 $\sum u_n'(x)$ 也连续。
+
+所以 $f'(x)=\sum u_n'(x)$，故 $f'(x)$ 连续。
+
+> 9. 讨论下列函数列在所定义区间上的一致收敛性及极限函数的连续性、可微性和可积性。
+>
+> $(2)f_n(x)=\dfrac{nx}{nx+1},n=1,2,\dots$
+>
+> $(i) x\in[0,+\infty)$, $(ii)x\in[a,+\infty)(a>0)$
+
+$(2)$
+
+$(i)$
+
+$\lim\limits_{n\to\infty}f_n(x)=\begin{cases}0&,x=0\\1&,x>0\end{cases}$，记为 $g(x)$。
+
+$g(x)$ 不连续，而 $f_n(x)$ 连续，所以不可能一致收敛。
+
+显然 $g(x)$ 不可微，同时由于广义积分发散，也不可积。
+
+$(ii)$
+
+$g(x)\equiv 1,x\in[a,+\infty)$
+
+先证一致收敛。
+
+$$
+\lim_{n\to\infty}\sup_x|f_n(x)-g(x)|=\lim_{n\to\infty}\sup_x\dfrac{1}{nx+1}=\lim\limits_{n\to\infty}\dfrac1{na+1}=0
+$$
+
+显然 $g(x)$ 连续、可微，但是由于广义积分发散，不可积。
+
 ## 第十三章总练习题
 
 > 3. 设 $f$ 为 $[\dfrac12,1]$ 上的连续函数。证明：
