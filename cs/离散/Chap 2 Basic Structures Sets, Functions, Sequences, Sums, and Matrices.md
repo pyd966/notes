@@ -242,3 +242,35 @@ d)
 False.
 
 Assign $x=3.5$, the left gives $2$ while the right gives $1$.
+
+## Section 2.4
+
+> 25. For each of these lists of integers, provide a simple formula
+or rule that generates the terms of an integer sequence
+that begins with the given list. Assuming that your
+formula or rule is correct, determine the next three terms
+of the sequence.
+>
+>a) $1, 0, 1, 1, 0, 0, 1, 1, 1, 0, 0, 0, 1,…$
+>
+>b) $1, 2, 2, 3, 4, 4, 5, 6, 6, 7, 8, 8,…$
+>
+>c) $1, 0, 2, 0, 4, 0, 8, 0, 16, 0,…$
+
+(a)
+
+The rule: group $i$ has $i$ ones followed by $i$ zeros, placing group $1,2,3,\dots$ sequentially you can get the sequence.
+
+So the next three will be $1,1,1$
+
+(b)
+
+The rule: every positive integer shows up in this sequence orderly, but the odd ones show once, the even ones whoe twice continuously.
+
+So the next three will be $9,10,10$
+
+(c)
+
+$a_n=\begin{cases}2^{\frac n2}&,2\mid n\\0&,2\not\mid n\end{cases}$
+
+The next three: $32,0,64$.
