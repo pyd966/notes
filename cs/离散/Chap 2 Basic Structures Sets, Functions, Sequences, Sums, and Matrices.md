@@ -274,3 +274,116 @@ So the next three will be $9,10,10$
 $a_n=\begin{cases}2^{\frac n2}&,2\mid n\\0&,2\not\mid n\end{cases}$
 
 The next three: $32,0,64$.
+
+## Section 2.5
+
+> 4. Determine whether each of these sets is countable or uncountable.
+For those that are countably infinite, exhibit
+a one-to-one correspondence between the set of positive
+integers and that set.
+>
+> c) the real numbers with decimal representations consisting
+of all 1s
+>
+> d) the real numbers with decimal representations of all
+1s or 9s
+
+(c)
+
+Countable.
+
+Suppose there're $x$ 1s before the point, and $y$ after.
+
+Then there exists a one-to-one correspondence from the given set to $(N,N)$。
+
+For a $(x,y)$, we perform a transformation similar to that we used in proving $Q$ is countable.
+
+(d)
+
+Uncountable.
+
+Use a similar proof as Cantor diagonalization argument.
+
+> 28. Show that the set $Z^+ × Z^+$ is countable.
+
+We partition $Z^+\times Z^+$ into four parts by their signs.
+
+If we can prove all the four parts are countable, then the union of finite countable sets is also countable.
+
+To prove so, we can use a transformation similar to that we used in proving $Q$ is countable.
+
+> 36. Show that there is a one-to-one correspondence from the
+set of subsets of the positive integers to the set real numbers
+between $0$ and $1$. Use this result and Exercises 34 and
+35 to conclude that $ℵ_0 < |P(Z^+)| = |R|$. [Hint: Look at
+the first part of the hint for Exercise 35.]
+
+Correspondence:
+
+Write the real number in binary form. Let set $S$ contain the position of 1s. It's obvious that this is a one-to-one correspondence.
+
+So $|P(Z^+)|=|R|>\aleph_0$
+
+> 38. Show that the set of functions from the positive integers
+to the set $\{0, 1, 2, 3, 4, 5, 6, 7, 8, 9\}$ is uncountable.
+[Hint: First set up a one-to-one correspondence between
+the set of real numbers between 0 and 1 and a subset of
+these functions. Do this by associating to the real number
+$0.d_1d_2…d_n…$the function $f$ with $f (n) = d_n$.]
+
+For a real number in $(0,1)$, construct a function $f(n)$ such that $f(x)=d_n$.
+
+It's obvius this is one-to-one correspondence.
+
+So it's uncountable.
+
+## Section 2.6
+
+> 27. Let
+>
+> $$
+> A=\begin{pmatrix}
+1 & 1\\
+0 & 1
+\end{pmatrix}
+> $$
+>
+> and
+>
+> $$
+B=\begin{pmatrix}
+0 & 1\\
+1 & 0\\
+\end{pmatrix}
+> $$
+>
+> Find
+>
+> $a) A ∨ B. b) A ∧ B. c) A⊙B$.
+
+(a)
+
+$$
+\begin{pmatrix}
+1 & 1\\
+1 & 1
+\end{pmatrix}
+$$
+
+(b)
+
+$$
+\begin{pmatrix}
+0 & 1\\
+0 & 0
+\end{pmatrix}
+$$
+
+(c)
+
+$$
+\begin{pmatrix}
+1 & 1\\
+1 & 0
+\end{pmatrix}
+$$

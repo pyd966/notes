@@ -182,3 +182,24 @@ $(2)$
 
 当 $x=\pm\dfrac1e$ 时，$|a_n|=\large(\dfrac{(1+\dfrac1n)^n}{e^n}\large)^n\not\to 0$，所以不收敛。
 
+> 10. 求下列幂级数的收敛半径及其和函数：
+>
+> $(1)$ $\sum\limits_{n=1}^\infty\dfrac{x^n}{n(n+1)}$
+
+$(1)$
+
+求 $\lim\limits_{n\to\infty}\sqrt[n]{n(n+1)}=1$，所以收敛半径为 $1$。
+
+考虑当 $x=1$ 时，裂项可知收敛，所以 $x=-1$ 也收敛。
+
+所以收敛域为 $[-1,1]$。
+
+考虑和函数设为 $S(x)$。
+
+则 $S'(x)=\sum\limits_{n=1}^{\infty}\dfrac1{n+1}x^{n-1}=\dfrac1{x^2}\sum\limits_{n=1}^\infty\dfrac{x^{n+1}}{n+1}=\dfrac1{x^2}f(x)$
+
+则 $f'(x)=\sum\limits_{n=1}^{\infty}x^n=\dfrac{x}{1-x}$
+
+所以 $f(x)=f(0)+\int_0^xf'(t)dt=-\ln(1-x)-x$
+
+所以 $S(x)=S(0)+\int_0^x\dfrac1{t^2}f(t)dt=\begin{cases}0&,x=0\\1&,x=1\\1+\dfrac{1-x}{x}\ln(1-x)&,x\in[-1,0)\cup(0,1)\end{cases}$
