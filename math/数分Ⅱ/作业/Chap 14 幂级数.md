@@ -203,3 +203,109 @@ $(1)$
 所以 $f(x)=f(0)+\int_0^xf'(t)dt=-\ln(1-x)-x$
 
 所以 $S(x)=S(0)+\int_0^x\dfrac1{t^2}f(t)dt=\begin{cases}0&,x=0\\1&,x=1\\1+\dfrac{1-x}{x}\ln(1-x)&,x\in[-1,0)\cup(0,1)\end{cases}$
+
+## 习题 14.2
+
+> 2. 利用已知函数的幂级数展开式，求下列函数在 $x=0$ 处的幂级数展开式，并确定它收敛于该函数的区间：
+>
+> $(1)$ $e^{x^2}$
+>
+> $(3)$ $\dfrac{x}{\sqrt{1-2x}}$
+>
+> $(5)$ $\dfrac{e^x}{1-x}$
+>
+> $(9)$ $\ln(x+\sqrt{1+x^2})$
+
+$(1)$
+
+$e^x=\sum\limits_{n=0}^{\infty}\dfrac{x^n}{n!}$，在 $(-\infty,+\infty)$ 上成立。
+
+代入 $x^2$，得 $e^{x^2}=\sum\limits_{n=0}^\infty\dfrac{x^{2n}}{n!}$，也在 $(-\infty,+\infty)$ 上成立。
+
+$(3)$
+
+已知 $\dfrac{1}{\sqrt{1+x}}=1+\sum\limits_{n=1}^\infty(-1)^n\dfrac{(2n-1)!!}{(2n)!!}x^n$，在 $x\in(-1,1]$ 上成立。
+
+代入 $-2x$，得 $\dfrac1{\sqrt{1-2x}}=1+\sum\limits_{n=1}^\infty\dfrac{(2n-1)!!2^n}{(2n)!!}x^n$，在 $x\in[-\dfrac12,\dfrac12)$ 上成立。
+
+两边同时乘 $x$，由于 $|x|\le 1$，所以得
+
+$\dfrac{x}{\sqrt{1-2x}}=x+\sum\limits_{n=1}^\infty\dfrac{(2n-1)!!2^n}{(2n)!!}x^{n+1}$，在 $x\in[-\dfrac12,\dfrac12)$ 上成立。
+
+代入 $x=\dfrac12$ 时，由于 $\dfrac{(2n-1)!!}{(2n)!!}=O(\dfrac1{\sqrt{n}})$，所以不收敛。
+
+因此在 $[-\dfrac12,\dfrac12)$ 上成立。
+
+$(5)$
+
+$e^x=\sum\limits_{n=0}^\infty\dfrac{x^n}{n!}$，在 $(-\infty,+\infty)$ 上成立。
+
+$\dfrac1{1-x}=1+\sum\limits_{n=1}^\infty x^n$，在 $(-1,1)$ 上成立。
+
+相乘，通过计算柯西乘积可知
+
+$$
+\dfrac{e^x}{1-x}=1+\sum\limits_{n=1}^\infty(\sum\limits_{k=0}^n\dfrac1{k!})x^n
+$$
+
+容易发现 $\sum\limits_{k=0}^\infty\dfrac1{k!}=e$，所以收敛半径为 $1$.
+
+代入 $x=\pm1$ 可知均不收敛，所以在 $(-1,1)$ 成立。
+
+$(9)$
+
+记和函数为 $f(x)$，则 $f'(x)=(1+x^2)^{-\frac12}$
+
+展开可得
+
+$$
+f'(x)=1+\sum_{n=1}^\infty(-1)^n\dfrac{(2n-1)!!}{(2n)!!}x^{2n}
+$$
+
+在 $x\in[-1,1]$ 上成立。
+
+逐项积分，得
+
+$$
+f(x)=x+\sum_{n=1}^\infty(-1)^n\dfrac{(2n-1)!!}{(2n)!!(2n+1)}x^{2n+1}
+$$
+
+当 $x\in[-1,1]$ 时成立。
+
+> 3. 求下列函数在 $x=1$ 处的泰勒展开式：
+>
+> $(3)$ $f(x)=\sqrt{x^3}$
+
+$(3)$
+
+$$
+\begin{aligned}
+f(x)&=\sqrt{x^3}\\
+&=(1+(x-1))^{\frac32}\\
+&=1+\dfrac32(x-1)+\dfrac38(x-1)^2+\sum_{n=3}^\infty 3\times(-1)^n\dfrac{(2n-5)!!}{(2n)!!}(x-1)^n
+\end{aligned}
+$$
+
+收敛域 $x-1\in[-1,1]$，即 $x\in[0,2]$
+
+> 4. 求下列函数的麦克劳林级数：
+>
+> $(2)$ $x\arctan x-\ln\sqrt{1+x^2}$
+
+$(2)$
+
+已知 $\arctan x=\sum\limits_{n=0}^\infty(-1)^n\dfrac{x^{2n+1}}{2n+1},x\in[-1,1]$
+
+并且 $\ln(1+x^2)=\sum\limits_{n=1}^\infty\dfrac{(-1)^{n-1}}{n}x^{2n},x\in[-1,1]$。
+
+所以
+
+$$
+\begin{aligned}
+x\arctan x-\ln\sqrt{1+x^2}&=x\arctan x-\dfrac12\ln(1+x^2)\\
+&=\sum_{n=1}^\infty(-1)^{n-1}\dfrac{x^{2n}}{2n-1}-\dfrac12\sum_{n=1}^\infty\dfrac{(-1)^{n-1}}{n}x^{2n}\\
+&=\sum_{n=1}^\infty(-1)^{n-1}\dfrac1{(2n-1)(2n)}x^{2n}
+\end{aligned}
+$$
+
+$x\in[-1,1]$

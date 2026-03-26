@@ -12,7 +12,7 @@ $$
 \begin{aligned}
 I&=I_1+I_2+I_3\\
 &=\int_0^L (\dfrac L2)^2\cdot\lambda dl+\int_0^L l^2\cdot\lambda dl+\int_{-\frac L2}^{\frac L2}((\dfrac L2)^2+l^2)\lambda dl\\
-&=\dfrac14\lambda L^3+\dfrac13\lambda L^3+\dfrac513\lambda L^3\\
+&=\dfrac14\lambda L^3+\dfrac13\lambda L^3+\dfrac13\lambda L^3\\
 &=\dfrac{11}{12}\lambda L^3\\
 &=\dfrac{11}{12}mL^2
 \end{aligned}
