@@ -21,3 +21,5 @@ pandas 提供了三种数据类型，`Series`, `DataFrame`, `Index`
 `DataFrame`：有标签的二维数组。注意访问时先列后行
 
 `Index`：标签对象本身，可以包含几乎任何东西。你可以把它看作是 Ordered Multiset 或者 Immutable Array。此外还有 `MultiIndex`，可以实现高维数组。
+
+在 MultiIndex 中，我们事实上可以任意更改作为主索引的索引，所以其实从更底层来看，我们可以把 dataframe 以及 series 都看成一行行 tuple，所谓的 reindex 一类的操作，无非是改变我们看待数据的方式罢了。

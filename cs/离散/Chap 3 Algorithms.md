@@ -163,3 +163,7 @@ So $S\land(S-1)$ is the bit string that are the sam as $S$ except changing the r
 So the statement $count\leftarrow count+1$ will be run for exactly the number of $1$s in the $S$ times.
 
 So $count$ will eventually becomes the number of $1$ bits in the bit string.
+
+(b)
+
+Suppose the number of $1$ in string $S$ is $k$, then exactly $T(k)=k$ is needed.
