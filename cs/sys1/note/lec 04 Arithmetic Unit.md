@@ -92,3 +92,17 @@
 对于有符号数，转化成无符号数考虑就行了。
 
 对于符号，商的符号是两个参与运算的数的符号的异或，余数的符号是被除数的符号。
+
+## Floating point addition
+
+![[Pasted image 20260401180057.png]]
+
+![[Pasted image 20260401180111.png]]
+
+## Floating point multiplication
+
+![[Pasted image 20260401180737.png]]
+
+![[Pasted image 20260401180750.png]]
+
+![[Pasted image 20260401181027.png]]

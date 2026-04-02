@@ -1,5 +1,7 @@
 # 系统Ⅰ习题
 
+4-1 4.21
+
 ## 1-1
 Convert the following numbers from the given base to the other three bases listed in the table:
 
@@ -200,29 +202,56 @@ Design a combinational circuit that compares two 4-bit unsigned numbers A and B 
 
 ![](fig9.jpg)
 
----
-
 ## 4-1
 
 3.20
-$< 3.5>$ What decimal number does the bit pattern $0\times 0C000000$ represent if it is a two's complement integer? An unsigned integer?
+$< 3.5>$ What decimal number does the bit pattern $0x0C000000$ represent if it is a two's complement integer? An unsigned integer?
+
+Under both conditions, the number is $201326592$.
 
 3.21
-$< 3.5>$ If the bit pattern $0\times 0C000000$ is placed into the Instruction Register, what MIPS instruction will be executed?
+$< 3.5>$ If the bit pattern $0x0C000000$ is placed into the Instruction Register, what MIPS instruction will be executed?
+
+
 
 3.22
 $< 3.5>$ What decimal number does the bit pattern $0\times 0C000000$ represent if it is a floating point number? Use the IEEE 754 standard.
 
+sign part is $0$, exp part is $(00011000)_2=(24)_{10}$, frac part is $0$.
+
+So it's a normalized number, $(-1)^0\times(1+0.0)\times2^{24-127}=2^{-103}$
+
 3.23
 $< 3.5>$ Write down the binary representation of the decimal number 63.25 assuming the IEEE 754 single precision format.
+
+$(63.25)_{10}=(111111.01)_2=(1+0.1111101)\times2^5=(1+0.1111101)\times2^{132-127}$
+
+So it's a normalized number, its sign part is $0$, exp part is $(132)_{10}=(10000100)_2$, frac part is $11111010000000000000000$
+
+So the binary representation is $01000010011111010000000000000000$.
 
 3.24
 $< 3.5>$ Write down the binary representation of the decimal number 63.25 assuming the IEEE 754 double precision format.
 
-4-2
+$(63.25)_{10}=(1+0.1111101)\times2^{1028-1023}$
+
+sign part $0$, exp part $(1028)_{10}=(10000000100)_2$, frac part is $1111101000000000000000000000000000000000000000000000$
+
+So the binary representation is $0100000001001111101000000000000000000000000000000000000000000000$.
+
+## 4-2
+
 3.27 $< 3.5>$ IEEE 754-2008 contains a half precision that is only 16 bits wide. The leftmost bit is still the sign bit, the exponent is 5 bits wide and has a bias of 15, and the mantissa is 10 bits long. A hidden 1 is assumed. Write down the bit pattern to represent $-1.5625\times 10^{-1}$ assuming a version of this format, which uses an excess-16 format to store the exponent. Comment on how the range and accuracy of this 16-bit floating point format compares to the single precision IEEE 754 standard.
 
----
+$-(0.15625)_{10}=(-1)^1\times(1.+0.01)\times2^{-3}=(-1)^1\times(1+0.01)\times2^{13-16}$
+
+So its representation is $1011010100000000$.
+
+The exponent range is $[-15,14]$, so the largest is $\approx 2\times2^{14}=32768$, the smallest is $0$.
+
+The frac part has 10 bits, indicating $10\log_{10}2\approx 3$ decimal digits.
+
+In comparison, the single precision range $\approx3.4\times10^{38}$, precision contains $23\log_{10}2\approx7$ decimal digits.
 
 ## 5-1
 A sequential circuit has one flip-flop Q, two inputs X and Y, and one output S. The circuit consists of a D flip-flop with S as its output and logic implementing the function $D = X \oplus Y \oplus S$ with D as the input to the D flip-flop. Derive the state table and state diagram of the sequential circuit.
