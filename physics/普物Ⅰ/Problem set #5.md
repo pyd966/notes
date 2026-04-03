@@ -78,11 +78,11 @@ $W=E_f=\dfrac12mv^2+\dfrac12 I\omega^2=99.9J$
 
 ![alt text](fig5-4.png)
 
-When at the maximum status, the center of mass of any system above any edge must sits at the edge.
+When at the maximum status, the center of mass of any system above any edge must sit at the edge.
 
 For the first block, this means $x_1=\dfrac L2$
 
-For the second block, this means $\dfrac12((m(x_2-\dfrac L2)+mx_2)=0$, so $x_2=\dfrac L4$
+For the second block, this means $\dfrac12(m(x_2-\dfrac L2)+mx_2)=0$, so $x_2=\dfrac L4$
 
 $x=x_1+x_2=\dfrac34L$
 
@@ -144,7 +144,7 @@ So $\omega=\sqrt{\dfrac{12(1-\sin\theta)g}{(3\cos^2\theta+1)L}}$
 
 (b)
 
-Let $theta=0$, then $\omega_1=\sqrt{\dfrac{3g}{L}}$
+Let $\theta=0$, then $\omega_1=\sqrt{\dfrac{3g}{L}}$
 
 (c)
 
@@ -154,7 +154,7 @@ First analyze the phase when the rod sticks to the wall.
 
 The center of mass moves along a circle whose center sits at the corner of the wall. So $v_{CM}=\dfrac L2\omega$.
 
-So by conservation of energy $mgL(\dfrac12\sin\alpha-\dfrac12\theta)=\dfrac12mv_{CM}^2+\dfrac12I\omega^2$, which gives $\omega^2=\dfrac{3g}{L}(\sin\alpha-\sin\theta)$
+So by conservation of energy $mgL(\dfrac12\sin\alpha-\dfrac12\sin\theta)=\dfrac12mv_{CM}^2+\dfrac12I\omega^2$, which gives $\omega^2=\dfrac{3g}{L}(\sin\alpha-\sin\theta)$
 
 Plus, $x_{CM}=-\dfrac L2\cos\theta$. When the rod is about to leave the wall, the wall does not provide support force to it. So $\ddot x_{CM}=0$, which gives $\omega^2\cos\theta_m+\dot\omega\sin\theta_m=0$
 

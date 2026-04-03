@@ -58,3 +58,27 @@ positive integer?
 For integers in $[1,p^k]$, only those that are multiple of $p$ are not relatively prime to $p^k$. And these numbers take account of $\dfrac1p$
 
 So $\phi(p^k)=p^k(1-\dfrac1p)=p^k-p^{k-1}$.
+
+## Section 4.4
+
+> 9. Solve the congruence $4x ≡ 5 (\bmod 9)$ using the inverse
+of $4$ modulo $9$ found in part (a) of Exercise 5.
+
+$4^{-1}\equiv7(\bmod 9)$
+
+So $4x\equiv 5(\bmod9)\Rightarrow x\equiv5\times4^{-1}\equiv8(\bmod 9)$
+
+> 21. Use the construction in the proof of the Chinese remainder
+theorem to find all solutions to the system of congruences
+$x ≡ 1 (\bmod 2), x ≡ 2 (\bmod 3), x ≡ 3 (\bmod 5)$, and
+$x ≡ 4 (\bmod 11)$.
+
+$M=2\times3\times5\times11=330$
+
+$m_1=3\times5\times11=165,m_2=2\times5\times11=110,m_3=2\times3\times11=66,m_4=2\times3\times5=30$
+
+$y_1\equiv m_1^{-1}\equiv1(\bmod 2),y_2\equiv m_2^{-1}\equiv2(\bmod 3),y_3\equiv m_3^{-1}\equiv1(\bmod 5),y_4\equiv m_4^{-1}\equiv 7(\bmod 11)$
+
+$x\equiv x_1m_1y_1+x_2m_2y_2+x_3m_3y_3+x_4m_4y_4\equiv323(\bmod 330)$
+
+So $x=323+330k,k\in Z$
