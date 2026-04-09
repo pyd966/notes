@@ -8,13 +8,56 @@
 
 ![alt text](fig6-1.png)
 
+(a)
+
+$$
+\dfrac12mv^2+\dfrac12kx^2=E\\
+\dfrac12mp+\dfrac12kx^2=E\\
+p=\dfrac1m(2E-kx^2)
+$$
+
+(b)
+
+Let $p=0$, we can obtain $x_0=\sqrt{\dfrac{2E}{k}}$
+
+Caculate the area surrounded by the trajectory, $S=\int_{-x_0}^{x_0}pdx=\dfrac{8E}{3m}\sqrt{\dfrac{2E}{k}}$。
+
+By the given theorem, $\dfrac{8E_i}{3m}\sqrt{\dfrac{2E_i}{k_i}}=\dfrac{8E_f}{3m}\sqrt{\dfrac{2E_f}{k_f}}$, so $E_f=E_i\sqrt[3]{\dfrac{k_f}{k_i}}$
+
 ## 2
 
 2. Consider a small cylinder with radius $r$ is having a pure rolling motion in a big hollow cylinder with radius $R$. If the rolling is limited to a small angle $\theta \ll 1$, the small cylinder will be in a harmonic oscillation:  
    (a) Calculate the potential energy of the small cylinder in $\theta$;  
-   (b) Calculate the kinetic energy of the small cylinder in $d\theta/dt$;
+   (b) Calculate the kinetic energy of the small cylinder in $d\theta/dt$;   
+   (c) What is the period of the harmonic oscillation?
 
 ![alt text](fig6-2.png)
+
+(a)
+
+$$
+E_p=(R-r)(1-\cos\theta)mg\approx\dfrac12\theta^2mg(R-r)
+$$
+
+(b)
+
+Let $\omega=\dfrac{d\theta}{dt}$
+
+$$
+E_k=\dfrac12mv_{CM}^2+\dfrac12I\omega^2=\dfrac34mr^2\omega^2
+$$
+
+(c)
+
+By conservation of energy,
+
+$$
+E_p+E_k=\dfrac12mg(R-r)\theta^2+\dfrac32mr^2\omega^2=C
+$$
+
+where $C$ is a constant.
+
+So $T=\pi r\sqrt{\dfrac{6}{g(R-r)}}$
 
 ## 3
 
@@ -23,11 +66,46 @@
 
 ![alt text](fig6-3.png)
 
+(a)
+
+Suppose $x_1+x_2$ is a solution to this equation. Then
+
+$$
+\begin{cases}
+\ddot x_1^2+bx_1=0\\
+\ddot x_2^2+bx_2=0\\
+((x_1+x_2)'')^2+b(x_1+x_2)=0
+\end{cases}
+$$
+
+So $\ddot x_1^2+2\ddot x_1\ddot x_2+\ddot x_2^2=\ddot x_1^2+\ddot x_2^2$, which means $\ddot x_1\ddot x_2=0$. Normally, this is not true, so $x_1+x_2$ is not a solution.
+
+(b)
+
+$$
+E_p=mgL(1-\cos\theta)\approx \dfrac12mgL\theta^2\\
+E_k=\dfrac12I_p(\dfrac{d\theta}{dt})^2
+$$
+
+By conservation of energy,
+
+$$
+E_p+E_k=\dfrac12mgL\theta^2+\dfrac12I_p(\dfrac{d\theta}{dt})^2=C
+$$
+
+where $C$ is a constant.
+
+So $\omega=\sqrt{\dfrac{mgL}{I_p}}$
+
 ## 4
 
 4. A damped harmonic oscillator consists of a block ( $m = 2.00 \mathrm{kg}$ ), a spring ( $k = 10.0 \mathrm{N/m}$ ), and a damping force $F = bv$. Initially, it oscillates with an amplitude of $25.0 \mathrm{cm}$; because of the damping, the amplitude falls to three‑fourths of this initial value at the completion of four oscillations.  
    (a) What is the value of $b$?  
    (b) How much energy has been "lost" during these four oscillations?
+
+(a)
+
+
 
 ## 5
 
@@ -41,6 +119,30 @@
 
 ![alt text](fig6-4.png)
 
+(a)
+
+$$
+F=G\dfrac{M'm}{x^2+a^2}=G\dfrac{Mm(x^2+a^2)^{\frac12}}{R^3}
+$$
+
+(b)
+
+$F_x=F\cos\theta=F\dfrac{x}{(a^2+x^2)^{\frac12}}=\dfrac{GMm}{R^3}x$
+
+So it's a harmonic oscillation.
+
+$x=\sqrt{R^2-a^2}\cos(\sqrt{\dfrac{GM}{R^3}}t)$
+
+$t=\dfrac12T=\pi\sqrt{\dfrac{GM}{R^3}}$
+
+(c)
+
+$m\dfrac{v_1^2}R=G\dfrac{Mm}{R^2}$, so $v_1=\sqrt{\dfrac{GM}{R}}$
+
+Maximal speed $v_m$ satisfies $\dfrac12mv_m^2=\dfrac12(\dfrac{GMm}{R^3})(R^2-a^2)\le \dfrac12(\dfrac{GMm}{R^3})\cdot R^2$
+
+So $v_m\le\sqrt{\dfrac{GM}{R}}=v_1$, the equation is satisfied iff $a=0$, which is impossible.
+
 ## 6
 
 6. **Vibrational Modes of a Spring‑Ball System**
@@ -52,3 +154,4 @@
    (b) For transverse vibrational modes, assume that the two red balls are stationary and fixed at $x = \pm a_{0}$, and the black ball oscillates in the $y$ direction with a small amplitude compared to the equilibrium distance $a_{0}$ [Figure (b)]. Calculate the restoring force acting on the black ball as a function of the perpendicular displacement $y$. Is this vibrational mode a harmonic motion? Explain the reason of your answer.
 
 ![alt text](fig6-5.png)
+
