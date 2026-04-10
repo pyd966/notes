@@ -105,3 +105,94 @@ Let $S$ be the set of all phases that consists of no more than 15 words. Let $T$
 
 So $S$ is finite, while $T$ is infinite. So there cannot be a onto mapping from $S$ to $T$.
 
+## Section 5.3
+
+> 6. Determine whether each of these proposed definitions is
+a valid recursive definition of a function $f$ from the set
+of nonnegative integers to the set of integers. If $f$ is well
+defined, find a formula for $f (n)$ when $n$ is a nonnegative
+integer and prove that your formula is valid.
+>
+> a) $f (0) = 1, f (n) = −f (n − 1)$ for $n ≥ 1$
+>
+> d) $f (0) = 0, f (1) = 1, f (n) = 2f (n − 1)$ for $n ≥ 1$
+
+a)
+
+Yes.
+
+$f(n)=(-1)^n$.
+
+Proof:
+
+Basic: $n=0$ is correct.
+
+Induction:
+
+Suppose $n=k$ is correct, prove $n=k+1$.
+
+$f(k+1)=-f(k)=-(-1)^k=(-1)^{k+1}$
+
+d)
+
+No.
+
+By recursive step, $f(1)=2f(0)=0\neq1$, so there's a contradiction.
+
+> 14. Show that $f_{n+1}f_{n−1} − f_n^2 = (−1)^n$ when $n$ is a positive integer.
+
+Basic: $n=1$ is correct.
+
+Induction:
+
+Suppose $n=k$ is correct, prove $n=k+1$
+
+$$
+\begin{aligned}
+f_{n+1}f_{n-1}-f_n^2&=f_{k+2}f_k-f_{k+1}^2\\
+&=(f_{k+1}+f_k)f_k-(f_k+f_{k-1})^2\\
+&=f_{k+1}f_k-2f_kf_{k-1}-f_{k-1}^2\\
+&=f_k(f_{k+1}-f_{k-1})-f_{k-1}(f_k+f_{k-1})\\
+&=f_k^2-f_{k-1}f_{k+1}\\
+&=-(-1)^k\\
+&=(-1)^{k+1}
+\end{aligned}
+$$
+
+> 31. Give a recursive definition of each of these sets of ordered
+pairs of positive integers. Use structural induction
+to prove that the recursive definition you found is correct.
+[Hint: To find a recursive definition, plot the points in the
+set in the plane and look for patterns.]
+>
+> a) $S = \{(a, b) | a ∈ Z+, b ∈ Z+,$ and $a + b$ is even$\}$
+
+a)
+
+Basic step: $(1,1)\in T$
+
+Recursive step: If $(x,y)\in T$, then $(x+2,y),(x,y+2),(x+1,y+1)\in T$.
+
+We will prove $S=T$.
+
+$T\subseteq S$:
+
+Basic: $(1,1)\in S$.
+
+Induction: $(x,y)\in T\Rightarrow (x,y)\in S$, then $2\mid x+y$, so $2\mid x+2+y,2\mid x+y+2,2\mid x+1+y+1$, so $(x+2,y),(x,y+2),(x+1,y+1)\in S$.
+
+$S\subseteq T$:
+
+Suppose $P(n):$ $\forall x+y=2n\land x,y\ge1,(x,y)\in T$.
+
+Basic: $P(1)$ is true.
+
+Induction:
+
+Suppose $P(k)$ is true, then prove $P(k+1)$.
+
+$\forall x+y=2k+2\land x,y\ge1$, 
+
+If $x=1$ or $y=1$, WLOG assume $y=1$, then $(x-2,y)\in T$, so $(x,y)\in T$.
+
+If $x,y\neq 1$, then $(x-1,y-1)\in T$, so $(x,y)\in T$.
