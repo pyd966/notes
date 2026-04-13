@@ -12,17 +12,16 @@
 
 $$
 \dfrac12mv^2+\dfrac12kx^2=E\\
-\dfrac12mp+\dfrac12kx^2=E\\
-p=\dfrac1m(2E-kx^2)
+\dfrac{p^2}{2m}+\dfrac12kx^2=E\\
 $$
 
 (b)
 
 Let $p=0$, we can obtain $x_0=\sqrt{\dfrac{2E}{k}}$
 
-Caculate the area surrounded by the trajectory, $S=\int_{-x_0}^{x_0}pdx=\dfrac{8E}{3m}\sqrt{\dfrac{2E}{k}}$。
+Caculate the area surrounded by the trajectory, $S=2\int_{-x_0}^{x_0}pdx=2\pi E\sqrt{\dfrac mk}$。
 
-By the given theorem, $\dfrac{8E_i}{3m}\sqrt{\dfrac{2E_i}{k_i}}=\dfrac{8E_f}{3m}\sqrt{\dfrac{2E_f}{k_f}}$, so $E_f=E_i\sqrt[3]{\dfrac{k_f}{k_i}}$
+By the given theorem, $2\pi E_i\sqrt{\dfrac m{k_i}}=2\pi E_f\sqrt{\dfrac m{k_f}}$, so $E_f=E_i\sqrt{\dfrac{k_f}{k_i}}$
 
 ## 2
 
@@ -44,7 +43,7 @@ $$
 Let $\omega=\dfrac{d\theta}{dt}$
 
 $$
-E_k=\dfrac12mv_{CM}^2+\dfrac12I\omega^2=\dfrac34mr^2\omega^2
+E_k=\dfrac12mv_{CM}^2+\dfrac12I\omega^2=\dfrac34m(R-r)^2\omega^2
 $$
 
 (c)
@@ -52,12 +51,12 @@ $$
 By conservation of energy,
 
 $$
-E_p+E_k=\dfrac12mg(R-r)\theta^2+\dfrac32mr^2\omega^2=C
+E_p+E_k=\dfrac12mg(R-r)\theta^2+\dfrac34m(R-r)^2\omega^2=C
 $$
 
 where $C$ is a constant.
 
-So $T=\pi r\sqrt{\dfrac{6}{g(R-r)}}$
+So $T=\dfrac{2\pi}{\sqrt{\frac{3(R-r)}{2g}}}$
 
 ## 3
 
@@ -105,7 +104,15 @@ So $\omega=\sqrt{\dfrac{mgL}{I_p}}$
 
 (a)
 
+Underdamped.
 
+$x=A_0e^{-\frac b{2m}t}\cos(\omega't+\varphi)$, where $\omega'=\sqrt{\dfrac km-(\dfrac b{2m})^2}$
+
+By given condition, $A_0e^{-\frac b{2m}4T}=\dfrac34A_0$, so $b=2\ln\dfrac43\cdot\sqrt{\dfrac{km}{64\pi^2+\ln^2\frac43}}$
+
+(b)
+
+$\Delta E=\dfrac12kA_0^2-\dfrac12kA_1^2=\dfrac{35}{256}J=0.137J$
 
 ## 5
 
@@ -133,7 +140,7 @@ So it's a harmonic oscillation.
 
 $x=\sqrt{R^2-a^2}\cos(\sqrt{\dfrac{GM}{R^3}}t)$
 
-$t=\dfrac12T=\pi\sqrt{\dfrac{GM}{R^3}}$
+$t=\dfrac12T=\pi\sqrt{\dfrac{R^3}{GM}}$
 
 (c)
 
@@ -154,4 +161,69 @@ So $v_m\le\sqrt{\dfrac{GM}{R}}=v_1$, the equation is satisfied iff $a=0$, which 
    (b) For transverse vibrational modes, assume that the two red balls are stationary and fixed at $x = \pm a_{0}$, and the black ball oscillates in the $y$ direction with a small amplitude compared to the equilibrium distance $a_{0}$ [Figure (b)]. Calculate the restoring force acting on the black ball as a function of the perpendicular displacement $y$. Is this vibrational mode a harmonic motion? Explain the reason of your answer.
 
 ![alt text](fig6-5.png)
+
+(a)
+
+$$
+\begin{cases}
+m_1\ddot x_1=-k(x_1-x_2)\\
+m_2\ddot x_2=k(x_1-x_2)-k(x_2-x_3)\\
+m_1\ddot x_3=k(x_2-x_3)\\
+\end{cases}
+$$
+
+Try $x_1=A_1\cos(\omega t+\varphi),x_2=A_2\cos(\omega t+\varphi),x_3=A_3\cos(\omega t+\varphi)$
+
+$$
+\begin{cases}
+m_1\omega^2A_1=k(A_1-A_2)\\
+m_2\omega^2A_2=k(2A_2-A_1-A_3)\\
+m_1\omega^2A_3=k(A_3-A_2)\\
+\end{cases}
+$$
+
+So
+
+$$
+\begin{pmatrix}
+\frac{k}{m_1} & -\frac{k}{m_1} & 0\\
+-\frac{k}{m_2} & \frac{2k}{m_2} & -\frac{k}{m_2}\\
+0 & -\frac{k}{m_1} & \frac{k}{m_1}\\
+\end{pmatrix}
+\begin{pmatrix}
+A_1\\ A_2\\ A_3
+\end{pmatrix}=
+\omega^2
+\begin{pmatrix}
+A_1\\
+A_2\\
+A_3\\
+\end{pmatrix}
+$$
+
+So $\omega^2$ is eigenvalue.
+
+$\omega_1=0,\omega_2=\sqrt{\dfrac k{m_1}},\omega_3=\sqrt{\dfrac{k(2m_1+m_2)}{m_1m_2}}$
+
+$\omega_1=0$:
+
+Corresponding $(A_1,A_2,A_3)=\lambda_1(1,1,1)$, which means the 3 balls doing translational motion without vibration.
+
+$\omega_2=\sqrt{\dfrac k{m_1}}$:
+
+Correcsponding $(A_1,A_2,A_3)=\lambda_2(1,0,-1)$, which means the 2nd ball stays still, while the other balls vibrating in the opposite directions.
+
+$\omega_3=\sqrt{\dfrac{k(2m_1+m_2)}{m_1m_2}}$:
+
+Corresponding $(A_1,A_2,A_3)=\lambda_3(1,-\dfrac{2m_1}{m_2},1)$, which means the 1st & 3rd balls vibrate at the same velocity, while the 2nd ball moving in the opposite direction.
+
+(b)
+
+$\Delta y=a_0\sin\theta$
+
+$\Delta l=a_0(\dfrac1{\cos\theta}-1)$
+
+$F_y=2k\Delta l\cdot\sin\theta\approx-\dfrac{k}{a_0^2}(\Delta y)^3$.
+
+Not a harmonic motion.
 
