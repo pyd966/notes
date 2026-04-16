@@ -196,3 +196,19 @@ $\forall x+y=2k+2\land x,y\ge1$,
 If $x=1$ or $y=1$, WLOG assume $y=1$, then $(x-2,y)\in T$, so $(x,y)\in T$.
 
 If $x,y\neq 1$, then $(x-1,y-1)\in T$, so $(x,y)\in T$.
+
+## Section 5.4
+
+> 29. Devise a recursive algorithm to find the nth term of the
+sequence defined by $a_0 = 1, a_1 = 2$, and $a_n = a_{n−1} ⋅ a_{n−2}$,
+for $n = 2, 3, 4,…$. 
+
+```plaintext
+procedure f(n)
+    if n == 0 then
+        return 1
+    if n == 1 then
+        return 2
+    return f(n - 1) * f(n - 2)
+```
+
