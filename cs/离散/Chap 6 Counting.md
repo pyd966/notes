@@ -174,7 +174,7 @@ By division rule, the formula is $\begin{cases}\dfrac{P(n,r)}{2r}&,r\ge3\\\dfrac
 horses to finish if ties are possible? [Note: Any number
 of the four horses may tie.]
 
-$(1,1,1,1): P(4,4)=12$
+$(1,1,1,1): P(4,4)=24$
 
 $(2,1,1): C(4,2)\times P(2,2)=12$
 
@@ -188,4 +188,6 @@ $(1,3): C(4,3)=4$
 
 $(3,1): C(4,3)=4$
 
-Altogether, there're $62$ ways.
+$(4): 1$
+
+Altogether, there're $75$ ways.
