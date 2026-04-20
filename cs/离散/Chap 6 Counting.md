@@ -127,3 +127,65 @@ $\{0,30,60,90,120\},\{1,31,61,91,121\},\dots,\{5,35,65,95,125\},\{6,36,66,96\},\
 We can choose up to $\lfloor\dfrac L2\rfloor$ numbers in a size $L$ group.
 
 So we can choose up to $2\times30=60$ numbers, which is less than $75$, so it's impossible.
+
+## Section 6.3
+
+> 20. How many bit strings of length 10 have
+> 
+> a) exactly three 0s?
+> 
+> b) more 0s than 1s?
+> 
+> c) at least seven 1s?
+> 
+> d) at least three 1s?
+
+The number of a bit string of length 10 that has exactly $r$ 0s is $\dbinom{10}r$
+
+a)
+
+$\dbinom{10}3=120$
+
+b)
+
+$\sum\limits_{i=6}^{10}\dbinom{10}i=386$
+
+c)
+
+$\sum\limits_{i=0}^3\dbinom{10}i=176$
+
+d)
+
+$\sum\limits_{i=0}^7\dbinom{10}i=968$
+
+> 44. Find a formula for the number of ways to seat $r$ of $n$ people
+around a circular table, where seatings are considered
+the same if every person has the same two neighbors
+without regard to which side these neighbors are sitting
+on.
+
+For a circular permutation, we can transform it into a normal one by spliting it between 2 people.
+
+So there're $r$ ways to split, plus we can reverse the order (when $r\ge3$), thus one circular permutation corresponds to $2r$ normal one.
+
+By division rule, the formula is $\begin{cases}\dfrac{P(n,r)}{2r}&,r\ge3\\\dfrac{n(n-1)}{2}&,r=2\\ n&,r=1\\ 1&,r=0\end{cases}$.
+
+> 46. How many ways are there for a horse race with four
+horses to finish if ties are possible? [Note: Any number
+of the four horses may tie.]
+
+$(1,1,1,1): P(4,4)=12$
+
+$(2,1,1): C(4,2)\times P(2,2)=12$
+
+$(1,2,1): C(4,2)\times P(2,2)=12$
+
+$(1,1,2): C(4,2)\times P(2,2)=12$
+
+$(2,2): C(4,2)\times C(2,2)=6$
+
+$(1,3): C(4,3)=4$
+
+$(3,1): C(4,3)=4$
+
+Altogether, there're $62$ ways.
