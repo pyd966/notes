@@ -1,7 +1,5 @@
 # 系统Ⅰ习题
 
-4-1 4.21
-
 ## 1-1
 Convert the following numbers from the given base to the other three bases listed in the table:
 
@@ -212,7 +210,11 @@ Under both conditions, the number is $201326592$.
 3.21
 $< 3.5>$ If the bit pattern $0x0C000000$ is placed into the Instruction Register, what MIPS instruction will be executed?
 
+opcode: 000011 (i.e. j)
 
+target address: 00000000000000000000000000
+
+So it's `jal 0x0000000`
 
 3.22
 $< 3.5>$ What decimal number does the bit pattern $0\times 0C000000$ represent if it is a floating point number? Use the IEEE 754 standard.
@@ -256,21 +258,35 @@ In comparison, the single precision range $\approx3.4\times10^{38}$, precision c
 ## 5-1
 A sequential circuit has one flip-flop Q, two inputs X and Y, and one output S. The circuit consists of a D flip-flop with S as its output and logic implementing the function $D = X \oplus Y \oplus S$ with D as the input to the D flip-flop. Derive the state table and state diagram of the sequential circuit.
 
+![](fig10.jpg)
+
 ## 5-2
 Design a sequential circuit with two D flip-flops A and B and one input X. When $X = 0$, the state of the circuit remains the same. When $X = 1$, the circuit goes through the state transitions from 00 to 10 to 11 to 01, back to 00, and then repeats.
+
+![](fig11.jpg)
 
 ## 5-3
 A pair of signals Request $(R)$ and Acknowledge $(A)$ is used to coordinate transactions between a CPU and its I/O system. The interaction of these signals is often referred to as a "handshake." These signals are synchronous with the clock and, for a transaction, are to have their transitions always appear in the order shown in Figure 4-53. A handshake checker is to be designed that will verify the transition order. The checker has inputs, $R$ and $A$, asynchronous reset signal, RESET, and output, Error $(E)$. If the transitions in a handshake are in order, $E = 0$. If the transitions are out of order, then $E$ becomes 1 and remains at 1 until the asynchronous reset signal (RESET $= 1$) is applied to the CPU.
 
-image[[232, 538, 748, 666]]
-
 (a) Find the state diagram for the handshake checker.  
 (b) Find the state table for the handshake checker.
+
+(a)
+
+If RESET=1, the next state will be S0 (not drawn in diagram).
+
+All other edges not drawn are connected to SE.
+
+![](fig12.jpg)
+
+(b)
+
+![](fig13.jpg)
 
 ## 5-4
 Use $D$-type flip-flops and gates to design a counter with the following repeated binary sequence: 0, 2, 1, 3, 4, 6, 5, 7.
 
----
+![](fig14.jpg)
 
 ## 5-5
 Draw the logic diagram of a 4-bit register with mode selection inputs $S1$ and $S0$. The register is to be operated according to the function table below.
@@ -282,6 +298,10 @@ Draw the logic diagram of a 4-bit register with mode selection inputs $S1$ and $
 | 1     | 0     | Load parallel data |
 | 1     | 1     | Clear register to 0 |
 
+The structer of other 3 registers is the same.
+
+![](fig15.jpg)
+
 ## 5-6
 A register cell is to be designed for an 8-bit register $A$ that has the following register transfer functions:
 $$
@@ -289,10 +309,18 @@ C_0: A \leftarrow A \cap B,\quad C_1: A \leftarrow A \cup \overline{B}
 $$
 Find optimum logic using AND, OR, and NOT gates for the $D$ input to the $D$ flip-flop in the cell.
 
+![](fig16.jpg)
+
+![](fig17.jpg)
+
 ## 5-7
 Two register transfer statements are given (otherwise, R1 is unchanged):
 equation[[333, 436, 661, 474]]
 (a) Using a 4-bit adder plus external gates as needed, draw the logic diagram that implements these register transfers.
+
+(a)
+
+![](fig18.jpg)
 
 ## 5-8
 A sequential circuit is shown in the following. The timing parameters for the gates and flip-flops are as follows:
@@ -306,7 +334,27 @@ A sequential circuit is shown in the following. The timing parameters for the ga
 (d) Find the longest path delay from positive clock edge to positive clock edge.  
 (e) Determine the maximum frequency of operation of the circuit in megahertz (MHz).
 
----
+(a)
+
+X -> XOR -> XOR -> Y: $0.08$ns
+
+(b)
+
+X -> XOR -> NOT -> D: $0.05$ns
+
+(c)
+
+FF -> A -> XOR -> XOR: $0.16$ns
+
+(d)
+
+FF -> A -> XOR -> NOT: $0.13$ns
+
+(e)
+
+$t_{min}\ge t_s+t_{FF\to FF}=0.15$ns
+
+$f_{max}=\dfrac1{t_{min}}\approx6666.67$MHz
 
 ## 6-1
 2.12 [5] $< \S\S 2.2, 2.5>$ Provide the instruction type and assembly language instruction for the following binary value:
