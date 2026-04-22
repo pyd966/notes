@@ -62,11 +62,47 @@ That gives us a hyperbola, $\dfrac{x^2}{\frac{\lambda^2}{16}}-\dfrac{y^2}{25-\fr
 
 4. A 2.00-m-long wire having a mass of 0.100 kg is fixed at both ends. The tension in the wire is maintained at 20.0 N. What are the frequencies of the first three allowed modes of vibration? If a node is observed at a point 0.400 m from one end, in what mode and with what frequency is it vibrating?
 
+$\mu=\dfrac ml$
+
+$v=\sqrt{\dfrac T\mu}$
+
+$\lambda_1=2l,\lambda_2=l,\lambda_3=\dfrac{2l}{3}$
+
+$f_1=\dfrac v{\lambda_1},f_2=\dfrac v{\lambda_2},f_3=\dfrac v{\lambda_3}$
+
+$f_1=5.00Hz,f_2=10.0Hz,f_3=15.0Hz$
+
+$\dfrac{\lambda_x}2=0.400m$, $\lambda_x=0.800m$
+
+$f_x=\dfrac v{\lambda_x}=25.0Hz$, the fifth mode.
+
 ## 5
 
 5. In the arrangement shown in Figure P18.25, a mass can be hung from a string (with a linear mass density of $\mu = 0.002 00 \mathrm{kg / m})$ that passes over a light pulley. The string is connected to a vibrator (of constant frequency $f$ ), and the length of the string between point $P$ and the pulley is $L = 2.00 \mathrm{m}$ . When the mass $m$ is either $16.0 \mathrm{kg}$ or $25.0 \mathrm{kg}$ , standing waves are observed; however, no standing waves are observed with any mass between these values. (a) What is the frequency of the vibrator? (Hint: The greater the tension in the string, the smaller the number of nodes in the standing wave.) (b) What is the largest mass for which standing waves could be observed?
 
 ![alt text](fig7-2.png)
+
+(a)
+
+$T=mg$
+
+$v=\sqrt{\dfrac T\mu}$
+
+$\lambda=\dfrac vf$.
+
+To make it a standing wave, $\dfrac k2\lambda=L$
+
+So $m=\dfrac{4L^2f^2\mu}{k^2g}$
+
+We know $16=\dfrac{4L^2f^2\mu}{(k+1)^2g},25=\dfrac{4L^2f^2\mu}{k^2g}$
+
+So $f=350Hz$
+
+(b)
+
+When $k=1$, $m$ is maximal.
+
+$m_{max}=\dfrac{4L^2f^2\mu}{g}=400kg$
 
 ## 6
 
@@ -93,6 +129,52 @@ Express $\partial /\partial x$ and $\partial /\partial t$ in terms of the variab
 
 ![alt text](fig7-3.png)
 
+(a)
+
+$$
+\sigma\Delta x\dfrac{\partial^2y}{\partial t^2}=T\left.\dfrac{\partial y}{\partial x}\right|_{x+\Delta x}-T\left.\dfrac{\partial y}{\partial x}\right|_{x}\approx T\Delta x\left.\dfrac{\partial^2y}{\partial x^2}\right|_x
+$$
+
+So
+
+$$
+\dfrac{\partial^2y}{\partial t^2}=\dfrac F\sigma\cdot\dfrac{\partial^2y}{\partial x^2}
+$$
+
+(b)
+
+$$
+c^2y''(x-ct)=\dfrac F\sigma\cdot y''(x-ct)
+$$
+
+So $c^2=\dfrac F\sigma,c=\sqrt{\dfrac F\sigma}$
+
+(c)
+
+$\dfrac{\partial}{\partial x}=\dfrac{\partial x'}{\partial x}\cdot\dfrac{\partial}{\partial x'}+\dfrac{\partial t'}{\partial x}\cdot\dfrac{\partial}{\partial t'}=\dfrac{\partial}{\partial x'}$
+
+$\dfrac{\partial}{\partial t}=\dfrac{\partial x'}{\partial t}\cdot\dfrac{\partial}{\partial x'}+\dfrac{\partial t'}{\partial t}\cdot\dfrac{\partial}{\partial t'}=\dfrac{\partial}{\partial t'}-V\dfrac{\partial}{\partial x'}$
+
+(d)
+
+$$
+\dfrac{\partial^2y}{\partial t^2}=\dfrac{\partial}{\partial t}(\dfrac{\partial y}{\partial t})=\dfrac{\partial}{\partial t}(\dfrac{\partial y}{\partial t'}-V\dfrac{\partial y}{\partial x'})=\dfrac{\partial^2y}{\partial t'^2}+V^2\dfrac{\partial^2y}{\partial x'^2}-2V\dfrac{\partial^2y}{\partial t'\partial x'}
+$$
+
+$$
+\dfrac{\partial^2y}{\partial x^2}=\dfrac{\partial^2y}{\partial x'^2}
+$$
+
+So $\dfrac{\partial^2y}{\partial t'^2}+V^2\dfrac{\partial^2y}{\partial x'^2}-2V\dfrac{\partial^2y}{\partial t'\partial x'}=\dfrac1{c^2}\cdot\dfrac{\partial^2y}{\partial x'^2}$
+
+Not Galilean invariant.
+
+(e)
+
+$c$ is the speed of wave relative to the medium.
+
+When the frame is static relatively of the medium.
+
 ## 7
 
 7. Interference of waves in 2 dimensions
@@ -107,6 +189,26 @@ Two plane waves propagate in a homogeneous elastic medium, one along the $x$ axi
 
 (d) Do you expect a different wave motion pattern in the case of longitudinal waves? (In order to justify your answer, describe the difference between transversal and longitudinal waves and link it to the expected wave motion pattern.)
 
+(a)
+
+$\xi=\xi_1+\xi_2=2A\cos(\dfrac{x-y}{2}k)\cos(\omega t-\dfrac{x+y}2k)$
+
+Nodes: $\cos(\dfrac{x-y}2k)=0$, so $\dfrac{x-y}2k=n\pi+\dfrac\pi2$, $y=x+\dfrac{(2n+1)\pi}{k}$
+
+(b)
+
+Antinodes: $\cos(\dfrac{x-y}2k)=\pm1$, so $\dfrac{x-y}{2}k=n\pi$, $y=x+\dfrac{2n\pi}k$
+
+(c)
+
+Ignored.
+
+(d)
+
+Yes.
+
+If they're longitudinal waves, the motions in the x&y plane are independent, they can never cancel each other.
+
 ## 8
 
 8. Phonon as Lattice Vibrations
@@ -120,3 +222,49 @@ Consider a one- dimensional periodic lattice with two different atoms (with mass
 (c) Draw a schematic picture of the atomic motion at $k = 0$ and $\pi /a$ for each mode (i.e., four pictures in total).
 
 ![alt text](fig7-4.png)
+
+(a)
+
+$$
+M\ddot X_j=-C(X_j-x_{j-1})+C(x_j-X_j)\\
+m\ddot x_j=-C(x_j-X_j)+C(X_{j+1}-x_j)\\
+$$
+
+(b)
+
+$$
+\begin{cases}
+-M\omega^2X_{max}=C(x_{max}(1+e^{-ika})-2X_{max})\\
+-m\omega^2x_{max}=C(X_{max}(1+e^{ika})-2x_{max})\\
+\end{cases}
+$$
+
+So
+
+$$
+\begin{cases}
+(2C-M\omega^2)X_{max}-C(1+e^{-ika})x_{max}=0\\
+-C(1+e^{ika})X_{max}+(2C-m\omega^2)x_{max}=0\\
+\end{cases}
+$$
+
+So
+
+$$
+\begin{vmatrix}
+2C-M\omega^2 & -C(1+e^{-ika})\\
+-C(1+e^{ika}) & 2C-m\omega^2\\
+\end{vmatrix}=0
+$$
+
+So $\omega^2=C(\dfrac{M+m}{Mm})\pm C\sqrt{(\dfrac{M+m}{Mm})^2-\dfrac4{Mm}\sin^2(\dfrac{ka}2)}$
+
+(c)
+
+When $k=0$, $\omega=0, X_{max}=x_{mx}$ 
+
+or $\omega=\sqrt{2C(\dfrac{M+m}{Mm})},\dfrac{x_{max}}{X_{max}}=-\dfrac Mm$
+
+When $k=\dfrac\pi a$, $\omega=\sqrt{\dfrac{2C}M},x_{max}=0$ 
+
+or $\omega=\sqrt{\dfrac{2C}m}$, $X_{max}=0$
