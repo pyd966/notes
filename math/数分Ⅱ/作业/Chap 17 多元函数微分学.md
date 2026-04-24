@@ -118,6 +118,101 @@ $(3)$
 
 不可以改为任意区域，比如下图。我们需要要求区域关于 x 连通。
 
+## 习题 17.2
+
+> 1. 求下列复合函数的偏导数或导数：
+>
+> $(2)$ 设 $z=\dfrac{x^2+y^2}{xy}e^{\frac{x^2+y^2}{xy}}$，求 $\dfrac{\partial z}{\partial x},\dfrac{\partial z}{\partial y}$
+>
+> $(3)$ 设 $z=x^2+xy+y^2,x=t^2,y=t$，求 $\dfrac{dz}{dt}$
+>
+> $(5)$ 设 $u=f(x+y,xy)$，求 $\dfrac{\partial u}{\partial x},\dfrac{\partial u}{\partial y}$
+
+$(2)$
+
+$$
+\dfrac{\partial z}{\partial x}=\dfrac{\partial}{\partial x}(\dfrac{x^2+y^2}{xy})e^{\frac{x^2+y^2}{xy}}+\dfrac{x^2+y^2}{xy}\cdot\dfrac{\partial}{\partial y}(e^{\frac{x^2+y^2}{xy}})=\dfrac{(x+y)(x^3-y^3)}{x^3y^2}e^{\frac{x^2+y^2}{xy}}
+$$
+
+同理
+
+$$
+\dfrac{\partial z}{\partial y}=\dfrac{(x+y)(y^3-x^3)}{x^2y^3}e^{\frac{x^2+y^2}{xy}}
+$$
+
+$(3)$
+
+$$
+\begin{aligned}
+\dfrac{dz}{dt}&=\dfrac{\partial z}{\partial x}\dfrac{dx}{dt}+\dfrac{\partial z}{\partial y}\dfrac{dy}{dt}\\
+&=(2x+y)\cdot(2t)+(x+2y)\cdot1\\
+&=(2t^2+t)\cdot(2t)+(t^2+2t)\cdot1\\
+&=4t^3+3t^2+2t
+\end{aligned}
+$$
+
+$(5)$
+
+记 $s=x+y,t=xy$
+
+$$
+\begin{aligned}
+\dfrac{\partial u}{\partial x}&=\dfrac{\partial u}{\partial s}\dfrac{\partial s}{\partial x}+\dfrac{\partial u}{\partial t}\dfrac{\partial t}{\partial x}\\
+&=f_x(x+y,xy)+yf_y(x+y,xy)
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+\dfrac{\partial u}{\partial y}&=\dfrac{\partial u}{\partial s}\dfrac{\partial s}{\partial y}+\dfrac{\partial u}{\partial t}\dfrac{\partial t}{\partial y}\\
+&=f_x(x+y,xy)+xf_y(x+y,xy)
+\end{aligned}
+$$
+
+> 3. 设 $z=\dfrac{y}{f(x^2-y^2)}$，其中 $f$ 为可微函数，验证：
+>
+> $$
+\dfrac1x\cdot\dfrac{\partial z}{\partial x}+\dfrac1y\cdot\dfrac{\partial z}{\partial y}=\dfrac z{y^2}
+> $$
+
+记 $u=f(x^2-y^2),v=y$，则 $z=\dfrac{v}{u}$
+
+$$
+\begin{aligned}
+\dfrac{\partial z}{\partial x}&=\dfrac{\partial z}{\partial v}\dfrac{\partial v}{\partial x}+\dfrac{\partial z}{\partial u}\dfrac{\partial u}{\partial x}\\
+&=\dfrac1u\cdot0-\dfrac{v}{u^2}f'(x^2-y^2)\cdot 2x\\
+&=-\dfrac{2xyf'(x^2-y^2)}{f^2(x^2-y^2)}
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+\dfrac{\partial z}{\partial y}&=\dfrac{\partial z}{\partial v}\dfrac{\partial v}{\partial y}+\dfrac{\partial z}{\partial u}\dfrac{\partial u}{\partial y}\\
+&=\dfrac1u\cdot1-\dfrac{v}{u^2}f'(x^2-y^2)\cdot(-2y)\\
+&=\dfrac{2y^2f'(x^2-y^2)+f(x^2-y^2)}{f^2(x^2-y^2)}
+\end{aligned}
+$$
+
+代入即可验证。
+
+> 6. 设 $f(u)$ 是可微函数，$F(x,t)=f(x+2t)+f(3x-2t)$。试求 $F_x(0,0)$ 与 $F_t(0,0)$。
+
+$$
+\begin{aligned}
+\dfrac{\partial F}{\partial x}&=\dfrac{\partial}{\partial x}(f(x+2t))+\dfrac{\partial}{\partial x}(f(3x-2t))\\
+&=f'(x+2t)+3f'(3x-2t)
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+\dfrac{\partial F}{\partial t}&=\dfrac{\partial}{\partial t}(f(x+2t))+\dfrac{\partial}{\partial t}(f(3x-2t))\\
+&=2f'(x+2t)-2f'(3x-2t)
+\end{aligned}
+$$
+
+所以 $F_x(0,0)=4f'(0),F_t(0,0)=0$
+
 ## 习题 17.3
 
 > 2. 求函数 $u=xyz$ 在沿点 $A(5,1,2)$ 到点 $B(9,4,14)$ 的方向 $\vec{AB}$ 上的方向导数。
@@ -139,3 +234,65 @@ $u_z(x_0,y_0,z_0)=6z_0-4$
 $\text{grad}f(A)=(-4,2,-4),|\text{grad}f(A)|=6$
 
 $\text{grad}f(B)=(3,-5,0),|\text{grad}f(B)|=\sqrt{34}$
+
+## 习题 17.4
+
+> 1. 求下列函数的高阶偏导数：
+>
+> $(3)$ $z=x\ln(xy)$，$\dfrac{\partial^3z}{\partial x^2\partial y},\dfrac{\partial^3z}{\partial x\partial y^2}$
+
+$(3)$
+
+容易发现 $z$ 的各阶偏导数都是连续的，所以求偏导顺序可以交换。
+
+$$
+\dfrac{\partial z}{\partial x}=\ln(xy)+1
+$$
+
+$$
+\dfrac{\partial^2z}{\partial x\partial y}=\dfrac1y
+$$
+
+$$
+\dfrac{\partial^3z}{\partial x^2\partial y}=0
+$$
+
+$$
+\dfrac{\partial^3z}{\partial x\partial y^2}=-\dfrac1{y^2}
+$$
+
+> 2. 设 $u=f(x,y),x=r\cos\theta,y=r\sin\theta$。证明：
+>
+> $$
+\dfrac{\partial^2u}{\partial r^2}+\dfrac1r\cdot\dfrac{\partial u}{\partial r}+\dfrac1{r^2}\cdot\dfrac{\partial^2u}{\partial\theta^2}=\dfrac{\partial^2u}{\partial x^2}+\dfrac{\partial^2u}{\partial y^2}
+> $$
+
+$$
+\begin{aligned}
+\dfrac{\partial u}{\partial r}&=\dfrac{\partial u}{\partial x}\dfrac{\partial x}{\partial r}+\dfrac{\partial u}{\partial y}\dfrac{\partial y}{\partial r}\\
+&=\cos\theta\dfrac{\partial u}{\partial x}+\sin\theta\dfrac{\partial u}{\partial y}\\
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+\dfrac{\partial^2u}{\partial r^2}&=\dfrac{\partial}{\partial r}(\dfrac{\partial u}{\partial r})\\
+&=\cos^2\theta\dfrac{\partial^2u}{\partial x^2}+\sin^2\theta\dfrac{\partial^2u}{\partial y^2}+\cos\theta\sin\theta(\dfrac{\partial^2u}{\partial x\partial y}+\dfrac{\partial^2u}{\partial y\partial x})
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+\dfrac{\partial u}{\partial\theta}&=\dfrac{\partial u}{\partial x}\dfrac{\partial x}{\partial\theta}+\dfrac{\partial u}{\partial y}\dfrac{\partial y}{\partial\theta}\\
+&=-r\sin\theta\dfrac{\partial u}{\partial x}+r\cos\theta\dfrac{\partial u}{\partial y}
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+\dfrac{\partial^2u}{\partial\theta^2}&=\dfrac{\partial}{\partial\theta}(\dfrac{\partial u}{\partial\theta})\\
+&=r^2\sin^2\theta\dfrac{\partial^2u}{\partial x^2}+r^2\cos\theta^2\dfrac{\partial^2u}{\partial y^2}-2r^2\cos\theta\sin\theta\dfrac{\partial^2u}{\partial x\partial y}-r\cos\theta\dfrac{\partial u}{\partial x}-r\sin\theta\dfrac{\partial u}{\partial y}
+\end{aligned}
+$$
+
+代入即可验证。
