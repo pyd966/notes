@@ -111,3 +111,87 @@
 ![[Pasted image 20260424173004.png]]
 
 ![[Pasted image 20260424173040.png]]
+
+## lec 05
+
+![[Pasted image 20260425105003.png]]
+
+![[Pasted image 20260425105248.png]]
+
+![[Pasted image 20260425105330.png]]
+
+![[Pasted image 20260425105351.png]]
+
+![[Pasted image 20260425105520.png]]
+
+![[Pasted image 20260425105851.png]]
+
+![[Pasted image 20260425105909.png]]
+
+![[Pasted image 20260425110150.png]]
+
+![[Pasted image 20260425110427.png]]
+
+![[Pasted image 20260425110444.png]]
+
+![[Pasted image 20260425110612.png]]
+
+![[Pasted image 20260425110627.png]]
+
+![[Pasted image 20260425110745.png]]
+
+![[Pasted image 20260425110751.png]]
+
+![[Pasted image 20260425110822.png]]
+
+![[Pasted image 20260425110922.png]]
+
+![[Pasted image 20260425111020.png]]
+
+![[Pasted image 20260425111030.png]]
+
+![[Pasted image 20260425113039.png]]
+
+![[Pasted image 20260425111748.png]]
+
+![[Pasted image 20260425111806.png]]
+
+![[Pasted image 20260425111817.png]]
+
+![[Pasted image 20260425111955.png]]
+
+![[Pasted image 20260425112049.png]]
+
+![[Pasted image 20260425112059.png]]
+
+![[Pasted image 20260425112238.png]]
+
+![[Pasted image 20260425112533.png]]
+
+![[Pasted image 20260425113137.png]]
+
+![[Pasted image 20260425113144.png]]
+
+![[Pasted image 20260425113227.png]]
+
+![[Pasted image 20260425113303.png]]
+
+![[Pasted image 20260425113317.png]]
+
+![[Pasted image 20260425113438.png]]
+
+![[Pasted image 20260425113538.png]]
+
+![[Pasted image 20260425113602.png]]
+
+![[Pasted image 20260425113614.png]]
+
+![[Pasted image 20260425113636.png]]
+
+![[Pasted image 20260425113725.png]]
+
+![[Pasted image 20260425113912.png]]
+
+![[Pasted image 20260425114058.png]]
+
+![[Pasted image 20260425114254.png]]
