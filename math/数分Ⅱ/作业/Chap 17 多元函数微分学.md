@@ -296,3 +296,97 @@ $$
 $$
 
 代入即可验证。
+
+> 6. 通过对 $F(x,y)=\sin x\cos y$ 使用中值定理，证明：存在 $\theta\in(0,1)$，有
+>
+> $$
+\dfrac34=\dfrac\pi3\cos\dfrac{\pi\theta}{3}\cos\dfrac{\pi\theta}6-\dfrac\pi6\sin\dfrac{\pi\theta}3\sin\dfrac{\pi\theta}6
+> $$
+
+对 $(0,0),(\dfrac\pi3,\dfrac\pi6)$ 使用中值定理。
+
+$F_x(x,y)=\cos x\cos y,F_y(x,y)=-\sin x\sin y$。
+
+由中值定理，$\exist\theta\in(0,1),\dfrac34=F(\dfrac\pi3,\dfrac\pi6)-F(0,0)=\dfrac\pi3F_x(\dfrac{\pi\theta}3,\dfrac{\pi\theta}6)+\dfrac\pi6F_y(\dfrac{\pi\theta}3,\dfrac{\pi\theta}6)=\dfrac\pi3\cos\dfrac{\pi\theta}3\cos\dfrac{\pi\theta}6-\dfrac\pi6\sin\dfrac{\pi\theta}3\sin\dfrac{\pi\theta}6$
+
+> 7. 求下列函数在指定点处的泰勒公式：
+>
+> $(3)$ $f(x,y)=\ln(1+x+y)$ 在点 $(0,0)$
+
+$(3)$
+
+由数学归纳法可以证明，对 $f$ 求 $n$ 阶偏导的结果只与 $n$ 有关，与求偏导的变量无关。
+
+也即 $\dfrac{\partial^nf}{\partial x^i\partial y^{n-i}}=\dfrac{(-1)^{n-1}(n-1)!}{(1+x+y)^n}$
+
+所以由泰勒公式展开到任意 $m$ 阶
+
+$$
+\begin{aligned}
+f(x,y)&=\sum_{i=0}^{m}\dfrac1{i!}\cdot(x\dfrac{\partial}{\partial x}+y\dfrac{\partial}{\partial y})^if(0,0)+o(\rho^m)\\
+&=\sum_{i=0}^m\dfrac1{i!}\sum_{j=0}^i\binom{i}{j}x^jy^{i-j}\dfrac{\partial^if}{\partial x^j\partial y^{i-j}}(0,0)+o(\rho^m)\\
+&=\sum_{i=1}^m\dfrac1{i!}\sum_{j=0}^i\binom ijx^jy^{i-j}\dfrac{(-1)^{i-1}(i-1)!}{1^i}+o(\rho^m)\\
+&=\sum_{i=1}^m\dfrac{(-1)^{i-1}}{i}\sum_{j=0}^i\binom ijx^jy^{i-j}+o(\rho^m)\\
+&=\sum_{i=1}^m\dfrac{(-1)^{i-1}}{i}(x+y)^i+o(\rho^m)
+\end{aligned}
+$$
+
+> 8. 求下列函数的极值点：
+>
+> $(3)$ $z=e^{2x}(x+y^2+2y)$
+
+$(3)$
+
+$\dfrac{\partial z}{\partial x}=e^{2x}(2x+2y^2+4y+1)$
+
+$\dfrac{\partial z}{\partial y}=2e^{2x}(y+1)$
+
+$\dfrac{\partial^2z}{\partial x^2}=4e^{2x}(x+y^2+2y+1)$
+
+$\dfrac{\partial^2z}{\partial y^2}=2e^{2x}$
+
+$\dfrac{\partial^2z}{\partial x\partial y}=\dfrac{\partial^2z}{\partial y\partial x}=4e^{2x}(y+1)$
+
+令 $\dfrac{\partial z}{\partial x}=\dfrac{\partial z}{\partial y}=0$，得到 $(x,y)=(\dfrac12,-1)$，$z=-\dfrac e2$
+
+该点处 $z_{xx}=2e>0,z_{yy}=2e>0,z_{xy}=z_{yx}=0$。
+
+所以 $z_{xx}>0,z_{xx}z_{yy}-z_{xy}^2>0$，因此是极小值点。
+
+> 9. 求下列函数的最大值与最小值：
+>
+> $(2)$ $z=x^2-xy+y^2,\{(x,y)\mid|x|+|y|\le 1\}$
+
+$(2)$
+
+$z_x=2x-y$
+
+$z_y=-x+2y$
+
+令 $z_x=z_y=0$，得稳定点 $(0,0)$，该点处 $z=0$。
+
+在边界 $|x|+|y|=1$ 上，由对称性，可以只考虑 $y\ge0$ 的情况。
+
+当 $x\in[0,1],y=1-x$ 时，$z=3x^2-3x+1\in[\dfrac14,1]$
+
+当 $x\in[-1,0],y=x+1$ 时，$z=x^2+x+1\in[\dfrac34,1]$
+
+所以最小值 $0$，最大值 $1$。
+
+> 11. 在 $xOy$ 平面上求一点，使它到三直线 $x=0,y=0$ 及 $x+2y-16=0$ 的距离平方和最小。
+
+$s=x^2+y^2+\dfrac{(x+2y-16)^2}{1^2+2^2}$
+
+显然，所求点不会在三条直线围成的三角形之外。
+
+$s_x=2x+\dfrac{2}{5}(x+2y-16)$
+
+$s_y=2y+\dfrac45(x+2y-16)$
+
+令 $s_x=s_y=0$，得稳定点 $(\dfrac85,\dfrac{16}5)$。
+
+计算可知这是一个极小值点。
+
+计算边界上的点，都不会比这个点小。
+
+所以 $(\dfrac85,\dfrac{16}5)$ 就是最小值点。
