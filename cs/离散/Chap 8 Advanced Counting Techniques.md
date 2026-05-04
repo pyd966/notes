@@ -88,3 +88,154 @@ $\Delta a_n=a_n-a_{n-1}$
 $\Delta^2a_n=a_n-2a_{n-1}+a_{n-2}$
 
 So $a_n-2\Delta a_n+\Delta^2a_n=a_n-2(a_n-a_{n-1})+(a_n-2a_{n-1}+a_{n-2})=a_{n-2}$
+
+## Section 8.2
+
+> 2. Determine which of these are linear homogeneous recurrence
+relations with constant coefficients. Also, find the
+degree of those that are.
+>
+> a) $a_n=3a_{n-2}$
+>
+> b) $a_n=3$
+>
+> c) $a_n=a_{n-1}^2$
+>
+> d) $a_n=a_{n-1}+2a_{n-3}$
+>
+> e) $a_n=a_{n-1}/n$
+>
+> f) $a_n=a_{n-1}+a_{n-2}+n+3$
+>
+> g) $a_n=4a_{n-2}+5a_{n-4}+9a_{n-7}$
+
+a) 2
+
+b) not
+
+c) not
+
+d) 3
+
+e) not
+
+f) not
+
+g) 7
+
+> 4. Solve these recurrence relations together with the initial
+conditions given.
+>
+> g) $a_{n+2}=-4a_{n+1}+5a_n$ for $n\ge0,a_0=2,a_1=8$
+
+g)
+
+$r^2=-4r+5$, so $r_1=-5,r_2=1$
+
+So $a_n=c_1(-5)^n+c_21^n$
+
+$$
+\begin{cases}
+c_1+c_2=2\\
+-5c_1+c_2=8
+\end{cases}
+$$
+
+So $c_1=-1,c_2=3$, $a_n=3-(-5)^n$
+
+> 20. Find the general form of the solutions of the recurrence
+relation $a_n = 8a_{n−2} − 16a_{n−4}$.
+
+$r^4=8r^2-16$, so $r_1=r_2=2,r_3=r_4=-2$
+
+$a_n=(c_1n+c_2)2^n+(c_3n+c_4)(-2)^n$
+
+> 30. a) Find all solutions of the recurrence relation $a_n=-5a_{n-1}-6a_{n-2}+42\cdot4^n$
+>
+> b) Find the solution of this recurrence relation with $a_1 =
+56$ and $a_2 = 278$.
+
+a)
+
+Solve $a_n=-5a_{n-1}-6a_{n-2}$, we get $a^{(h)}_n=c_1(-2)^n+c_2(-3)^n$
+
+We guess a particular solution $a^{(p)}_n=C4^n$
+
+So $C4^n=-5C4^{n-1}-6C4^{n-2}+42\cdot4^n$, so $C=16$, $a^{(p)}_n=4^{n+2}$
+
+So $a_n=a_n^{(h)}+a_n^{(p)}=c_1(-2)^n+c_2(-3)^n+4^{n+2}$
+
+> 35. Find the solution of the recurrence relation $a_n=4a_{n-1}-3a_{n-2}+2^n+n+3$ with $a_0 = 1$ and $a_1 = 4$.
+
+Solve $a_n=4a_{n-1}-3a_{n-2}$, we get $a_n^{(h)}=c_1+c_23^n$
+
+We guess $a_n^{(p)}=b2^ncn+d$
+
+So $b2^n+cn+d=4(b2^{n-1}+c(n-1)+d)-3(b2^{n-2}+c(n-2)+d)+2^n+n+3$
+
+So $b=-4,$
+
+## Section 8.3
+
+> 22. Suppose that the function $f$ satisfies the recurrence relation
+$f(n)=2f(\sqrt n)+\log n$ whenever $n$ is a perfect square
+greater than $1$ and $f (2) = 1$.
+>
+> a) Find $f (16)$.
+> 
+> b) Find a big-O estimate for $f (n)$. [Hint: Make the substitution
+$m = log n$.]
+
+## Section 8.4
+
+> 6. Find a closed form for the generating function for the sequence
+$\{a_n\}$, where
+>
+> d) $a_n=1/(n+1)!$ for $n=0,1,2,\dots$
+>
+> f) $a_n=\binom{10}{n+1}$ for $n=0,1,2,\dots$
+
+> 10. Find the coefficient of $x^9$ in the power series of each of
+these functions.
+>
+> c) $(x^3+x^5+x^6)(x^3+x^4)(x+x^2+x^3+x^4+\dots)$
+>
+> d) $(x+x^4+x^7+x^{10}+\dots)(x^2+x^4+x^6+x^8+\dots)$
+>
+> e) $(1+x+x^2)^3$
+
+> 16. Use generating functions to find the number of ways to
+choose a dozen bagels from three varieties—egg, salty,
+and plain—if at least two bagels of each kind but no more
+than three salty bagels are chosen.
+
+> 24. a) What is the generating function for $\{a_k\}$, where $a_k$
+is the number of solutions of $x_1 + x_2 + x_3 + x_4 = k$
+when $x_1, x_2, x_3$, and $x_4$ are integers with $x_1 ≥ 3, 1 ≤x_2 ≤ 5, 0 ≤ x_3 ≤ 4$, and $x_4 ≥ 1$?
+
+> 32. If $G(x)$ is the generating function for the sequence $\{a_k\}$,
+what is the generating function for each of these sequences?
+> 
+> a) $2a_0, 2a_1, 2a_2, 2a_3, …$
+> 
+> b) $0, a_0, a_1, a_2, a_3, …$ (assuming that terms follow the
+pattern of all but the first term)
+> 
+> c) $0, 0, 0, 0, a_2, a_3, …$ (assuming that terms follow the
+pattern of all but the first four terms)
+> 
+> d) $a_2, a_3, a_4,…$
+>
+> e) $a_1, 2a_2, 3a_3, 4a_4,…$ [Hint: Calculus required here.]
+>
+> f) $a_0^2,2a_0a_1,a_1^2+2a_0a_2,2a_0a_3+2a_1a_2,2a_0a_4+2a_1a_3+a_2^2,\dots$
+
+> 36. Use generating functions to solve the recurrence relation
+$a_k = 3a_{k−1} + 4^{k−1} with the initial condition $a_0 = 1$.
+
+> 45. Use generating functions to prove Vandermonde’s identity:
+$C(m + n, r) = \sum_{k=0}^r C(m, r − k)C(n, k)$, whenever
+$m, n$, and $r$ are nonnegative integers with $r$ not exceeding
+either $m$ or $n$. [Hint: Look at the coefficient of $x^r$ in
+both sides of $(1 + x)^{m+n} = (1 + x)^m(1 + x)^n$.]
+
