@@ -169,11 +169,15 @@ So $a_n=a_n^{(h)}+a_n^{(p)}=c_1(-2)^n+c_2(-3)^n+4^{n+2}$
 
 Solve $a_n=4a_{n-1}-3a_{n-2}$, we get $a_n^{(h)}=c_1+c_23^n$
 
-We guess $a_n^{(p)}=b2^ncn+d$
+We guess $a_n^{(p)}=b2^n+cn^2+dn+e$
 
-So $b2^n+cn+d=4(b2^{n-1}+c(n-1)+d)-3(b2^{n-2}+c(n-2)+d)+2^n+n+3$
+So $b2^n+cn^2+dn+e=4(b2^{n-1}+c(n-1)^2+d(n-1)+e)-3(b2^{n-2}+c(n-2)^2+d(n-2)+e)+2^n+n+3$
 
-So $b=-4,$
+So $b=-4,c=-\dfrac14,d=-1$
+
+So $a_n=a_n^{(h)}+a_n^{(p)}=c_1+c_23^n-2^{n+2}-\dfrac14n-1$
+
+Let $a_0=1,a_1=4$, we get $a_n=\dfrac{29}8\cdot3^n-2^{n+2}-\dfrac14n+\dfrac{11}8$
 
 ## Section 8.3
 
@@ -186,6 +190,16 @@ greater than $1$ and $f (2) = 1$.
 > b) Find a big-O estimate for $f (n)$. [Hint: Make the substitution
 $m = log n$.]
 
+a)
+
+$f(16)=2f(4)+4=2(2f(2)+2)+4=12$
+
+b)
+
+Suppose $m=\log n$.
+
+$f(2^m)=2f(2^{m/2})+m=2(2f(2^{m/4})+\dfrac m2)+m=4f(2^{m/4})+m+m=\dots=O(m\log m)$
+
 ## Section 8.4
 
 > 6. Find a closed form for the generating function for the sequence
@@ -194,6 +208,18 @@ $\{a_n\}$, where
 > d) $a_n=1/(n+1)!$ for $n=0,1,2,\dots$
 >
 > f) $a_n=\binom{10}{n+1}$ for $n=0,1,2,\dots$
+
+d)
+
+$e^x=\sum\limits_{n=0}^{\infty}\dfrac1{n!}x^n$
+
+$\dfrac{e^x-1}x=\sum\limits_{n=0}^{\infty}\dfrac1{(n+1)!}x^n$
+
+f)
+
+$(x+1)^{10}=\sum\limits_{n=0}^\infty\binom{10}{n}x^n$
+
+$\dfrac{(x+1)^{10}-1}{x}=\sum\limits_{n=0}^\infty\binom{10}{n+1}x^n$
 
 > 10. Find the coefficient of $x^9$ in the power series of each of
 these functions.
@@ -204,14 +230,42 @@ these functions.
 >
 > e) $(1+x+x^2)^3$
 
+c)
+
+$=x^7(1+x^2+x^3)(1+x)(1+x+x^2+\dots)$
+
+We can choose $(1,1,x^2),(1,x,x),(x^2,1,1)$, so the answer is $3$
+
+d)
+
+$=x^3(1+x^3+x^6+x^9+\dots)(1+x^2+x^4+x^6+\dots)$
+
+We can choose $(1,x^6),(x^6,1)$, so the answer is $2$
+
+e)
+
+The term with maximal degree is $x^6$, so the answer is $0$.
+
 > 16. Use generating functions to find the number of ways to
 choose a dozen bagels from three varieties—egg, salty,
 and plain—if at least two bagels of each kind but no more
 than three salty bagels are chosen.
 
+$F(x)=(x^2+x^3+\dots)(x^2+x^3)(x^2+x^3+\dots)$
+
+The answer is the coefficient of $x^{12}$
+
+$F(x)=x^6\dfrac{1+x}{(1-x)^2}=(x^6+x^7)\sum\limits_{n=0}^\infty(n+1)x^n$
+
+So the coefficient of $x^{12}$ is $7+6=13$
+
 > 24. a) What is the generating function for $\{a_k\}$, where $a_k$
 is the number of solutions of $x_1 + x_2 + x_3 + x_4 = k$
 when $x_1, x_2, x_3$, and $x_4$ are integers with $x_1 ≥ 3, 1 ≤x_2 ≤ 5, 0 ≤ x_3 ≤ 4$, and $x_4 ≥ 1$?
+
+a)
+
+$F(x)=(x^3+x^4+\dots)(x+x^2+\dots+x^5)(1+x+\dots+x^4)(x+x^2+\dots)=\dfrac{x^5(1-x^5)^2}{(1-x)^4}$
 
 > 32. If $G(x)$ is the generating function for the sequence $\{a_k\}$,
 what is the generating function for each of these sequences?
@@ -230,8 +284,38 @@ pattern of all but the first four terms)
 >
 > f) $a_0^2,2a_0a_1,a_1^2+2a_0a_2,2a_0a_3+2a_1a_2,2a_0a_4+2a_1a_3+a_2^2,\dots$
 
+a)
+
+$2G(x)$
+
+b)
+
+$xG(x)$
+
+c)
+
+$x^2(G(x)-a_0-a_1x)$
+
+d)
+
+$\dfrac{G(x)-a_0-a_1x}{x^2}$
+
+e)
+
+$G'(x)$
+
+f)
+
+$G^2(x)$
+
 > 36. Use generating functions to solve the recurrence relation
-$a_k = 3a_{k−1} + 4^{k−1} with the initial condition $a_0 = 1$.
+$a_k = 3a_{k−1} + 4^{k−1}$ with the initial condition $a_0 = 1$.
+
+Suppose the GF of $a_n$ is $F(x)$
+
+Then we know $F(x)-1-3xF(x)=\sum\limits_{k=1}^\infty 4^kx^k=\dfrac x{1-4x}$
+
+So $F(x)=\dfrac1{1-4x}$, so $a_k=4^k$
 
 > 45. Use generating functions to prove Vandermonde’s identity:
 $C(m + n, r) = \sum_{k=0}^r C(m, r − k)C(n, k)$, whenever
@@ -239,3 +323,6 @@ $m, n$, and $r$ are nonnegative integers with $r$ not exceeding
 either $m$ or $n$. [Hint: Look at the coefficient of $x^r$ in
 both sides of $(1 + x)^{m+n} = (1 + x)^m(1 + x)^n$.]
 
+$[x^r](1+x)^{m+n}=\binom{m+n}{r}$
+
+$[x^r](1+x)^m(1+x)^n=\sum\limits_{k=0}^r[x^k](1+x)^n[x^{r-k}](1+x)^m=\sum\limits_{k=0}^r\binom{n}{k}\binom{m}{r-k}$
