@@ -326,3 +326,90 @@ both sides of $(1 + x)^{m+n} = (1 + x)^m(1 + x)^n$.]
 $[x^r](1+x)^{m+n}=\binom{m+n}{r}$
 
 $[x^r](1+x)^m(1+x)^n=\sum\limits_{k=0}^r[x^k](1+x)^n[x^{r-k}](1+x)^m=\sum\limits_{k=0}^r\binom{n}{k}\binom{m}{r-k}$
+
+## Section 8.5
+
+> 7. There are 2504 computer science students at a school. Of
+these, 1876 have taken a course in Java, 999 have taken a
+course in Linux, and 345 have taken a course in C. Further,
+876 have taken courses in both Java and Linux, 231
+have taken courses in both Linux and C, and 290 have
+taken courses in both Java and C. If 189 of these students
+have taken courses in Linux, Java, and C, howmany
+of these 2504 students have not taken a course in any of
+these three programming languages?
+
+$|U_1|=1876,|U_2|=999,|U_3|=345$
+
+$|U_1\cap U_2|=876,|U_1\cap U_3|=290,|U_2\cap U_3|=231$
+
+$|U_1\cap U_2\cap U_3|=189$
+
+$|U_1\cup U_2\cup U_3|=2012$
+
+So there're $492$ people not taking in any courses.
+
+> 10. Find the number of positive integers not exceeding 100
+that are not divisible by 5 or by 7.
+
+$|U_5|=\lfloor\dfrac{100}{5}\rfloor=20,|U_7|=\lfloor\dfrac{100}{7}\rfloor=14$
+
+$|U_5\cap U_7|=|U_{35}|=\lfloor\dfrac{100}{35}\rfloor=2$
+
+$|U_5\cup U_7|=32$
+
+So there're $68$ numbers not divisible by both.
+
+> 20. How many terms are there in the formula for the number
+of elements in the union of 10 sets given by the principle
+of inclusion–exclusion?
+
+$$
+\sum_{i=1}^{10}\binom{10}{i}=2^{10}-1=1023
+$$
+
+## Section 8.6
+
+> 6. An integer is called squarefree if it is not divisible by
+the square of a positive integer greater than 1. Find the
+number of squarefree positive integers less than 100.
+
+A number $<100$ is squarefree iff it's not divisible by $4,9,25,49$.
+
+$|U_4|=24,|U_9|=11,|U_{25}|=3,|U_{49}|=2$
+
+$|U_4\cap U_9|=2$, the rest is $0$.
+
+So $|U_4\cup U_9\cup U_{25}\cup U_{49}|=38$
+
+Then number of squarefree integers is $61$.
+
+> 11. In how many ways can seven different jobs be assigned
+to four different employees so that each employee is assigned
+at least one job and the most difficult job is assigned
+to the best employee?
+
+We assign the most difficult job to the best employee (suppose employee 1), then we will assign $6$ jobs to $4$ employees, and $3$ of the employees must be assigned to at least one job.
+
+Suppose $P_i$ be the set of ways where employee $i$ is idle.
+
+$|P_2|=|P_3|=|P_4|=3^6$
+
+$|P_2\cap P_3|=|P_2\cap P_4|=|P_3\cap P_4|=2^6$
+
+$|P_2\cap P_3\cap P_4|=1$
+
+So $|P_2\cup P_3\cup P_4|=1996$
+
+So $|\overline{P_2\cup P_3\cup P_4}|=2100$
+
+> 16. A group of n students is assigned seats for each of two
+classes in the same classroom. How many ways can these
+seats be assigned if no student is assigned the same seat
+for both classes?
+
+For the first class, $n!$.
+
+For the second class, this is a derangement question, the answer is $D_n$.
+
+So the overall answer is $n!^2\sum\limits_{i=0}^n(-1)^i\dfrac1{i!}$
