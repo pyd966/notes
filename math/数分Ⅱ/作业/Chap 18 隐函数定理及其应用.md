@@ -246,3 +246,84 @@ $u_y=-\dfrac{xy}{(x^2+y^2+z^2)^{3/2}},u_y(M)=-\dfrac2{27}$
 $u_z=-\dfrac{xz}{(x^2+y^2+z^2)^{3/2}},u_z(M)=\dfrac2{27}$
 
 所以方向导数 $f_l(M)=-\dfrac{16}{243}$。
+
+## 习题 18.4
+
+> 1. 应用拉格朗日乘数法，求下列函数的条件极值：
+>
+> $(1)$ $f(x,y)=x^2+y^2$，若 $x+y-1=0$
+
+$(1)$
+
+$L(x,y,\lambda)=x^2+y^2+\lambda(x+y-1)$
+
+$L_x=2x+\lambda,L_y=2y+\lambda,L_\lambda=x+y-1$
+
+令 $L_x=L_y=L_\lambda=0$，解得 $x=y=\dfrac12,\lambda=-1$
+
+考虑 $L_{xx}=2,L_{yy}=2,L_{xy}=L_{yx}=0$，黑塞矩阵为正定矩阵，所以 $f$ 的条件极小值为 $\dfrac12$，极小值点为 $(\dfrac12,\dfrac12)$。
+
+> 2. $(1)$ 求表面积一定而体积最大的长方体。
+
+$(1)$
+
+设长方体三边长为 $x,y,z(x,y,z>0)$。
+
+条件：$2(xy+yz+xz)=S$，求 $f(x,y,z)=xyz$ 的最大值。
+
+$L(x,y,z,\lambda)=xyz+\lambda(2xy+2yz+2xz-S)$
+
+$L_x=yz+2\lambda(y+z),L_y=xz+2\lambda(x+z),L_z=xy+2\lambda(y+x),L_\lambda=2(xy+yz+xz)-S$
+
+令 $L_x=L_y=L_z=L_\lambda=0$，解得 $x=y=z=\sqrt\dfrac{S}{6},\lambda=-\sqrt\dfrac{S}{96}$
+
+因为由题意，$f$ 存在最大值，所以这个可能的极值一定是最大值。
+
+所以表面积为 $S$ 时，体积最大的长方体满足 $x=y=z=\sqrt\dfrac{S}{6}$，最大的体积 $V=\dfrac{S^{3/2}}{6\sqrt6}$
+
+> 3. 求空间一点 $(x_0,y_0,z_0)$ 到平面 $Ax+By+Cz+D=0$ 的距离。
+
+即求 $f(x,y,z)=(x-x_0)^2+(y-y_0)^2+(z-z_0)^2$ 在条件 $Ax+By+Cz+D=0$ 下的最小值。
+
+$L(x,y,z,\lambda)=(x-x_0)^2+(y-y_0)^2+(z-z_0)^2+\lambda(Ax+By+Cz+D)$
+
+$L_x=2(x-x_0)+\lambda A,L_y=2(y-y_0)+\lambda B,L_z=2(z-z_0)+\lambda C,L_\lambda=Ax+By+Cz+D$
+
+令 $L_x=L_y=L_z=L_\lambda=0$，解得
+
+$$
+\begin{cases}
+x=x_0-\frac{A(Ax_0+By_0+Cz_0+D)}{A^2+B^2+C^2}\\
+y=y_0-\frac{B(Ax_0+By_0+Cz_0+D)}{A^2+B^2+C^2}\\
+z=z_0-\frac{C(Ax_0+By_0+Cz_0+D)}{A^2+B^2+C^2}\\
+\lambda=2\cdot\frac{Ax_0+By_0+Cz_0+D}{A^2+B^2+C^2}\\
+\end{cases}
+$$
+
+由题意，$f$ 存在最小值，所以这个可能的极值一定是最小值。
+
+所以距离为 $\dfrac{|Ax_0+By_0+Cz_0+D|}{\sqrt{A^2+B^2+C^2}}$
+
+> 4. 证明：在 $n$ 个正数的和为定值条件
+>
+> $$
+x_1+x_2+\dots+x_n=a
+> $$
+>
+> 下，这 $n$ 个正数的乘积 $x_1x_2\dots x_n$ 的最大值为 $\dfrac{a^n}{n^n}$。并由此结果推出 $n$ 个正数的几何平均值不大于算术平均值。
+>
+> $$
+\sqrt[n]{x_1x_2\dots x_n}\le\dfrac{x_1+x_2+\dots+x_n}{n}
+> $$
+
+$L(x_1,\dots,x_n,\lambda)=x_1x_2\dots x_n+\lambda(x_1+x_2+\dots+x_n-a)$
+
+$L_{x_i}=x_1\dots x_{i-1}x_{i+1}\dots x_n+\lambda$
+
+$L_\lambda=x_1+x_2+\dots+x_n-a$
+
+令 $L_{x_i}=L_\lambda=0$，解得 $x_1=\dots=x_n=\dfrac{a}{n},\lambda=-\dfrac{a^{n-1}}{n^{n-1}}$
+
+所以最大值为 $x_1\dots x_n=\dfrac{a^n}{n^n}$。
+
+所以 $x_1x_2\dots x_n\le\dfrac{a^n}{n^n}$，则 $\sqrt[n]{x_1x_2\dots x_n}\le\dfrac an=\dfrac{x_1+x_2+\dots+x_n}n$
