@@ -237,3 +237,154 @@ $\{(1,1)(1,2),(1,4),(2,1),(2,2)(2,4),(3,3),(4,1),(4,2),(4,4)\}$
 c)
 
 $\{(1,1),(1,2),(1,4),(2,1),(2,2),(3,3),(4,1),(4,2),(4,4)\}$
+
+## Section 9.5
+
+> 3. Which of these relations on the set of all functions from $Z$
+to $Z$ are equivalence relations? Determine the properties
+of an equivalence relation that the others lack.
+>
+> a) $\{(f, g) ∣ f (1) = g(1)\}$
+>
+> b) $\{(f, g) ∣ f (0) = g(0) or f (1) = g(1)\}$
+>
+> c) $\{(f, g) ∣ f (x) − g(x) = 1 \forall x ∈ Z\}$
+> 
+> d) $\{(f, g) \mid $ for some $C ∈ Z$, for all $x ∈ Z, f (x) − g(x) = C\}$
+> 
+> e) $\{(f, g) ∣ f (0) = g(1)$ and $f (1) = g(0)\}$
+
+a), d) are equivalence relations.
+
+b) is not transitive.
+
+c) is not reflexive, symmetric and transitive.
+
+e) is not reflexive and transitive.
+
+> 10. Suppose that $A$ is a nonempty set and $R$ is an equivalence
+relation on $A$. Show that there is a function $f$ with $A$ as its
+domain such that $(x, y) ∈ R$ if and only if $f (x) = f (y)$.
+
+Let $f(x)=[x]_R$, it's easy to verify it.
+
+> 16. Let $R$ be the relation on the set of ordered pairs of positive
+integers such that $((a, b), (c, d)) ∈ R$ if and only if
+$ad = bc$. Show that $R$ is an equivalence relation.
+
+relexive: $ab=ab$, so $((a,b),(a,b))\in R$
+
+symmetric: if $((a,b),(c,d))\in R$, then $ad=bc$, then $((c,d),(a,b))\in R$.
+
+transitive: if $((a,b),(c,d)),((c,d),(e,f))\in R$, then $ad=bc,cf=de$, so $acdf=bcde$, so $af=be$, so $((a,b),(e,f))\in R$.
+
+> 36. What is the congruence class $[4]_m$ when $m$ is
+>
+> b) $3$?
+
+b)
+
+$x\in[4]_m\iff x\equiv 4(\bmod m)\iff x=4+3k(k\in Z)$
+
+> 39. a) What is the equivalence class of $(1, 2)$ with respect to
+the equivalence relation in Exercise 15?
+>
+> b) Give an interpretation of the equivalence classes for
+the equivalence relation $R$ in Exercise 15. [Hint: Look
+at the difference $a − b$ corresponding to $(a, b)$.]
+
+a)
+
+$(1,2)R(a,b)\iff 1+b=2+a\iff a-b=-1$.
+
+So the equivalence class is $\{(a,b)\mid a-b=-1\}$
+
+b)
+
+$(x,y)\in [(a,b)]\iff x+b=y+a\iff x-y=a-b$.
+
+So equivalence classes look like $S(k)=\{(x,y)\mid x-y=k\}$, they can be interpreted by a single integer.
+
+> 41. Which of these collections of subsets are partitions of
+$\{1, 2, 3, 4, 5, 6\}$?
+> 
+> a) $\{1, 2\}, \{2, 3, 4\}, \{4, 5, 6\}$
+> 
+> b) $\{1\}, \{2, 3, 6\}, \{4\}, \{5\}$
+> 
+> c) $\{2, 4, 6\}, \{1, 3, 5\}$ 
+> 
+> d) $\{1, 4, 5\}, \{2, 6\}$
+
+b), c)
+
+## Section 9.6
+
+> 5. Which of these are posets?
+> 
+> a) $(Z,=)$ b) $(Z,≠)$ c) $(Z,≥)$ d) $(Z, \nmid)$
+
+a), c)
+
+> 10.
+
+Ignored.
+
+> 23. Draw the Hasse diagram for divisibility on the set
+>
+> a) $\{1, 2, 3, 4, 5, 6, 7, 8\}$. 
+> 
+> c) $\{1, 2, 3, 6, 12, 24, 36, 48\}$.
+
+Ignored.
+
+> 32. Answer these questions for the partial order represented
+by this Hasse diagram.
+>
+> a) Find the maximal elements.
+>
+> b) Find the minimal elements.
+>
+> c) Is there a greatest element?
+>
+> d) Is there a least element?
+>
+> e) Find all upper bounds of $\{a, b, c\}$.
+>
+> f) Find the least upper bound of $\{a, b, c\}$, if it exists.
+>
+> g) Find all lower bounds of $\{f, g, h\}$.
+>
+> h) Find the greatest lower bound of $\{f, g, h\}$, if it exists.
+
+a)
+
+l, m.
+
+b)
+
+a, b, c.
+
+c)
+
+no.
+
+d)
+
+no.
+
+e)
+
+$\{k,l,m\}$.
+
+f)
+
+k.
+
+g)
+
+$\varnothing$
+
+h)
+
+Dont exist.
