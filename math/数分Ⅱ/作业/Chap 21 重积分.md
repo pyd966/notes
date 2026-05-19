@@ -2,6 +2,100 @@
 
 ## 习题 21.2
 
+> 1. 设 $f(x,y)$ 在区域 $D$ 上连续，试将二重积分 $\iint_Df(x,y)d\sigma$ 化为不同次序的累次积分：
+>
+> $(2)$ $D$ 是由不等式 $y\le x,y\ge0,x^2+y^2\le 1$ 所确定的区域
+>
+> $(4)$ $D=\{(x,y)\mid|x|+|y|\le1\}$
+
+$(2)$
+
+$$
+\begin{aligned}
+\iint_Df(x,y)d\sigma&=\int_0^{\frac{\sqrt2}2}dx\int_0^xf(x,y)dy+\int_{\frac{\sqrt2}2}^1dx\int_0^{\sqrt{1-x^2}}f(x,y)dy\\
+&=\int_0^{\frac{\sqrt2}2}dy\int_y^{\sqrt{1-y^2}}f(x,y)dx
+\end{aligned}
+$$
+
+$(4)$
+
+$$
+\begin{aligned}
+\iint_Df(x,y)d\sigma&=\int_{-1}^1dx\int_{-1+|x|}^{1-|x|}f(x,y)dy\\
+&=\int_{-1}^1dy\int_{-1+|y|}^{1-|y|}f(x,y)dx\\
+\end{aligned}
+$$
+
+> 2. 在下列积分中改变累次积分的顺序：
+>
+> $(1)$ $\int_0^2dx\int_x^{2x}f(x,y)dy$
+>
+> $(3)$ $\int_0^{2a}dx\int_{\sqrt{2ax-x^2}}^{\sqrt{2ax}}f(x,y)dy$
+
+$(1)$
+
+对应区域 $D=\{(x,y)\mid0\le x\le2,x\le y\le 2x\}$
+
+$$
+\begin{aligned}
+\int_0^2dx\int_x^{2x}f(x,y)dy&=\int_0^2dy\int_{\frac y2}^yf(x,y)dx+\int_2^4dy\int_{\frac y2}^2f(x,y)dx
+\end{aligned}
+$$
+
+$(3)$
+
+对应区域 $D=\{(x,y)\mid 0\le x\le2a,\sqrt{2ax-x^2}\le y\le\sqrt{2ax}\}$
+
+$$
+\begin{aligned}
+\int_0^{2a}dx\int_{\sqrt{2ax-x^2}}^{\sqrt{2ax}}f(x,y)dy&=\int_0^{a}dy\int_{\frac{y^2}{2a}}^{a-\sqrt{a^2-y^2}}f(x,y)dx+\int_0^{a}dy\int_{a+\sqrt{a^2-y^2}}^{2a}f(x,y)dx+\int_a^{2a}dy\int_{\frac{y^2}{2a}}^{2a}f(x,y)dx
+\end{aligned}
+$$
+
+> 3. 计算下列二重积分：
+>
+> $(2)$ $\iint_D(x^2+y^2)d\sigma$，其中 $D=\{(x,y)\mid0\le x\le 1,\sqrt{x}\le y\le2\sqrt x\}$
+>
+> $(4)$ $\iint_D\sqrt xd\sigma$，其中 $D=\{(x,y)\mid x^2+y^2\le x\}$
+
+$(2)$
+
+$$
+\begin{aligned}
+\iint_D(x^2+y^2)d\sigma&=\int_0^1dx\int_{\sqrt x}^{2\sqrt x}(x^2+y^2)dy\\
+&=\int_0^1(x^{5/2}+\dfrac73x^{3/2})dx\\
+&=\dfrac{128}{105}
+\end{aligned}
+$$
+
+$(4)$
+
+$D=\{(x,y)\mid x^2+y^2\le x\}=\{(x,y)\mid (x-\dfrac12)^2+y^2\le\dfrac14\}$
+
+$$
+\begin{aligned}
+\iint_D\sqrt xd\sigma&=2\int_0^1dx\int_0^{\sqrt{\frac14-(x-\frac12)^2}}\sqrt{x}dy\\
+&=2\int_0^1\sqrt{x}\sqrt{\dfrac14-(x-\dfrac12)^2}dx\\
+&=2\int_0^1x\sqrt{1-x}dx\\
+&=2\int_0^1(1-t)\sqrt tdt\\
+&=2\int_0^1(t^{1/2}-t^{3/2})dt\\
+&=\dfrac8{15}
+\end{aligned}
+$$
+
+> 4. 求由坐标平面及 $x=2,y=3,x+y+z=4$ 所围成的角柱体的体积。
+
+$D=\{(x,y)\mid x\in[0,2],y\in[0,3],x+y\le4\}$
+
+$$
+\begin{aligned}
+\iint_D(4-x-y)d\sigma&=\int_0^1dx\int_0^3(4-x-y)dy+\int_1^2dx\int_0^{4-x}(4-x-y)dy\\
+&=\int_0^1(3(4-x)-\dfrac92)dx+\dfrac12\int_1^2(4-x)^2dx\\
+&=6+\dfrac{19}6\\
+&=\dfrac{55}6
+\end{aligned}
+$$
+
 > 5. 设 $f(x)$ 在 $[a,b]$ 上连续。证明不等式：
 >
 > $$
@@ -10,7 +104,7 @@
 >
 > 其中等号仅在 $f(x)$ 为常量函数时成立。
 
-考虑计算 $$。
+考虑
 
 $$
 \begin{aligned}
@@ -18,7 +112,7 @@ $$
 &=\iint f^2(x)dxdy+\iint f^2(y)dxdy-2\iint f(x)f(y)dxdy\\
 &=2(b-a)\int_a^bf^2(x)dx-2(\int f(x)dx)(\int f(y)dy)\\
 &=2((b-a)\int_a^b f^2(x)dx-(\int_a^bf(x)dx)^2)\\
-\ge0
+&\ge0
 \end{aligned}
 $$
 
