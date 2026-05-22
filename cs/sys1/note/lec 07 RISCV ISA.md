@@ -42,6 +42,8 @@ RISC-V 没有对齐。
 
 ![[Pasted image 20260518144845.png]]
 
+注意这里 jalr 跟 jal 的 offset 含义不一样。此外，这里 jalr 直接就跳过去了，不再加上 PC。
+
 ![[Pasted image 20260518145136.png]]
 
 ![[Pasted image 20260518145544.png]]
@@ -49,3 +51,43 @@ RISC-V 没有对齐。
 ![[Pasted image 20260518145841.png]]
 
 ![[Pasted image 20260518150234.png]]
+
+![[Pasted image 20260520191408.png]]
+
+![[Pasted image 20260520191901.png]]
+
+![[Pasted image 20260520194220.png]]
+
+![[Pasted image 20260520194427.png]]
+
+![[Pasted image 20260520194508.png]]
+
+![[Pasted image 20260520194745.png]]
+
+![[Pasted image 20260520194849.png]]
+
+![[Pasted image 20260520195040.png]]
+
+![[Pasted image 20260520195807.png]]
+
+![[Pasted image 20260520195930.png]]
+
+![[Pasted image 20260520200137.png]]
+
+![[Pasted image 20260520200207.png]]
+
+![[Pasted image 20260520200435.png]]
+
+![[Pasted image 20260520200459.png]]
+
+![[Pasted image 20260520200509.png]]
+
+![[Pasted image 20260520200516.png]]
+
+![[Pasted image 20260520200829.png]]
+
+![[Pasted image 20260520201137.png]]
+
+![[Pasted image 20260520201207.png]]
+
+![[Pasted image 20260520201444.png]]

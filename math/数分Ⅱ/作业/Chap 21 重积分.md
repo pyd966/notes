@@ -189,3 +189,137 @@ f(x,y)=\begin{cases}
 固定一个 $y_0$，那么考察 $g(x)=f(x,y_0)$，这个函数只有有限个值不为 $0$，所以 $\int_0^1g(x)dx=0$。
 
 那么 $\int_0^1dy\int_0^1f(x,y)dx=\int_0^10=0$，同理另一个累次积分也存在。
+
+## 习题 21.4
+
+> 2. 用极坐标计算下列二重积分：
+>
+> $(3)$ $\iint_D|xy|dxdy$，其中 $D$ 为圆域 $x^2+y^2\le a^2$
+
+$(3)$
+
+记 $x=r\cos\theta,y=r\sin\theta$。
+
+$\Delta=\{(r,\theta)\mid 0\le r\le a,0\le\theta\le2\pi\}$
+
+$$
+\begin{aligned}
+\iint_D|xy|dxdy&=\iint_\Delta|r^2\cos\theta\sin\theta|rdrd\theta\\
+&=\dfrac12\iint_\Delta r^3|\sin2\theta|drd\theta\\
+&=\dfrac12\int_0^adr\int_0^{2\pi}r^3|\sin2\theta|d\theta\\
+&=\int_0^a2r^3dr\\
+&=\dfrac{a^4}2
+\end{aligned}
+$$
+
+> 3. 在下列积分中引入新变量 $u,v$ 后，试将它化为累次积分：
+>
+> $(2)$ $\iint_Df(x,y)dxdy$，其中 $D=\{(x,y)\mid\sqrt x+\sqrt y\le\sqrt a,x\ge0,y\ge0\}$，若 $x=u\cos^4v,y=u\sin^4v$
+
+$(2)$
+
+$\sqrt x+\sqrt y\le\sqrt a\iff\sqrt u\cos^2v+\sqrt u\sin^2v=\sqrt u\le\sqrt a\iff 0\le u\le a$
+
+$x\ge 0\iff u\ge0,y\ge0\iff u\ge0$
+
+所以 $\Delta=\{(u,v)\mid 0\le u\le a,0\le v\le \dfrac\pi2\}$
+
+计算 $|\dfrac{\partial(x,y)}{\partial(u,v)}|=4u|\sin^3v\cos^3v|$
+
+$$
+\begin{aligned}
+\iint_Df(x,y)dxdy&=\iint_\Delta f(u\cos^4v,u\sin^4v)|4u\sin^3v\cos^3v|dudv\\
+&=4\int_0^adu\int_0^{\frac\pi2}f(u\cos^4v,u\sin^4v)u|\sin^3v\cos^3v|dudv
+\end{aligned}
+$$
+
+> 4. 试作适当变换，计算下列积分：
+>
+> $(1)$ $\iint_D(x+y)\sin(x-y)dxdy$，其中 $D=\{(x,y)\mid0\le x+y\le\pi,0\le x-y\le\pi\}$
+
+$(1)$
+
+记 $u=x+y,v=x-y$，那么 $x=\dfrac{u+v}{2},y=\dfrac{u-v}{2}$
+
+$\Delta=\{(u,v)\mid 0\le u\le \pi,0\le v\le\pi\}$
+
+$|\dfrac{\partial(x,y)}{\partial(u,v)}|=\dfrac12\neq0$
+
+$$
+\begin{aligned}
+\iint_D(x+y)\sin(x-y)dxdy&=\dfrac12\iint_\Delta u\sin vdudv\\
+&=\dfrac12\int_0^\pi du\int_0^\pi u\sin vdv\\
+&=\int_0^\pi udu\\
+&=\dfrac{\pi^2}2
+\end{aligned}
+$$
+
+> 5. 求由下列曲面所围立体 $V$ 的体积：
+>
+> $(1)$ $V$ 是由 $z=x^2+y^2$ 和 $z=x+y$ 所围的立体；
+>
+> $(2)$ $V$ 是由曲面 $z^2=\dfrac{x^2}{4}+\dfrac{y^2}{9}$ 和 $2z=\dfrac{x^2}{4}+\dfrac{y^2}{9}$ 所围的立体。
+
+$(1)$
+
+令 $x^2+y^2\le x+y$ 得到 $(x-\dfrac12)^2+(y-\dfrac12)^2\le\dfrac12$。
+
+取区域 $D=\{(x,y)\mid(x-\dfrac12)^2+(y-\dfrac12)^2\le\dfrac12\}$。
+
+做变换 $x=r\cos\theta+\dfrac12,y=r\sin\theta+\dfrac12$
+
+那么 $\Delta=\{(r,\theta)\mid 0\le r\le\dfrac{\sqrt2}2,0\le\theta\le2\pi\}$
+
+$|\dfrac{\partial(x,y)}{\partial(u,v)}|=r$
+
+$$
+\begin{aligned}
+V&=\iint_D(x+y-x^2-y^2)dxdy\\
+&=\iint_\Delta(\dfrac12-r^2)rdrd\theta\\
+&=\int_0^{\frac{\sqrt2}2}dr\int_0^{2\pi}(\dfrac12-r^2)rd\theta\\
+&=2\pi\int_0^{\frac{\sqrt2}2}(\dfrac12-r^2)rdr\\
+&=\dfrac{\pi}{8}
+\end{aligned}
+$$
+
+$(2)$
+
+联立，解得区域 $D=\{(x,y)\mid\dfrac{x^2}{4}+\dfrac{y^2}{9}\le4\}$
+
+做变换 $x=2r\cos\theta,y=3r\cos\theta$
+
+那么 $\Delta=\{(r,\theta)\mid 0\le r\le 2,0\le\theta\le2\pi\}$
+
+$|\dfrac{\partial(x,y)}{\partial(u,v)}|=6r$
+
+$$
+\begin{aligned}
+V&=\iint_D(\sqrt{\dfrac{x^2}4+\dfrac{y^2}{9}}-\dfrac12(\dfrac{x^2}4+\dfrac{y^2}{9}))dxdy\\
+&=\iint_\Delta6r(r-\dfrac12r^2)drd\theta\\
+&=3\int_0^2dr\int_0^{2\pi}(2r-r^2)d\theta\\
+&=3\int_0^2dr2\pi(2r-r^2)\\
+&=8\pi
+\end{aligned}
+$$
+
+> 6. 求出下列曲线所围的平面图形面积：
+>
+> $(1)$ $x+y=a,x+y=b,y=\alpha x,y=\beta x$ $(0<a<b,0<\alpha<\beta)$
+
+$(1)$
+
+做变换 $u=x+y,v=\dfrac{y}{x}$，那么 $x=\dfrac u{1+v},y=\dfrac{uv}{1+v}$
+
+$\Delta=\{(u,v)\mid a\le u\le b,\alpha\le v\le\beta\}$
+
+$|\dfrac{\partial(x,y)}{\partial(u,v)}|=\dfrac{u}{(1+v)^2}$
+
+$$
+\begin{aligned}
+V&=\iint_D1dxdy\\
+&=\iint_\Delta\dfrac{u}{(1+v)^2}dudv\\
+&=\int_\alpha^\beta dv\int_a^b\dfrac{u}{(1+v)^2}du\\
+&=\int_\alpha^\beta dv\dfrac{(b-a)^2}{2(1+v)^2}\\
+&=\dfrac{(b-a)^2(\beta-\alpha)}{2(1+\alpha)(1+\beta)}
+\end{aligned}
+$$
