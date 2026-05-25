@@ -91,3 +91,33 @@ RISC-V 没有对齐。
 ![[Pasted image 20260520201207.png]]
 
 ![[Pasted image 20260520201444.png]]
+
+![[Pasted image 20260525141038.png]]
+
+![[Pasted image 20260525140424.png]]
+
+gp 指在 static data 部分的中间。
+
+![[Pasted image 20260525140817.png]]
+
+![[Pasted image 20260525141154.png]]
+
+![[Pasted image 20260525141309.png]]
+
+![[Pasted image 20260525141437.png]]
+
+![[Pasted image 20260525141626.png]]
+
+![[Pasted image 20260525141807.png]]
+
+![[Pasted image 20260525141923.png]]
+
+![[Pasted image 20260525141944.png]]
+
+![[Pasted image 20260525142143.png]]
+
+![[Pasted image 20260525142229.png]]
+
+![[Pasted image 20260525142316.png]]
+
+![[Pasted image 20260525143607.png]]

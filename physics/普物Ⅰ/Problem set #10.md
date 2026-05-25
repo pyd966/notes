@@ -181,9 +181,13 @@ Because the formula $\Delta t'=\gamma\Delta t$ holds only when $\Delta t$ is mea
 6. Consider a train running at a constant speed $V$ on the straight track in the $x$ direction, and passing through a tunnel (see the figure). The length of the train measured in the train's rest frame (i.e., train frame) is $L$ , and the length of the tunnel measured in the tunnel's (and the track's) rest frame (i.e., track frame) is $D$ . Here we assume $L > D$ . Define $(ct, x)$ as the time and the space coordinates of the track frame, and $(ct', x')$ as those of the train frame. Here, $x$ and $x'$ are in the same direction.
 
 (a) Suppose that an observer standing on the ground sees that the train is shorter than the tunnel, so that the whole train can be inside the tunnel. Determine the smallest possible speed of the train.
+
 (b) Suppose that the rear end of the tunnel (see the figure) is at $x = 0$ , and set the time $t = t' = 0$ when the rear end of the train reaches the rear end of the tunnel. Draw the Minkowski diagram taking $x$ coordinate for the horizontal axis and $ct$ coordinate for the vertical axis. In addition, specify $L$ and $D$ in the diagram.
+
 (c) When the rear end of the train enters the rear end of the tunnel, the rear-end and front-end sliding doors of the tunnel (see the figure) are closed at the same time in the track frame. These two events are denoted by $R_{\mathrm{close}}$ and $F_{\mathrm{close}}$ , respectively. Then, when the front-end of the train reaches the front-end of the tunnel, both the rear-end and front-end sliding doors are opened at the same time in the track frame. These events are denoted by $R_{\mathrm{open}}$ and $F_{\mathrm{open}}$ , respectively.
+
 Show the events $R_{\mathrm{close}}$ , $F_{\mathrm{close}}$ , $R_{\mathrm{open}}$ , and $F_{\mathrm{open}}$ in the Minkowski diagram in (b), and put the four events in the order of being seen by an observer in the train.
+
 (d) Finally, consider a modified case in which the train suddenly (i.e., instantaneously in the train frame) stops when the front end of the train reaches the front-end sliding door of the tunnel. Determine the time $t = t_f$ in the track frame at which the front end of the train stops, and plot the length of the train in the track frame as a function of $t$ .
 
 ![alt text](fig10-1.png)

@@ -286,7 +286,7 @@ $(2)$
 
 联立，解得区域 $D=\{(x,y)\mid\dfrac{x^2}{4}+\dfrac{y^2}{9}\le4\}$
 
-做变换 $x=2r\cos\theta,y=3r\cos\theta$
+做变换 $x=2r\cos\theta,y=3r\sin\theta$
 
 那么 $\Delta=\{(r,\theta)\mid 0\le r\le 2,0\le\theta\le2\pi\}$
 
