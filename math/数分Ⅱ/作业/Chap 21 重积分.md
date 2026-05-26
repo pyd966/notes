@@ -323,3 +323,113 @@ V&=\iint_D1dxdy\\
 &=\dfrac{(b-a)^2(\beta-\alpha)}{2(1+\alpha)(1+\beta)}
 \end{aligned}
 $$
+
+## 习题 21.5
+
+> 1. 计算下列积分：
+>
+> $(3)$ $\iiint_V\dfrac{dxdydz}{(1+x+y+z)^3}$，其中 $V$ 是由 $x+y+z=1$ 与三个坐标面所围成的区域。
+>
+> $(4)$ $\iiint_Vy\cos(x+z)dxdydz$，其中 $V$ 是由 $y=\sqrt x,y=0,z=0$ 以及 $x+z=\dfrac\pi2$ 所围成的区域。
+
+$(3)$
+
+$V=\{(x,y,z)\mid 0\le x\le 1,0\le y\le 1-x,0\le z\le 1-x-y\}$
+
+$$
+\begin{aligned}
+\iiint_V\dfrac{dxdydz}{(1+x+y+z)^3}&=\int_0^1dx\int_0^{1-x}dy\int_0^{1-x-y}(1+x+y+z)^{-3}dz\\
+&=\dfrac12\int_0^1dx\int_0^{1-x}((1+x+y)^{-2}-\dfrac14)dy\\
+&=\dfrac12\int_0^1((1+x)^{-1}-\dfrac14(1-x)-\dfrac12)dx\\
+&=\dfrac12\ln2-\dfrac5{16}
+\end{aligned}
+$$
+
+$(4)$
+
+$V=\{(x,y,z)\mid 0\le x\le\dfrac\pi2,0\le y\le\sqrt x,0\le z\le\dfrac\pi2-x\}$
+
+$$
+\begin{aligned}
+\iiint_V y\cos(x+z)dxdydz&=\int_0^{\frac\pi2}dx\int_0^{\sqrt x}dy\int_0^{\frac\pi2-x}y\cos(x+z)dz\\
+&=\int_0^{\frac\pi2}dx\int_0^{\sqrt{x}}y(\sin(\dfrac\pi2)-\sin x)dy\\
+&=\dfrac12\int_0^{\frac\pi2}x(1-\sin x)dx\\
+&=\dfrac{\pi^2-8}{16}
+\end{aligned}
+$$
+
+> 2. 试改变下列累次积分的顺序：
+>
+> $(1)$ $\int_0^1dx\int_0^{1-x}dy\int_0^{x+y}f(x,y,z)dz$
+
+$(1)$
+
+$V=\{(x,y,z)\mid 0\le x\le1,0\le y\le 1-x,0\le z\le x+y\}=\{(x,y,z)\mid 0\le y\le 1,0\le x\le 1-y,0\le z\le x+y\}$
+
+$$
+\int_0^1dx\int_0^{1-x}dy\int_0^{x+y}f(x,y,z)dz=\int_0^1dy\int_0^{1-y}dx\int_0^{x+y}f(x,y,z)dz
+$$
+
+> 3. 计算下列三重积分与累次积分：
+>
+> $(1)$ $\iiint_Vz^2dxdydz$，其中 $V$ 由 $x^2+y^2+z^2\le r^2$ 和 $x^2+y^2+z^2\le 2rz$ 所确定；
+>
+> $(2)$ $\int_0^1dx\int_0^{\sqrt{1-x^2}}dy\int_{\sqrt{x^2+y^2}}^{\sqrt{2-x^2-y^2}}z^2dz$
+
+$(1)$
+
+做变换 $\begin{cases}x=R\sin\varphi\cos\theta\\ y=R\sin\varphi\sin\theta\\ z=R\cos\varphi\end{cases}$
+
+那么由 $x^2+y^2+z^2\le r^2$ 知 $0\le R\le r$，由 $x^2+y^2+z^2\le 2rz$ 知 $R\le 2r\cos\varphi$
+
+所以区域 $\Omega=\{(R,\theta,\varphi)\mid 0\le R\le\min\{r,2r\cos\varphi\},0\le\theta\le2\pi,0\le\varphi\le\dfrac\pi2\}$
+
+$$
+\begin{aligned}
+\iiint_Vz^2dxdydz&=\int_0^{\frac\pi2}d\varphi\int_0^{\min\{r,2r\cos\varphi\}}R^4\cos^2\varphi\sin\varphi dR\int_0^{2\pi}d\theta\\
+&=2\pi(\int_0^{\frac\pi3}d\varphi\int_0^{r}R^4\cos^2\varphi\sin\varphi dR+\int_{\frac\pi3}^{\frac\pi2} d\varphi\int_0^{2r\cos\varphi}R^4\cos^2\varphi\sin\varphi dR)\\
+&=\dfrac{2\pi}5r^5(\int_0^{\frac\pi3}\cos^2\varphi\sin\varphi d\varphi+\int_{\frac\pi3}^{\frac\pi2}32\cos^7\varphi\sin\varphi d\varphi)\\
+&=\dfrac{59\pi r^5}{480}
+\end{aligned}
+$$
+
+$(2)$
+
+$V=\{(x,y,z)\mid 0\le x\le 1,0\le y\le \sqrt{1-x^2},\sqrt{x^2+y^2}\le z\le\sqrt{2-x^2-y^2}\}$
+
+所以 $x^2+y^2\le 1,x^2+y^2+z^2\le 2,x^2+y^2\le z^2,x,y\ge0$
+
+做变换 $\begin{cases}x=r\cos\theta\\ y=r\sin\theta\\ z=z\end{cases}$
+
+那么 $\Omega=\{(r,\theta,z)\mid 0\le r\le1,0\le\theta\le\dfrac\pi2,r\le z\le\sqrt{2-r^2}\}$
+
+$$
+\begin{aligned}
+\int_0^1dx\int_0^{\sqrt{1-x^2}}dy\int_{\sqrt{x^2+y^2}}^{\sqrt{2-x^2-y^2}}z^2dz&=\int_0^1dr\int_r^{\sqrt{2-r^2}}dz\int_0^{\frac\pi2} z^2rd\theta\\
+&=\dfrac\pi2\int_0^1dr\int_r^{\sqrt{2-r^2}}z^2rdz\\
+&=\dfrac\pi6\int_0^1r((2-r^2)^{3/2}-r^3)dr\\
+&=\dfrac{\pi(2\sqrt2-1)}{15}
+\end{aligned}
+$$
+
+> 7. 设 $V=\{(x,y,z)\mid\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}+\dfrac{z^2}{c^2}\le 1\}$，计算下列积分：
+>
+> $(1)$ $\iiint_V\sqrt{1-\dfrac{x^2}{a^2}-\dfrac{y^2}{b^2}-\dfrac{z^2}{c^2}}dxdydz$
+
+$(1)$
+
+做变换 $\begin{cases}x=ar\sin\varphi\cos\theta\\ y=br\sin\varphi\sin\theta\\ z=cr\cos\varphi\end{cases}$
+
+那么 $\Omega=\{(r,\varphi,\theta)\mid 0\le r\le 1,0\le\varphi\le\pi,0\le\theta\le2\pi\}$
+
+$$
+\begin{aligned}
+\iiint_V\sqrt{1-\dfrac{x^2}{a^2}-\dfrac{y^2}{b^2}-\dfrac{z^2}{c^2}}dxdydz&=\int_0^1dr\int_0^\pi d\varphi\int_0^{2\pi}r^2abc\sin\varphi\sqrt{1-r^2}d\theta\\
+&=2\pi abc\int_0^1dr\int_0^\pi r^2\sqrt{1-r^2}\sin\varphi d\varphi\\
+&=4\pi abc\int_0^1r^2\sqrt{1-r^2}dr\\
+&=4\pi abc\int_0^{\frac\pi2}\sin^2\alpha\cos^2\alpha d\alpha\\
+&=\pi abc\int_0^{\frac\pi2}\sin^22\alpha d\alpha\\
+&=\dfrac\pi2abc\int_0^{\frac\pi2}(1-\cos4\alpha)d\alpha\\
+&=\dfrac{\pi^2abc}{4}
+\end{aligned}
+$$
