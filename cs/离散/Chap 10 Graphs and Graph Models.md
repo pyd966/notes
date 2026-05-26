@@ -110,3 +110,87 @@ $$
 
 > 38-41.
 
+## Section 10.4
+
+> 27. Find the number of paths from a to e in the directed graph
+in Exercise 2 of length
+>
+> e) $6$
+
+e) $5$
+
+> 28. Show that every connected graph with $n$ vertices has at
+least $n − 1$ edges.
+
+Suppose we add edges one by one.
+
+Adding one edge can merge at most $2$ connected components.
+
+Originally there're $n$ connected components, in the end there's only one.
+
+So at least $n-1$ edges.
+
+> 29. Let $G = (V, E)$ be a simple graph. Let $R$ be the relation
+on $V$ consisting of pairs of vertices $(u, v)$ such that there
+is a path from $u$ to $v$ or such that $u = v$. Show that $R$ is an
+equivalence relation.
+
+Reflexive: $u=u$, so $uRu$
+
+Symmetric: $G$ is undirected, so $uRv\Rightarrow vRu$
+
+Transitive: If $uRv,vRw$, combining the path $u\to v,v\to w$ yields a path $u\to w$, so $uRw$.
+
+> 62. Use Exercise 61 to show that the graph $G_1$ in Figure 2
+is connected whereas the graph $G_2$ in that figure is not
+connected.
+
+If there exists a path from $u\to v$, then there exists a path with length $<n$ from $u\to v$.
+
+So we calculate $I+A+A^2+\dots+A^{n-1}$.
+
+$I+G_1+G_1^2+\dots+G_1^{n-1}=\begin{pmatrix}1 & 1 & 1 & 1 & 1 & 1 & 1\\ 1 & 1 & 1 & 1 & 1 & 1 & 1\\ 1 & 1 & 1 & 1 & 1 & 1 & 1\\ 1 & 1 & 1 & 1 & 1 & 1 & 1\\ 1 & 1 & 1 & 1 & 1 & 1 & 1\\ 1 & 1 & 1 & 1 & 1 & 1 & 1\\ 1 & 1 & 1 & 1 & 1 & 1 & 1\\\end{pmatrix}$
+
+$I+G_2+G_2^2+G_2^2+G_2^3+G_2^4+G_2^5=\begin{pmatrix}1 & 1 & 1 & 0 & 0 & 0\\ 1 & 1 & 1 & 0 & 0 & 0\\ 1 & 1 & 1 & 0 & 0 & 0\\ 0 & 0 & 0 & 1 & 1 & 1\\ 0 & 0 & 0 & 1 & 1 & 1\\ 0 & 0 & 0 & 1 & 1 & 1\\\end{pmatrix}$
+
+So $G_1$ is connected, $G_2$ is not.
+
+## Section 10.5
+
+> 4.
+
+Euler circuit: None
+
+Euler path: cbafbdaecdef
+
+> 6.
+
+Euler circuit: None
+
+Euler path: badefdgihaibcidc
+
+> 31. 
+
+Yes. aedcba
+
+> 34.
+
+No.
+
+For a, c, g, e, whose degree is 2, their 2 edges must be in the circuit.
+
+This results in a closed circuit, so it's impossbile to construct a circuit including all vertices.
+
+> 38. Does the graph in Exercise 31 have a Hamilton path? If
+so, find such a path. If it does not, give an argument to
+show why no such path exists.
+
+Yes. aedcb
+
+> 41. Does the graph in Exercise 34 have a Hamilton path? If
+so, find such a path. If it does not, give an argument to
+show why no such path exists.
+
+To find a Hamilton path, for those vertices with degree 2, there're at most 2 edges not being selected.
+
+WLOG, suppose edge (a,b) is not selected, then edge (b,j) must be selected, WLOG suppose (i,j) is not selected, then we still can't integrate vertex p, so it's impossible.
