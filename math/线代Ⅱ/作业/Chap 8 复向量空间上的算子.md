@@ -54,6 +54,49 @@ $\forall v\in V,v=v_1+\dots+v_n,v_i\in G(\lambda_i,T)$。
 
 考虑 $DNv=D(N_1v_1+\dots+N_sv_s)=\lambda_1N_1v_1+\dots+\lambda_sN_sv_s=N(\lambda_1v_1+\dots+\lambda_sv_s)=NDv$，所以 $DN=ND$。
 
+## 习题 8.C
+
+> 10. 设 $V$ 是复向量空间，$T\in L(V)$ 是可逆的。令 $p$ 表示 $T$ 的特征多项式，$q$ 表示 $T^{-1}$ 的特征多项式。证明：对所有非零的 $z\in C$ 都有
+>
+> $$
+q(z)=\dfrac1{p(0)}z^{\dim V}p(\dfrac1z)
+> $$
+
+记 $n=\dim V$。
+
+记 $T$ 的矩阵为 $A$。
+
+$q(z)=|zI-A^{-1}|=|-zA^{-1}(\dfrac1zI-A)|=(-z)^n|A^{-1}||\dfrac1zI-A|$
+
+而 $p(\dfrac1z)=|\dfrac1zI-A|$，并且 $|A^{-1}|=|A|^{-1}=(-1)^n\dfrac1{p(0)}$
+
+所以 $q(z)=\dfrac1{p(0)}z^np(\dfrac1z)$
+
+> 18. 设 $a_0,\dots,a_{n-1}\in C$。设 $T\in L(C^n)$（关于标准基）的矩阵是
+>
+> $$
+\begin{pmatrix}
+0 & & & & -a_0\\
+1 & 0 & & & -a_1\\
+& 1 & \dots & & -a_2\\
+& & \dots & & \vdots\\
+& & & 0 & -a_{n-2}\\
+& & & 1 & -a_{n-1}\\
+\end{pmatrix}
+> $$
+>
+> 求 $T$ 的极小多项式和特征多项式。
+
+计算 $|\lambda I-M(T)|$ 可以发现特征多项式为 $x^n+a_{n-1}x^{n-2}+\dots+a_0$。
+
+考虑极小多项式。
+
+取标准基 $e_1$，那么 $Ae_1=e_2,A^2e_1=e_3,\dots,A^{n-1}e_1=e_n,A^ne_1=-a_0e_1-a_2e_1-\dots-a_{n-1}e_n$
+
+而 $e_1,Ae_1,\dots,A^{n-1}e_1$ 线性无关，所以极小多项式次数 $\ge n$
+
+所以极小多项式等于特征多项式。
+
 ## 习题 8.D
 
 > 6. 设 $N\in L(V)$ 是幂零的，$v_1,\dots,v_n$ 和 $m_1,\dots,m_n$ 如 8.55 中所示。证明 $N^{m_1}v_1,\dots,N^{m_n}v_n$ 是 $\text{null}N$ 的基。

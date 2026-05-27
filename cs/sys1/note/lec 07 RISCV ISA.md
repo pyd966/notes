@@ -121,3 +121,21 @@ gp 指在 static data 部分的中间。
 ![[Pasted image 20260525142316.png]]
 
 ![[Pasted image 20260525143607.png]]
+
+![[Pasted image 20260527173459.png]]
+
+![[Pasted image 20260527173608.png]]
+
+![[Pasted image 20260527173652.png]]
+
+![[Pasted image 20260527173749.png]]
+
+![[Pasted image 20260527173819.png]]
+
+![[Pasted image 20260527174141.png]]
+
+![[Pasted image 20260527174328.png]]
+
+![[Pasted image 20260527174341.png]]
+
+![[Pasted image 20260527174615.png]]
