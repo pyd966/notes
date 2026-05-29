@@ -194,3 +194,98 @@ show why no such path exists.
 To find a Hamilton path, for those vertices with degree 2, there're at most 2 edges not being selected.
 
 WLOG, suppose edge (a,b) is not selected, then edge (b,j) must be selected, WLOG suppose (i,j) is not selected, then we still can't integrate vertex p, so it's impossible.
+
+## Section 10.6
+
+> 3.
+
+With Dijkstra algorithm, we can decide nodes' shortest distance by the following order.
+
+a: 0
+
+c: 3 a->c
+
+b: 4 a->b
+
+d: 6 a->c->d
+
+e: 7 a->c->d->e
+
+f: 11 a->c->d->f
+
+g: 12 a->c->d->e->g
+
+z: 16 a->c->d->e->g->z
+
+> 17. The weighted graphs in the figures here show some major
+roads in New Jersey. Part (a) shows the distances between
+cities on these roads; part (b) shows the tolls.
+>
+> a) Find a shortest route in distance between Newark and
+Camden, and between Newark and Cape May, using
+these roads.
+
+a)
+
+Newark & Camden:
+
+Newark -> Woodbridge -> Camden
+
+Newark & Cape May:
+
+Newark -> Woodbridge -> Asbury Park -> Atlantic City -> Cape May
+
+> 26. Solve the traveling salesperson problem for this graph by
+finding the total weight of all Hamilton circuits and determining
+a circuit with minimum total weight.
+
+abcdea
+
+abceda
+
+abdcea
+
+abdeca
+
+abecda
+
+abedca
+
+acbdea
+
+acbeda
+
+acdbea
+
+
+
+## Section 10.7
+
+> 7.
+
+Yes
+
+> 20.
+
+Yes. By removing only point e, c.
+
+> 22.
+
+Yes. By removing only points b, d, f, h, j, l.
+
+> 23.
+
+
+
+> 25.
+
+## Section 10.8
+
+> 3.
+
+> 8.
+
+> 9.
+
+> 10.
+
