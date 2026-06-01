@@ -17,3 +17,12 @@
 
 ![[Pasted image 20260527181713.png]]
 
+![[Pasted image 20260601161727.png]]
+
+![[Pasted image 20260601161928.png]]
+
+![[Pasted image 20260601162217.png]]
+
+![[Pasted image 20260601163514.png]]
+
+这里注意 x1 放在 rs2 里，x2 放在 rs1 里。
