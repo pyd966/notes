@@ -107,3 +107,24 @@ $$
 $$
 
 其中 $k$ 是力与质点到 $xOy$ 平面距离的乘积常数。
+
+> 5. 计算沿空间曲线的第二型曲线积分：
+>
+> $(1)$ $\int_Lxyzdz$，其中 $L$ 为 $x^2+y^2+z^2=1$ 与 $y=z$ 相交的圆，其方向按曲线依次经过第一、二、七、八卦限。
+
+$(1)$
+
+由题知，$y=z$，所以等价于求 $\int_{L'}xy^2dy$，其中 $L'$ 为 $x^2+2y^2=1$。
+
+进行参数化，$x=\cos\theta,y=\dfrac{\sin\theta}{\sqrt{2}}$
+
+那么
+
+$$
+\begin{aligned}
+\int_{L'}xy^2dy&=\int_0^{2\pi}\dfrac1{2\sqrt2}\cos^2\theta\sin^2\theta d\theta\\
+&=\int_0^{2\pi}\dfrac1{8\sqrt2}\sin^22\theta d\theta\\
+&=\int_0^{2\pi}\dfrac{1-\cos4\theta}{16\sqrt2}d\theta\\
+&=\dfrac{\pi}{8\sqrt2}
+\end{aligned}
+$$

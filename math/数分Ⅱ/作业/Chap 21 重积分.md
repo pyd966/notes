@@ -192,6 +192,77 @@ f(x,y)=\begin{cases}
 
 ## 习题 21.4
 
+> 1. 应用格林公式计算下列曲线积分：
+>
+> $(1)$ $\oint_L(x+y)^2dx-(x^2+y^2)dy$，其中 $L$ 是以 $A(1,1),B(3,2),C(2,5)$ 为顶点的三角形，方向取正向。
+>
+> $(2)$ $\int_{AB}(e^x\sin y-my)dx+(e^x\cos y-m)dy$，其中 $m$ 为常数，$AB$ 为由 $(a,0)$ 到 $(0,0)$ 经过圆 $x^2+y^2=ax$ 上半部的路线 $(a>0)$。
+
+$(1)$
+
+令 $P(x,y)=(x+y)^2,Q(x,y)=-(x^2+y^2)$，那么 $\dfrac{\partial P}{\partial y}=2(x+y),\dfrac{\partial Q}{\partial x}=-2x$
+
+$$
+\begin{aligned}
+\oint_LP(x,y)dx+Q(x,y)dy&=\iint_D(\dfrac{\partial Q}{\partial x}-\dfrac{\partial P}{\partial y})d\sigma\\
+&=-2\iint_D(2x+y)d\sigma\\
+&=-2(\int_1^2dx\int_{\frac{x+1}2}^{4x-3}(2x+y)dy+\int_2^3dx\int_{\frac{x+1}2}^{-3x+11}(2x+y)dy)\\
+&=-2(\int_1^2\dfrac{119x^2-154x+35}{8}dx+\int_2^3\dfrac{-21x^2-98x+483}{8}dx)\\
+&=-\dfrac{140}3
+\end{aligned}
+$$
+
+$(2)$
+
+考察环形线路 $L:ABA$，对其使用格林定理
+
+$$
+\begin{aligned}
+\oint_L(e^x\sin y-my)dx+(e^x\cos y-m)dy&=\iint_D(e^x\cos y-(e^x\cos y-m))d\sigma\\
+&=m\iint_Dd\sigma\\
+&=\dfrac{m\pi a^2}{8}
+\end{aligned}
+$$
+
+而 $\int_{BA}(e^x\sin y-my)dx+(e^x\cos y-m)dy=0$。
+
+所以 $\int_{AB}(e^x\sin y-my)dx+(e^x\cos y-m)dy=\oint_L(e^x\sin y-my)dx+(e^x\cos y-m)dy=\dfrac{m\pi a^2}{8}$
+
+> 2. 应用格林公式计算下列曲线所围的平面面积：
+>
+> $(1)$ 星形线：$x=a\cos^3t,y=a\sin^3t$
+>
+> $(2)$ 双纽线：$(x^2+y^2)^2=a^2(x^2-y^2)$
+
+$(1)$
+
+$$
+\begin{aligned}
+\iint_Dd\sigma&=\dfrac12\oint xdy-ydx\\
+&=\dfrac12\int_0^{2\pi}3a^2\cos^2t\sin^2t(\sin^2t+\cos^2t)dt\\
+&=\dfrac{3a^2}8\int_0^{2\pi}\sin^22tdt\\
+&=\dfrac{3a^2}{16}\int_0^{2\pi}(1-\cos4t)dt\\
+&=\dfrac{3\pi a^2}8
+\end{aligned}
+$$
+
+$(2)$
+
+$x=r\cos\theta,y=r\sin\theta$，那么 $r^2\le a^2\cos2\theta$，区域 $\Delta=\{(r,\theta)\mid r^2\le a^2\cos2\theta,\theta\in[-\dfrac\pi4,\dfrac\pi4]\cup[\dfrac{3\pi}4,\dfrac{5\pi}4]\}$
+
+那么
+
+$$
+\begin{aligned}
+\iint_Dd\sigma&=\iint_\Delta rdrd\theta\\
+&=2\int_{-\frac\pi4}^{\frac\pi4}d\theta\int_0^{a\sqrt{\cos2\theta}}rdr\\
+&=\int_{-\frac\pi4}^{\frac\pi4}a^2\cos2\theta d\theta\\
+&=a^2
+\end{aligned}
+$$
+
+## 习题 21.4
+
 > 2. 用极坐标计算下列二重积分：
 >
 > $(3)$ $\iint_D|xy|dxdy$，其中 $D$ 为圆域 $x^2+y^2\le a^2$
