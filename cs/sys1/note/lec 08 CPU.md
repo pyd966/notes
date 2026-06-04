@@ -26,3 +26,20 @@
 ![[Pasted image 20260601163514.png]]
 
 这里注意 x1 放在 rs2 里，x2 放在 rs1 里。
+
+![[Pasted image 20260603185736.png]]
+
+![[Pasted image 20260603190038.png]]
+
+![[Pasted image 20260603191257.png]]
+
+![[Pasted image 20260603191458.png]]
+
+![[Pasted image 20260603191757.png]]
+
+![[Pasted image 20260603192235.png]]
+
+![[Pasted image 20260603192611.png]]
+
+![[Pasted image 20260603192724.png]]
+

@@ -190,7 +190,7 @@ f(x,y)=\begin{cases}
 
 那么 $\int_0^1dy\int_0^1f(x,y)dx=\int_0^10=0$，同理另一个累次积分也存在。
 
-## 习题 21.4
+## 习题 21.3
 
 > 1. 应用格林公式计算下列曲线积分：
 >
@@ -260,6 +260,84 @@ $$
 &=a^2
 \end{aligned}
 $$
+
+> 5. 验证下列积分与路线无关，并求它们的值：
+>
+> $(2)$ $\int_{(0,0)}^{(x,y)}(2x\cos y-y^2\sin x)dx+(2y\cos x-x^2\sin y)dy$
+>
+> $(4)$ $\int_{(1,0)}^{(6,8)}\dfrac{xdx+ydy}{\sqrt{x^2+y^2}}$ 沿不通过原点的路线
+
+$(2)$
+
+$\dfrac{\partial P}{\partial y}=-2x\sin y-2y\sin x=\dfrac{\partial Q}{\partial x}$，所以积分与路径无关。
+
+考虑记 $O(0,0),A(x,0),B(x,y)$。
+
+$\int_{OA}Pdx+Qdy=\int_0^x2xdx=x^2$
+
+$\int_{AB}Pdx+Qdy=\int_0^y(2y\cos x-x^2\sin y)dy=y^2\cos x+x^2(\cos y-1)$
+
+所以 $\int_{OB}=\int_{OA}+\int_{AB}=x^2\cos y+y^2\cos x$
+
+$(4)$
+
+我们证明，对于任意两条不过原点的路线，积分都相等。显然可以找到一个闭区域 $D$ 将两条路线包裹，并且 $(0,0)\not\in D$。
+
+在这个区域中，$\dfrac{\partial P}{\partial y}=-xy(x^2+y^2)^{-3/2}=\dfrac{\partial Q}{\partial x}$，所以积分与路线无关。
+
+记 $A(1,0),B(6,0),C(6,8)$，那么
+
+$\int_{AB}\dfrac{xdx+ydy}{\sqrt{x^2+y^2}}=\int_{AB}\dfrac{xdx}{\sqrt{x^2}}=5$
+
+$\int_{BC}\dfrac{xdx+ydy}{\sqrt{x^2+y^2}}=\int_{BC}\dfrac{ydy}{\sqrt{36+y^2}}=4$
+
+$\int_{AC}=\int_{AB}+\int_{BC}=9$
+
+> 6. 求下列全微分的原函数：
+>
+> $(1)$ $(x^2+2xy-y^2)dx+(x^2-2xy-y^2)dy$
+
+$(1)$
+
+$\dfrac{\partial P}{\partial y}=2x-2y=\dfrac{\partial Q}{\partial x}$
+
+假设原函数为 $F(x,y)$。
+
+那么 $F(x_0,y_0)=C+\int_{(0,0)}^{(x_0,y_0)}Pdx+Qdy$
+
+$\int_{(0,0)}^{(x_0,0)}Pdx+Qdy=\dfrac13x_0^3$
+
+$\int_{(x_0,0)}^{(x_0,y_0)}Pdx+Qdy=x_0^2y_0-x_0y_0^2-\dfrac13y_0^3$
+
+所以 $\int_{(0,0)}^{(x_0,y_0)}=\int_{(0,0)}^{(x_0,0)}+\int_{(x_0,0)}^{(x_0,y_0)}=\dfrac13x_0^3+x_0^2y_0-x_0y_0^2-\dfrac13y_0^3$
+
+所以 $F(x,y)=\dfrac13x^3+x^2y-xy^2-\dfrac13y^3+C$
+
+> 8. 计算曲线积分
+>
+> $$
+\int_{\overset{\frown}{AMB}}(\varphi(y)e^x-my)dx+(\varphi'(y)e^x-m)dy
+> $$
+>
+> 其中 $\varphi(y)$ 和 $\varphi'(y)$ 为连续函数，$\overset{\frown}{AMB}$ 为连接点 $A(x_1,y_1)$ 和点 $B(x_2,y_2)$ 的任何路线，但与直线段 $AB$ 围成已知大小为 $S$ 的面积。
+
+记 $C(x_2,y_1)$
+
+那么 $\int_{AC}Pdx+Qdy=\varphi(y_1)(e^{x_2}-e^{x_1})-my_1(x_2-x_1)$
+
+$\int_{CB}Pdx+Qdy=(\varphi(y_2)-\varphi(y_1))e^{x_2}-m(y_2-y_1)$
+
+所以 $\int_{AB}=\int_{AC}+\int_{CB}=\varphi(y_2)e^{x_2}-\varphi(y_1)e^{x_1}-m(x_2y_2-x_1y_1)$
+
+考虑到 $\dfrac{\partial P}{\partial y}=\varphi'(y)e^x-m,\dfrac{\partial Q}{\partial x}=\varphi'(y)e^x$，也就是说 $\dfrac{\partial Q}{\partial x}-\dfrac{\partial P}{\partial y}=m$。
+
+先不妨设 $\overset{\frown}{AMB}$ 在 $AB$ 上方。
+
+那么由格林公式 $\oint_{\overset{\frown}{BMA}B}Pdx+Qdy=mS$。
+
+那么 $\int_{\overset{\frown}{AMB}}=mS+\int_{AB}Pdx+Qdy=mS+\varphi(y_2)e^{x_2}-\varphi(y_1)e^{x_1}-m(x_2y_2-x_1y_1)$。
+
+如果在 $AB$ 下方，修改 $S$ 的符号即可。
 
 ## 习题 21.4
 
@@ -502,5 +580,21 @@ $$
 &=\pi abc\int_0^{\frac\pi2}\sin^22\alpha d\alpha\\
 &=\dfrac\pi2abc\int_0^{\frac\pi2}(1-\cos4\alpha)d\alpha\\
 &=\dfrac{\pi^2abc}{4}
+\end{aligned}
+$$
+
+## 习题 21.6
+
+> 2. 求锥面 $z=\sqrt{x^2+y^2}$ 被柱面 $z^2=2x$ 所截部分的曲面面积。
+
+联立，解得 $(x-1)^2+y^2=1$，说明该曲面在 $xOy$ 平面上的投影 $D=\{(x,y)\mid (x-1)^2+y^2\le 1\}$。
+
+那么曲面面积
+
+$$
+\begin{aligned}
+S&=\iint_D\sqrt{1+z_x^2(x,y)+z_y(x,y)^2}dxdy\\
+&=\sqrt 2\iint_Ddxdy\\
+&=\sqrt2\pi
 \end{aligned}
 $$
