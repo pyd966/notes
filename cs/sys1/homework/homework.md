@@ -362,11 +362,33 @@ $$
 0000\ 0000\ 0001\ 0000\ 1000\ 0000\ 1011\ 0011_{\mathrm{two}}
 $$
 
+opcode: 0110011, so R-type.
+
+funct3: 000, funct7: 0000000, so add
+
+rs1: 00001 rs2: 00001 rd: 00001
+
+So it's add x1, x1, x1
+
 ## 6-2
 2.13 [5] $< \S\S 2.2, 2.5>$ Provide the instruction type and hexadecimal representation of the following instruction:
 $$
 \mathrm{sd}\times 5,32(\times 30)
 $$
+
+store, so opcode: 0100011
+
+funct3: 011
+
+rs1: x30, 11110
+
+rs2: x5, 00101
+
+imm: 32, 000000100000
+
+So it's 0000 0010 0101 1111 0011 0000 0010 0011
+
+So 0x025f3023
 
 ## 6-3
 2.31 [20] $< \S 2.8>$ Translate function f into RISC-V assembly language. Assume the function declaration for g is int g(int a, int b). The code for function f is as follows:
@@ -375,6 +397,19 @@ int f(int a, int b, int c, int d) {
     return g(g(a, b), c + d);
 }
 ```
+
+addi sp, -16
+sw ra, 8(sp)
+sw a2, 4(sp)
+sw a3, 0(sp)
+call g
+lw a2, 8(sp)
+lw a3, 0(sp)
+add a1, a2, a3
+call g
+ld ra, 8(sp)
+addi sp, sp, 16
+ret
 
 ## 6-4
 2.35 Consider the following code:
@@ -387,10 +422,23 @@ Assume that the register x7 contains the address $0\times 10000000$ and the data
 
 2.35.1 [5] $< \S 2.3, 2.9>$ What value is stored in $0\times 10000008$ on a big-endian machine?
 
+0x00
+
 2.35.2 [5] $< \S 2.3, 2.9>$ What value is stored in $0\times 10000008$ on a little-endian machine?
+
+0x88
 
 ## 6-6
 2.36 [5] $< \S 2.10>$ Write the RISC-V assembly code that creates the 64-bit constant $0\times 1122334455667788_{\mathrm{two}}$ and stores that value to register x10.
+
+lui x10, 0x11223
+addi x10, x10, 0x344
+slli x10, 12
+addi x10, x10, 0x556
+slli x10, 12
+addi x10, x10, 0x677
+slli x10, x10, 8
+addi x10, x10, 0x88
 
 ## 7-1
 
@@ -401,10 +449,32 @@ Interpretation: Mem[Reg[rs1]] = Reg[rs2] + immediate
 
 4.13.1 [10] $< \S 4.4>$ Which new functional blocks (if any) do we need for this instruction?
 
+None.
+
 4.13.2 [10] $< \S 4.4>$ Which existing functional blocks (if any) require modification?
+
+Yes. Immgen will need to be modified to satisfy this instruction.
 
 4.13.3 [5] $< \S 4.4>$ What new data paths do we need (if any) to support this instruction?
 
+When this instruction is detected, the following paths have to be added:
+
+From RegFile rs1 to dataMem writeAddr
+
+From RegFile rs2 to ALU input_a
+
+From ALU alu_res to dataMem writeData
+
 4.13.4 [5] $< \S 4.4>$ What new signals do we need (if any) from the control unit to support this instruction?
 
+Yes.
+
+We'll need alu_sel_a to choose from rs1 and rs2
+
+We'll need dmem_writedata_sel to choose from ALU and rs2
+
+We'll need dmem_writeaddr_sel to choose from ALU and rs1
+
 4.13.5 [5] $< \S 4.4>$ Modify Figure 4.21 to demonstrate an implementation of this new instruction.
+
+![](fig19.jpg)
