@@ -43,3 +43,31 @@
 
 ![[Pasted image 20260603192724.png]]
 
+![[Pasted image 20260608124426.png]]
+
+![[Pasted image 20260608124530.png]]
+
+![[Pasted image 20260608124551.png]]
+
+![[Pasted image 20260608124655.png]]
+
+评价的唯一标准是 CPU time.
+
+![[Pasted image 20260608124912.png]]
+
+![[Pasted image 20260608125615.png]]
+
+![[Pasted image 20260608125747.png]]
+
+![[Pasted image 20260608130139.png]]
+
+![[Pasted image 20260608130637.png]]
+
+![[Pasted image 20260608130813.png]]
+
+![[Pasted image 20260608131006.png]]
+
+![[Pasted image 20260608131027.png]]
+
+![[Pasted image 20260608131320.png]]
+
