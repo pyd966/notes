@@ -422,7 +422,7 @@ Assume that the register x7 contains the address $0\times 10000000$ and the data
 
 2.35.1 [5] $< \S 2.3, 2.9>$ What value is stored in $0\times 10000008$ on a big-endian machine?
 
-0x00
+0x11
 
 2.35.2 [5] $< \S 2.3, 2.9>$ What value is stored in $0\times 10000008$ on a little-endian machine?
 
