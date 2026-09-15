@@ -17,3 +17,49 @@ RISC-V:
 2. 我们这一版 CPU 都由哪些组件构成，怎么连接的？![image-20260615091649316](C:\Users\24053\AppData\Roaming\Typora\typora-user-images\image-20260615091649316.png)
 
    ![image-20260615091924357](C:\Users\24053\AppData\Roaming\Typora\typora-user-images\image-20260615091924357.png)![image-20260615092008976](C:\Users\24053\AppData\Roaming\Typora\typora-user-images\image-20260615092008976.png)![image-20260615092207329](C:\Users\24053\AppData\Roaming\Typora\typora-user-images\image-20260615092207329.png)
+
+
+
+
+
+## Information Representation
+
+浮点数的表示方法
+
+## Boolean Algebra
+
+一些有用的化简公式
+
+cost： literal, gate input cost, gate input cost with not
+
+Kmap
+
+## Combinational Logic
+
+Basic Verilog，语法和优先级
+
+Decoder Encoder Multiplexer 的名字以及图示
+
+## Arithmetic
+
+Ripple-Carry Adder, Carry Lookahead adder
+
+如何检测 Overflow
+
+乘除法
+
+浮点数
+
+## Sequential Logic
+
+各种 latch, flip-flop 的功能、缺点、图示
+
+状态图、状态表
+
+时序分析
+
+如何分配 state
+
+reg 怎么画
+
+counter，有 ripple counter 和 synchronous counter

@@ -45,7 +45,7 @@ $$e = 1 - \left(\frac{V_2}{V_1}\right)^{\gamma - 1},$$
 
 where $V_{1} / V_{2}$ is the compression ratio and $\gamma$ is the adiabatic exponent.
 
-$Q_H=nc_v(T_C-T_B),Q_L=nc_v(T_D-T_a)$
+$Q_H=nc_v(T_C-T_B),Q_L=nc_v(T_D-T_A)$
 
 AB: $T_AV_1^{\gamma-1}=T_BV_2^{\gamma-1}$, so $\dfrac{T_A}{T_B}=(\dfrac{V_2}{V_1})^{\gamma-1}$
 
@@ -58,7 +58,7 @@ A bit of computer memory is some physical object that can be in two different st
 
 (i)
 
-Before the operation, these 1 Gigabyte can be in only one condition, but after the operation, every bit has 2 possibilities, so entroy increases.
+Before the operation, these 1 Gigabyte can be in only one condition, but after the operation, every bit has 2 possibilities, so entropy increases.
 
 $\Delta s=k_B\ln2^{2^{30}}-K_B\ln1=2^{30}k_B\ln2=8.21\times10^{-14}J/K$
 
@@ -97,7 +97,7 @@ $W=Q=\oint TdS=(T_h-T_c)(S_2-S_1)$
 
 $Q_h=T_h(S_2-S_1)$
 
-So $\iota=\dfrac{W}{Q_h}=1-\dfrac{T_c}{T_h}$
+So $\eta=\dfrac{W}{Q_h}=1-\dfrac{T_c}{T_h}$
 
 (d)
 
