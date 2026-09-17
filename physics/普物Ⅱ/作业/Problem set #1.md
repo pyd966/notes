@@ -95,14 +95,78 @@ Let $F_E=F_G$, $\dfrac{1}{4\pi\epsilon_0}\delta^2e^2=Gm_H^2$, so $|\delta|=\dfra
 >
 > (c) The magnitude of the electric field inside the inner shell $(r < R_1)$
 
+(a)
+
+Suppose the density of the inner shell is $\sigma'$。
+
+Take a shell outside the outer shell as the Gauss surface, $\dfrac{\sigma(4\pi R_2^2)+\sigma'(4\pi R_1^2)}{\epsilon_0}=\oint0dS=0$, so $\sigma'=-\dfrac{R_2^2}{R_1^2}\sigma$
+
+(b)
+
+Due to symmetry, the magnitude is the same at radius $r$, and the direction is $\hat r$.
+
+Take a shell with radius $r$ as the Gauss surface, $\dfrac{\sigma'(4\pi R_1^2)}{\epsilon_0}=\oint\vec E\cdot dS=E\cdot\oint \hat E\cdot dS=4\pi r^2E$, so $E=-\dfrac{R_2^2}{r^2\epsilon_0}\sigma$, its magnitude is $|E|=\dfrac{R_2^2}{r^2\epsilon_0}\sigma$
+
+(c)
+
+Similarily, 
+
+$\dfrac{0}{\epsilon_0}=\oint\vec E\cdot dS=E\oint\hat E\cdot dS$, so $E=0$
+
 > **6.** A point charge $q > 0$ and an imaginary cube of side $a$ are given. The normal of every face of the cube points out of the cube.
 >
 > (a) The charge sits at the center of the cube. Find the electric flux through each face.
 >
 > (b) The charge now sits at one corner of the cube. Find the electric flux through each of the six faces. (Hint: consider the eight identical cubes that share this corner.)
 
+(a)
+
+Due to symmetry, the electric flux through each face is the same.
+
+First, we compute the total flux.
+
+$\Phi_{tot}=\oint\vec E\cdot dS=\dfrac{q}{\epsilon_0}$
+
+So through each face $\Phi_{each}=\dfrac16\Phi_{tot}=\dfrac{q}{6\epsilon_0}$
+
+(b)
+
+Consider the eight idential cubes sharing this corner, take its outer surface as our Gauss surface, $\Phi_{tot}=\dfrac{q}{\epsilon_0}$
+
+Then for the three faces that do not share this corner, $\Phi_1=\dfrac1{24}\Phi_{tot}=\dfrac{q}{24\epsilon_0}$.
+
+For the three faces that share this corner, it's obvious $\Phi_2=0$.
+
+
+
 > **9.** In a simple model of a p-n junction, the charge density depends only on $z$: $\rho (z) = -\rho_0$ for $-a< z< 0$, $\rho (z) = +\rho_0$ for $0< z< a$, and $\rho (z) = 0$ for $|z| > a$, where $\rho_0 > 0$. The charged layers extend infinitely in the $x$ and $y$ directions, and there is no other charge.
 >
 > (a) Treat the charge as a stack of thin charged plates, and use the field of an infinitely large charged plate to show that $\mathbf{E} = 0$ for $|z| > a$. Explain why a pillbox placed symmetrically about $z = 0$, as used for a single plate, gives no information here.
 >
 > (b) Using a pillbox with one end in the region $z< -a$, find $\mathbf{E}(z)$ for $-a< z< a$. Where is the magnitude of the field largest, and what is its value there?
+
+(a)
+
+An infinitely large plate of density $\sigma$ provokes an electric field $E=\dfrac{\sigma}{2\epsilon_0}$.
+
+For a point $A$ sits at $|z|>a$, $\vec E=\int_0^a\dfrac{\rho_0dz}{2\epsilon_0}+\int_{-a}^0\dfrac{-\rho_0dz}{2\epsilon_0}=0$
+
+Explain:
+
+Due to symmetry, we know the direction of electric field is along (or against) $\hat z$, but we don't know exactly which direction.
+
+If they happen to be in the opposite direction, they will cancel each other in our pillbox example, so this gives no information.
+
+(b)
+
+Suppose the area of its bottom is $S$, and the top sits at $z$.
+
+We first calculate $-a<z<0$.
+
+$\dfrac{-\rho_0(z+a)S}{\epsilon_0}=\oint\vec E\cdot dS=0+ES$, so $\vec E(z)=\dfrac{-\rho_0(z+a)}{\epsilon_0}$
+
+Similarity, if $0<z<a$, then $\vec E(z)=-\dfrac{\rho_0(a-z)}{\epsilon_0}$
+
+Together, $\vec E(z)=-\dfrac{\rho_0}{\epsilon_0}(a-|z|)$.
+
+So $|E(0)|$ is largest, $|E(0)|=\dfrac{\rho_0a}{\epsilon_0}$.
