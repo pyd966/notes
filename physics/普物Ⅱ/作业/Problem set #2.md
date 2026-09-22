@@ -81,7 +81,28 @@ The curve is $xy=a^2(x,y>0)$, the direction vector of its tangent line at point 
 >
 > (c) Find the charge density $\rho (x,y,z)$ using the differential form of Gauss' law $\nabla \cdot \mathbf{E} = \rho /\epsilon_{0}$.
 
+(a)
 
+$\vec E=-\nabla V=-(\dfrac{\partial}{\partial x}V\hat x+\dfrac{\partial}{\partial y}V\hat y+\dfrac{\partial}{\partial z}\hat z)=-(2Ax\hat x+2Ay\hat y+2Bz\hat z)$
+
+(b)
+
+$$
+\begin{aligned}
+\nabla\times E&=(\dfrac{\partial E_z}{\partial y}-\dfrac{\partial E_y}{\partial z})\hat x+(\dfrac{\partial E_x}{\partial z}-\dfrac{\partial E_z}{\partial x})\hat y+(\dfrac{\partial E_y}{\partial x}-\dfrac{\partial E_x}{\partial y})\hat z\\
+&=0
+\end{aligned}
+$$
+
+(c)
+
+$$
+\begin{aligned}
+\rho(x,y,z)&=\epsilon_0(\nabla\cdot E)\\
+&=\epsilon_0(\dfrac{\partial E_x}{\partial x}+\dfrac{\partial E_y}{\partial y}+\dfrac{\partial E_z}{\partial z})\\
+&=-2\epsilon_0(2A+B)
+\end{aligned}
+$$
 
 > **5.** Take the electrostatic field, in a region that contains the box of part (b), to be
 >
@@ -95,3 +116,36 @@ The curve is $xy=a^2(x,y>0)$, the direction vector of its tangent line at point 
 >
 > (c) Calculate the enclosed charge $q_{\mathrm{enc}}$ by integrating $\rho$ over the whole box, and verify Gauss' theorem of Sec. 4.2 and Gauss' law, $\Phi = q_{\mathrm{enc}} / \epsilon_0$.
 
+(a)
+
+$$
+\begin{aligned}
+\rho(x,y,z)&=\epsilon_0(\nabla\cdot\vec E)\\
+&=\epsilon_0E_0\dfrac{y}{a^2}
+\end{aligned}
+$$
+
+$\vec E(0,0,0)=E_0\hat x,\rho(0,0,0)=0$
+
+(b)
+
+Perpendicular to $z$: both $0$
+
+Perpendicular to $y$: both $\int_0^a\int_0^cE_0\dfrac{x^2}{2a^2}dxdz=E_0\dfrac{ac}{6}$, but with different signs.
+
+Perpendicular to $x$: $-\int_0^c\int_0^bE_0dzdy=-E_0bc,\int_0^c\int_0^bE_0((1+\dfrac{y}{a})dzdy)=E_0bc(1+\dfrac{b}{2a})$
+
+Adding them together yields $E_0\dfrac{b^2c}{2a}$
+
+(c)
+
+$$
+\begin{aligned}
+q_{enc}&=\int_0^a\int_0^b\int_0^c\epsilon_0E_0\dfrac{y}{a^2}dxdydz\\
+&=\epsilon_0E_0\dfrac{b^2c}{2a}
+\end{aligned}
+$$
+
+So $\Phi=\dfrac{q_{enc}}{\epsilon_0}=E_0\dfrac{b^2c}{2a}$
+
+They're the same.
