@@ -64,7 +64,7 @@ $(3)$
 
 我们先求 $P(\bar BC)$，因为 $\bar BC=A_{1,3}\cup A_{2,6}\cup A_{3,1}\cup A_{6,2}$，所以 $P(\bar BC)=\dfrac19$。
 
-所以 $P(C|\bar B)=\dfrac{P(\bar BC)}{\bar B}=\dfrac2{15}$。
+所以 $P(C|\bar B)=\dfrac{P(\bar BC)}{P(\bar B)}=\dfrac2{15}$。
 
 > **A12**
 >
