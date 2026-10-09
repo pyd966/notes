@@ -130,11 +130,55 @@ When $r$ is small, $V(r)-V(r+s)$ increases rapidly with $s$ increasing, so it's 
 >
 > (b) What is the condition for $I$ to be zero?
 
+![alt text](fig3-1.png)
 
+(a)
+
+Suppose the electric potential of point $A,B,C,D,E$, $\varphi_A,\varphi_B,\varphi_C,\varphi_D,\varphi_E$
+
+Assume $\varphi_A=0$, then $\varphi_E=\mathcal{E}$
+
+$$
+\begin{cases}
+\dfrac{\varphi_E-\varphi_B}{r_0}=\dfrac{\varphi_B-\varphi_C}{r_3}+\dfrac{\varphi_B-\varphi_D}{r_4}\\
+\dfrac{\varphi_B-\varphi_C}{r_3}=\dfrac{\varphi_C-\varphi_D}{r_g}+\dfrac{\varphi_C-\varphi_A}{r_1}\\
+\dfrac{\varphi_C-\varphi_D}{r_g}+\dfrac{\varphi_B-\varphi_D}{r_4}=\dfrac{\varphi_D-\varphi_A}{r_2}\\
+\dfrac{\varphi_C-\varphi_A}{r_1}+\dfrac{\varphi_D-\varphi_A}{r_2}=\dfrac{\varphi_E-\varphi_B}{r_0}
+\end{cases}
+$$
+
+$I=\dfrac{\varphi_C-\varphi_D}{r_g}=\dfrac{(r_1r_4-r_2r_3)}{r_g(r_1+r_2)(r_3+r_4)+r_0[(r_1+r_2)(r_3+r_4)+r_g(r_1+r_2+r_3+r_4)]+r_1r_2(r_3+r_4)+r_3r_4(r_1+r_2)}\mathcal{E}$
+
+(b)
+
+Let $I=0$, we get $r_1r_4=r_2r_3$
 
 > **5.** Consider the RC circuit shown in the figure, with an ideal emf. The capacitor is uncharged when the switch is closed at $t=0$. Let $Q$ be the magnitude of the charge on either plate. Find the time dependence of $Q$ for $t>0$, and its limit as $t \to \infty$.
 
+![alt text](fig3-2.png)
 
+Suppose the current $I_1,I_2,I_3$.
+
+$$
+\begin{cases}
+I_1=I_2+I_3\\
+\mathcal{E}-I_1r_1-I_2r_2=0\\
+\mathcal{E}-I_1r_1-I_3r_3-\dfrac{Q}{C}=0
+\end{cases}
+$$
+
+$$
+\begin{cases}
+I_2=\dfrac{r_3\mathcal{E}+r_1\frac QC}{r_1r_2+r_1r_3+r_2r_3}\\
+I_3=\dfrac{r_2\mathcal{E}-(r_1+r_2)\frac QC}{r_1r_2+r_1r_3+r_2r_3}\\
+\end{cases}
+$$
+
+$$
+\dfrac{dQ}{dt}=I_3=\dfrac{r_2\mathcal{E}-(r_1+r_2)\frac QC}{r_1r_2+r_1r_3+r_2r_3}
+$$
+
+So $Q=\dfrac{r_2C\mathcal{E}}{r_1+r_2}(1-e^{-t/\tau})$, where $\tau=\dfrac{r_1r_2+r_1r_3+r_2r_3}{r_1+r_2}C$
 
 > **9.** A parallel-plate capacitor in vacuum has plates of area $S$. The lower plate is fixed, and the upper plate can be moved perpendicular to the plates; $x$ is the separation between them. Neglect edge effects. The upper plate is moved slowly, so that its kinetic energy and any heat produced can be neglected. Let $F$ be the electric force on the upper plate, taken positive in the direction of increasing $x$.
 >
@@ -142,3 +186,18 @@ When $r$ is small, $V(r)-V(r+s)$ increases rapidly with $s$ increasing, so it's 
 >
 > (b) The plates are instead connected to an ideal battery that keeps their potential difference at $V$. Find $U(x)$, and the work $dW_b$ done by the battery when $x$ increases by $dx$. Explain why $F=-dU/dx$ now gives the wrong sign, find $F$ from energy conservation, and compare with (a).
 
+(a)
+
+$U(x)=\int_0^q\dfrac{q'}{C}dq'=\dfrac{q^2}{2C}=\dfrac{q^2}{2S\epsilon_0}x$
+
+$Fdx+dU=0$, so $F=-\dfrac{dU}{dx}=-\dfrac{q^2}{2S\epsilon_0}$
+
+(b)
+
+$U(x)=\dfrac{1}{2}CV^2=\dfrac{\epsilon_0V^2S}{2x}$
+
+$dW_b=dqV=d(CV)V=-\dfrac{\epsilon_0SV^2}{x^2}dx$
+
+$dU=dW_b-Fdx$, so $F=\dfrac{dW_b-dU}{dx}=-\dfrac{\epsilon_0SV^2}{2x^2}$
+
+Because the battery also transmits energy, so it's wrong to directly use $F=-dU/dx$ and this may lead to incorrect sign.
