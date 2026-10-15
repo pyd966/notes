@@ -60,14 +60,89 @@ If $q>0$, the particle stays in $x>0$.
 
 > **2.** A sphere with radius $R$ has a uniform charge distribution on its surface, carrying a total charge $Q$. The center of the sphere is at the origin, and the sphere is rotating around the $z$ axis with angular velocity $\omega$ in a counterclockwise fashion, as seen from the positive $z$ axis. Calculate the magnitude of the magnetic field at point $(0,0,z)$ for both $|z|< R$ and $|z| > R$.
 
+Due to symmetry, the magnetic field sits along the $z$-axis.
+
+For a ring of radius $r$ carrying a total charge $q$ sitting at distance $d$ from a point, it provokes some magnetic field at this point. By integration,
+
+$$
+\int \dfrac{\mu_0}{4\pi}\cdot\dfrac{i|d\vec s\times\vec r'|}{r'^3}\sin\alpha=\dfrac{\mu_0}{4\pi}\cdot\dfrac{q\omega}{2\pi}\int_0^{2\pi}\dfrac{d\theta\cdot r}{r^2+d^2}\sin\alpha=\dfrac{\mu_0q\omega r^2}{4\pi(r^2+d^2)^{3/2}}
+$$
+
+We take a small ring at polar angel $\theta$, $d=R\cos\theta-z,q=\sigma2\pi R^2\sin\theta d\theta,r=R\sin\theta,r^2+d^2=R^2+z^2-2zR\cos\theta$
+
+$$
+\begin{aligned}
+\vec B&=
+\dfrac{\mu_0\omega}{4\pi}\int_0^{\pi}\dfrac{\sigma2\pi R^2\sin\theta d\theta\cdot R^2\sin^2\theta}{(R^2+z^2-2zR\cos\theta)^{3/2}}\hat z\\
+&=\dfrac{\mu_0\sigma\omega R^4}{2}\int_0^\pi-\dfrac{\sin^2\theta d(\cos\theta)}{(R^2+z^2-2zR\cos\theta)^{3/2}}\hat z\\
+&=\dfrac{\mu_0\sigma\omega R^4}{2}\hat z\int_{-1}^{1}\dfrac{1-u^2}{(R^2+z^2-2zRu)^{3/2}}du\\
+&=\dfrac{\mu_0\sigma\omega R}{8z^3}\hat z\int_{v(-1)}^{v(1)}(\dfrac{R^4+z^4-2R^2z^2}{v^2}+v^2-(2R^2+2z^2))dv\\
+&=\dfrac{\mu_0\sigma\omega R}{8z^3}\hat z\left.(-\dfrac{(R^2-z^2)^2}{v}+\dfrac{v^3}{3}-2(R^2+z^2)v)\right|_{v(-1)}^{v(1)}\\
+\end{aligned}
+$$
+
+where $u=\cos\theta,v=\sqrt{R^2+z^2-2zR\cos\theta}$
+
+Thus we obtain,
+
+$$
+B=
+\begin{cases}
+\dfrac{\mu_0Q\omega}{6\pi R},&|z|<R\\
+\dfrac{\mu_0Q\omega R^2}{6\pi|z|^3},&|z|>R
+\end{cases}
+$$
+
 > **7.** Two long straight wires cross the plane of the page at right angles, at the points $A$ and $B$. The wire through $A$ carries a current $i_{1}$ out of the page, and the wire through $B$ carries a current $i_{2}$ into the page, with $i_{1} > 0$ and $i_{2} > 0$. Evaluate $\oint \mathbf{B} \cdot d\mathbf{l}$ along each of the following closed paths, both of which lie in the plane of the page.
 >
 > (a) A path that goes around $A$ twice, counterclockwise as seen by the reader, without going around $B$.
 >
 > (b) A figure-eight path whose two loops lie side by side and meet at a single point, where the path crosses itself rather than merely touching itself: one loop goes around $A$ counterclockwise as seen by the reader, and the other goes around $B$.
 
+(a)
+
+By Ampere's Law, 
+
+$$
+\oint\vec B\cdot\vec l=\mu_0\sum I_{enc}=2\mu_0 i_1
+$$
+
+(b)
+
+By Ampere's Law,
+
+$$
+\oint\vec B\cdot\vec l=\mu_0\sum I_{enc}=\mu_0(i_1-i_2)
+$$
+
 > **9.** An ideal toroidal coil of $N$ turns carries a steady current $I$. Its tube has a circular cross section of radius $a$, whose center runs around a circle of radius $R$ $(R > a)$ in the $xy$ plane, centered at the origin. The coil is wound so that the magnetic field inside the tube circulates counterclockwise as seen from the positive $z$ axis. A thin, straight test wire is threaded through the winding along the $x$ axis, from $x = R - a$ to $x = R + a$, and carries a current $i$ in the $+x$ direction. Neglect the field produced by the test wire itself.
 >
 > (a) Find the magnetic force on this segment of wire (not on its leads).
 >
 > (b) Let $B_{0}$ be the magnitude of the field on the central circle of the tube. Show that the magnitude of the force is larger than $2aiB_{0}$, the force that a uniform field of magnitude $B_{0}$ would exert.
+
+(a)
+
+Take a circular route centering at the origin with radius $r$, we can obtain the magnetic field at radius $r$.
+
+$$
+2\pi rB=\oint\vec B\cdot\vec l=\mu_0\sum I_{enc}=\mu_0NI
+$$
+
+So $B=\dfrac{\mu_0NI}{2\pi r}$
+
+$$
+\vec F=i\int\vec L\times\vec B=i\int_{R-a}^{R+a}dr\cdot\dfrac{\mu_0NI}{2\pi r}=\dfrac{\mu_0NIi}{2\pi}\ln\dfrac{R+a}{R-a}\hat z
+$$
+
+(b)
+
+$$
+B_0=\dfrac{\mu_0NI}{2\pi R}
+$$
+
+To prove $F>2aiB_0=\dfrac{\mu_0NIi}{2\pi R}2a$, we will have to prove $\ln\dfrac{R+a}{R-a}>\dfrac{2a}{R}$, which is $\ln\dfrac{1+x}{1-x}>2x$, where $x=\dfrac{a}{R}\in(0,1)$.
+
+By calculus, let $f(x)=\ln\dfrac{1+x}{1-x}-2x$, $f'(x)=\dfrac{2}{1-x^2}-2>0$, $f(x)>f(0)=0$. So this inequality is true.
+
+Q.E.D.
