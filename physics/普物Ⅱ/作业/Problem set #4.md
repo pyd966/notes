@@ -23,7 +23,7 @@ $$
 \tau&=\iint \vec r\times (dq\vec v\times\vec B)\\
 &=\iint \vec r\times dq\cdot \omega r\cdot B\sin(\pi-\theta)\hat z\\
 &=\iint(r\cos\theta\hat y-r\sin\theta\hat x)\times\sigma dS\cdot B\omega r\sin\theta\hat z\\
-&=B\sigma\omega\hat y\int_0^Rdr\int_0^{2\pi}d\theta r^3(\cos\theta\sin\theta\hat+\sin^2\theta\hat y)\\
+&=B\sigma\omega\hat y\int_0^Rdr\int_0^{2\pi}d\theta r^3(\cos\theta\sin\theta\hat x+\sin^2\theta\hat y)\\
 &=\dfrac\pi4B\sigma\omega R^4\hat y
 \end{aligned}
 $$
