@@ -160,7 +160,7 @@ When $t\to\infty$,
 
 $$
 v=\int_0^{+\infty}\dfrac1mE(r_0,t)qdt=\begin{cases}
-\dfrac{B_0qr_)}{2m},&r_0<R\\
+\dfrac{B_0qr_0}{2m},&r_0<R\\
 \dfrac{B_0qR^2}{2mr_0},&r_0>R
 \end{cases}
 $$
